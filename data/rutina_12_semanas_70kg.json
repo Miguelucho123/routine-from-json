@@ -1,0 +1,743 @@
+{
+  "titulo": "Rutina de 12 semanas en casa - objetivo 81 kg a 70 kg",
+  "version": "1.1 con dos alternativas por ejercicio de fuerza",
+  "perfil": {
+    "altura_m": 1.65,
+    "peso_inicial_kg": 81,
+    "peso_objetivo_kg": 70,
+    "duracion_semanas": 12,
+    "experiencia_reciente": "Meses de sedentarismo, pero el usuario refiere buena resistencia cardiovascular.",
+    "disponibilidad_diaria_min": {
+      "min": 30,
+      "max": 60
+    },
+    "equipamiento": [
+      "Banco ajustable",
+      "Kit de pesas/mancuernas ajustables de hasta aproximadamente 20 kg",
+      "Saco de boxeo de aproximadamente 100 cm"
+    ],
+    "limitaciones": [
+      "Antecedente de problema en manguito rotador",
+      "Crepitación/chasquidos frecuentes en varias articulaciones"
+    ]
+  },
+  "objetivo": {
+    "perdida_total_objetivo_kg": 11,
+    "ritmo_medio_requerido_kg_semana": 0.92,
+    "nota": "Es una meta agresiva y no se puede garantizar. El entrenamiento debe combinarse con alimentación y seguimiento del promedio semanal de peso."
+  },
+  "principios": [
+    "Fuerza antes del cardio en los días combinados.",
+    "Seis días de actividad y un día de descanso estructurado desde la semana 2.",
+    "No entrenar el mismo grupo muscular pesado todos los días.",
+    "Mantener 2-3 repeticiones en reserva en la mayoría de series.",
+    "Elegir el ejercicio principal o UNA de sus alternativas; no hacer las tres variantes en la misma sesión salvo que esté indicado.",
+    "Todo el cardio se realiza dentro de casa con marcha en sitio, step-touch, desplazamientos y footwork."
+  ],
+  "seguridad": {
+    "hombro": [
+      "Evitar press militar, fondos, flexiones exigentes y golpeo máximo mientras exista problema activo del manguito rotador.",
+      "Detener cualquier movimiento que produzca dolor punzante/profundo, debilidad súbita o empeoramiento claro en las 24 horas siguientes.",
+      "La rotación externa se incluye solo si la lesión concreta la tolera o ha sido autorizada por un profesional."
+    ],
+    "articulaciones": [
+      "Los chasquidos sin dolor no implican necesariamente daño.",
+      "Consultar si aparecen inflamación, bloqueo, inestabilidad, dolor persistente, hormigueo o pérdida de fuerza."
+    ]
+  },
+  "catalogo_ejercicios_fuerza": {
+    "goblet_squat": {
+      "nombre": "Sentadilla goblet",
+      "objetivo": "Cuádriceps, glúteos y tronco.",
+      "series_reps_base": "3-4 x 10-12",
+      "tecnica": [
+        "Pesa pegada al pecho.",
+        "Pies estables y rodillas siguiendo la dirección de los pies.",
+        "Baja solo hasta mantener control y postura.",
+        "Sube empujando el suelo, sin rebotes."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Sentadilla al banco",
+          "como": "Toca suavemente el banco con los glúteos y vuelve a subir. Muy útil para controlar profundidad."
+        },
+        {
+          "nombre": "Split squat asistido",
+          "como": "Posición dividida, apoyo ligero en el banco para equilibrio; baja verticalmente y cambia de pierna."
+        }
+      ]
+    },
+    "romanian_deadlift": {
+      "nombre": "Peso muerto rumano con mancuernas",
+      "objetivo": "Glúteos, isquiotibiales y cadena posterior.",
+      "series_reps_base": "3-4 x 10-12",
+      "tecnica": [
+        "Rodillas ligeramente flexionadas.",
+        "Lleva la cadera hacia atrás.",
+        "Mancuernas cerca de las piernas.",
+        "Espalda neutra; sube contrayendo glúteos."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Bisagra de cadera lenta sin peso",
+          "como": "Practica el patrón con 3 segundos de descenso antes de aumentar carga."
+        },
+        {
+          "nombre": "Peso muerto rumano a una pierna asistido",
+          "como": "Una mano en el banco, una pierna de apoyo y carga ligera. Mantén pelvis estable."
+        }
+      ]
+    },
+    "hip_thrust": {
+      "nombre": "Hip thrust en banco",
+      "objetivo": "Glúteos y extensión de cadera.",
+      "series_reps_base": "3-4 x 12-15",
+      "tecnica": [
+        "Apoya la parte alta de la espalda en el banco.",
+        "Peso centrado sobre la pelvis.",
+        "Sube hasta alinear tronco y muslos.",
+        "Pausa 1-2 segundos arriba sin hiperextender la zona lumbar."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Puente de glúteos en el suelo",
+          "como": "Mismo patrón con espalda completa apoyada; puede hacerse con o sin peso."
+        },
+        {
+          "nombre": "Puente de glúteos a una pierna",
+          "como": "Sin carga o con carga muy ligera. Mantén la pelvis nivelada y alterna lados."
+        }
+      ]
+    },
+    "reverse_lunge": {
+      "nombre": "Zancada hacia atrás",
+      "objetivo": "Cuádriceps, glúteos y estabilidad unilateral.",
+      "series_reps_base": "3 x 8-10 por pierna",
+      "tecnica": [
+        "Da un paso hacia atrás, no hacia adelante.",
+        "Tronco estable.",
+        "Rodilla delantera sigue la línea del pie.",
+        "Usa el banco para equilibrio si lo necesitas."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Split squat asistido",
+          "como": "Mantén los pies fijos y baja verticalmente. Reduce la exigencia de coordinación."
+        },
+        {
+          "nombre": "Sentadilla goblet con postura escalonada",
+          "como": "Un pie ligeramente atrasado; la mayor carga queda en la pierna delantera."
+        }
+      ]
+    },
+    "calf_raise": {
+      "nombre": "Elevación de pantorrillas",
+      "objetivo": "Gemelos y sóleo.",
+      "series_reps_base": "3 x 15-20",
+      "tecnica": [
+        "Sube sobre la punta de los pies.",
+        "Pausa arriba.",
+        "Baja controlado.",
+        "Sujétate del banco si hace falta."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Elevación de pantorrilla sentado",
+          "como": "Sentado en el banco con peso sobre los muslos, eleva los talones."
+        },
+        {
+          "nombre": "Elevación de pantorrilla a una pierna asistida",
+          "como": "Una mano en el banco, una pierna a la vez y rango controlado."
+        }
+      ]
+    },
+    "supported_row": {
+      "nombre": "Remo unilateral apoyado en banco",
+      "objetivo": "Espalda y musculatura escapular.",
+      "series_reps_base": "3-4 x 10-12 por lado",
+      "tecnica": [
+        "Apoya la mano libre en el banco.",
+        "Agarre neutro.",
+        "Codo relativamente cerca del torso.",
+        "No eleves el hombro hacia la oreja.",
+        "Detén el ejercicio si aparece dolor punzante o profundo en el hombro."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Remo con pecho apoyado en banco inclinado",
+          "como": "Acuéstate boca abajo sobre el banco inclinado y rema con carga ligera, agarre neutro y rango cómodo."
+        },
+        {
+          "nombre": "Remo unilateral de rango corto",
+          "como": "Mismo apoyo en banco, pero reduce el recorrido y la carga para mantener el hombro indoloro."
+        }
+      ]
+    },
+    "biceps_curl": {
+      "nombre": "Curl de bíceps",
+      "objetivo": "Bíceps y flexores del codo.",
+      "series_reps_base": "3 x 10-15",
+      "tecnica": [
+        "Codos cerca del torso.",
+        "No balancees el cuerpo.",
+        "Sube y baja controlado.",
+        "Mantén hombros relajados."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Curl de concentración",
+          "como": "Sentado, apoya el brazo contra la cara interna del muslo y trabaja un lado a la vez."
+        },
+        {
+          "nombre": "Curl martillo",
+          "como": "Palmas enfrentadas durante todo el movimiento; suele ser cómodo para muñeca y hombro."
+        }
+      ]
+    },
+    "hammer_curl": {
+      "nombre": "Curl martillo",
+      "objetivo": "Braquial, braquiorradial y bíceps.",
+      "series_reps_base": "3 x 10-12",
+      "tecnica": [
+        "Palmas enfrentadas.",
+        "Codos quietos.",
+        "Evita encoger hombros.",
+        "Controla el descenso."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Curl martillo sentado",
+          "como": "Hazlo sentado en el banco para reducir balanceo del tronco."
+        },
+        {
+          "nombre": "Curl martillo cruzado",
+          "como": "Lleva la mancuerna hacia el hombro contrario sin rotar el tronco."
+        }
+      ]
+    },
+    "scapular_retraction": {
+      "nombre": "Retracción escapular",
+      "objetivo": "Control de escápulas y musculatura media de la espalda.",
+      "series_reps_base": "2-3 x 12-15",
+      "tecnica": [
+        "Lleva suavemente los omóplatos hacia atrás y abajo.",
+        "No saques el pecho de forma exagerada.",
+        "No encogas hombros.",
+        "Movimiento sin dolor."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Retracción escapular contra pared",
+          "como": "Espalda contra la pared; lleva omóplatos atrás y abajo sin despegar costillas."
+        },
+        {
+          "nombre": "Retracción escapular boca abajo en banco inclinado",
+          "como": "Sin peso, brazos relajados; junta suavemente los omóplatos y suelta."
+        }
+      ]
+    },
+    "external_rotation": {
+      "nombre": "Rotación externa de hombro muy ligera",
+      "objetivo": "Manguito rotador, solo si es tolerada y está permitida para la lesión concreta.",
+      "series_reps_base": "2 x 10-15",
+      "tecnica": [
+        "Carga mínima.",
+        "Codo pegado al cuerpo.",
+        "Rango corto y cómodo.",
+        "No realizar si genera dolor, pinchazo o empeoramiento posterior."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Rotación externa isométrica contra pared",
+          "como": "Con codo pegado al cuerpo, empuja el dorso de la mano contra la pared 15-20 segundos sin mover el brazo."
+        },
+        {
+          "nombre": "Rotación externa acostado de lado",
+          "como": "Con peso muy ligero o sin peso, codo pegado al cuerpo y movimiento lento dentro de rango indoloro."
+        }
+      ]
+    },
+    "dead_bug": {
+      "nombre": "Dead bug",
+      "objetivo": "Control lumbo-pélvico y core.",
+      "series_reps_base": "3 x 8-10 por lado",
+      "tecnica": [
+        "Espalda baja estable.",
+        "Mueve extremidades lentamente.",
+        "Exhala durante la extensión.",
+        "Reduce rango si la zona lumbar se arquea."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Heel taps",
+          "como": "Desde posición supina con rodillas flexionadas, baja un talón al suelo de forma alternada."
+        },
+        {
+          "nombre": "Bird dog",
+          "como": "En cuatro apoyos, extiende brazo y pierna contrarios; si el hombro molesta, mueve solo las piernas."
+        }
+      ]
+    },
+    "bird_dog": {
+      "nombre": "Bird dog",
+      "objetivo": "Core, estabilidad de columna y coordinación.",
+      "series_reps_base": "3 x 8 por lado",
+      "tecnica": [
+        "Columna neutra.",
+        "Evita girar la pelvis.",
+        "Extiende de forma lenta.",
+        "Si apoyar peso en el hombro molesta, usa otra opción de core."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Dead bug",
+          "como": "Opción en el suelo que descarga los hombros y permite trabajar control lumbo-pélvico."
+        },
+        {
+          "nombre": "Heel taps",
+          "como": "Alterna talones al suelo manteniendo abdomen activo y espalda estable."
+        }
+      ]
+    },
+    "mcgill_curlup": {
+      "nombre": "McGill curl-up modificado",
+      "objetivo": "Resistencia del core con baja flexión repetitiva de columna.",
+      "series_reps_base": "3 x 6-8, sosteniendo 5 s",
+      "tecnica": [
+        "Una pierna flexionada y otra extendida.",
+        "Mantén la zona lumbar neutra.",
+        "Eleva ligeramente cabeza y hombros.",
+        "No conviertas el movimiento en un abdominal completo."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Dead bug",
+          "como": "Mantiene trabajo del core con columna apoyada y control de extremidades."
+        },
+        {
+          "nombre": "Heel taps",
+          "como": "Menor complejidad; alterna el descenso de cada talón sin arquear la espalda."
+        }
+      ]
+    }
+  },
+  "cardio": {
+    "cardio_indoor_base": {
+      "nombre": "Cardio indoor de bajo impacto",
+      "bloque": [
+        {
+          "movimiento": "Marcha rápida en el sitio",
+          "duracion_s": 60
+        },
+        {
+          "movimiento": "Step-touch lateral",
+          "duracion_s": 60
+        },
+        {
+          "movimiento": "Rodillas alternas sin salto",
+          "duracion_s": 30
+        },
+        {
+          "movimiento": "Pasos adelante/atrás",
+          "duracion_s": 30
+        },
+        {
+          "movimiento": "Desplazamiento alrededor del saco",
+          "duracion_s": 60
+        },
+        {
+          "movimiento": "Marcha moderada",
+          "duracion_s": 30
+        }
+      ],
+      "nota": "Repetir el bloque hasta completar el tiempo previsto. No requiere caminadora ni salir de casa."
+    },
+    "intervalos": {
+      "nombre": "Intervalos indoor",
+      "estructura": "40-60 s rápido + 20-30 s moderado",
+      "movimientos_permitidos": [
+        "Marcha rápida",
+        "Step-touch",
+        "Rodillas alternas",
+        "Pasos adelante/atrás",
+        "Footwork de boxeo sin golpeo"
+      ]
+    },
+    "saco": {
+      "nombre": "Saco de boxeo técnico",
+      "restriccion": "Solo si el hombro está indoloro durante y después. Evitar potencia máxima, hooks/uppercuts violentos y fatiga técnica.",
+      "inicio_sugerido": "Desde semana 2-3 si el hombro lo tolera",
+      "formato_inicial": "6-8 rounds de 60 s, 60 s de descanso, 30-50% de potencia"
+    }
+  },
+  "programacion": {
+    "semana_1_adaptacion": {
+      "dias": 5,
+      "duracion_min": "30-40",
+      "objetivo": "Reintroducir patrones, tolerar volumen y proteger articulaciones.",
+      "sesiones": [
+        {
+          "dia": "Lunes",
+          "tipo": "Full body suave",
+          "fuerza": [
+            [
+              "goblet_squat",
+              "2 x 10, versión al banco si es necesario"
+            ],
+            [
+              "romanian_deadlift",
+              "2 x 10, carga ligera"
+            ],
+            [
+              "hip_thrust",
+              "2 x 12, puede ser puente en el suelo"
+            ],
+            [
+              "supported_row",
+              "2 x 10/lado solo sin dolor"
+            ],
+            [
+              "dead_bug",
+              "2 x 8/lado"
+            ]
+          ],
+          "cardio": "10 min cardio indoor base"
+        },
+        {
+          "dia": "Martes",
+          "tipo": "Cardio + core",
+          "fuerza": [
+            [
+              "dead_bug",
+              "2 x 8/lado"
+            ],
+            [
+              "mcgill_curlup",
+              "2 x 6"
+            ]
+          ],
+          "cardio": "20-25 min indoor bajo impacto"
+        },
+        {
+          "dia": "Miércoles",
+          "tipo": "Piernas suave",
+          "fuerza": [
+            [
+              "goblet_squat",
+              "2 x 10"
+            ],
+            [
+              "reverse_lunge",
+              "2 x 6/lado asistida"
+            ],
+            [
+              "calf_raise",
+              "2 x 15"
+            ],
+            [
+              "hip_thrust",
+              "2 x 12"
+            ]
+          ],
+          "cardio": "10 min indoor suave"
+        },
+        {
+          "dia": "Jueves",
+          "tipo": "Tren superior seguro + core",
+          "fuerza": [
+            [
+              "supported_row",
+              "2 x 10/lado"
+            ],
+            [
+              "biceps_curl",
+              "2 x 12"
+            ],
+            [
+              "scapular_retraction",
+              "2 x 12"
+            ],
+            [
+              "external_rotation",
+              "2 x 10 solo si está autorizada/tolerada"
+            ],
+            [
+              "dead_bug",
+              "2 x 8/lado"
+            ]
+          ],
+          "cardio": "10-15 min indoor"
+        },
+        {
+          "dia": "Viernes",
+          "tipo": "Full body ligero",
+          "fuerza": [
+            [
+              "goblet_squat",
+              "2 x 10"
+            ],
+            [
+              "romanian_deadlift",
+              "2 x 10"
+            ],
+            [
+              "hip_thrust",
+              "2 x 12"
+            ],
+            [
+              "hammer_curl",
+              "2 x 10"
+            ],
+            [
+              "mcgill_curlup",
+              "2 x 6"
+            ]
+          ],
+          "cardio": "15 min indoor"
+        },
+        {
+          "dia": "Sábado",
+          "tipo": "Recuperación activa opcional",
+          "fuerza": [],
+          "cardio": "15-20 min movilidad + marcha suave en sitio"
+        },
+        {
+          "dia": "Domingo",
+          "tipo": "Descanso",
+          "fuerza": [],
+          "cardio": "Sin sesión estructurada"
+        }
+      ]
+    },
+    "semanas_2_a_4": {
+      "dias": 6,
+      "duracion_min": "45-60",
+      "sesiones": [
+        {
+          "dia": "Lunes",
+          "tipo": "Piernas A",
+          "fuerza": [
+            [
+              "goblet_squat",
+              "4 x 10-12"
+            ],
+            [
+              "romanian_deadlift",
+              "4 x 10-12"
+            ],
+            [
+              "hip_thrust",
+              "4 x 12-15"
+            ],
+            [
+              "reverse_lunge",
+              "3 x 8/lado"
+            ],
+            [
+              "calf_raise",
+              "3 x 15-20"
+            ]
+          ],
+          "cardio": "15-20 min intervalos indoor, RPE 6-7/10"
+        },
+        {
+          "dia": "Martes",
+          "tipo": "Espalda + brazos + core",
+          "fuerza": [
+            [
+              "supported_row",
+              "4 x 10-12/lado"
+            ],
+            [
+              "biceps_curl",
+              "3 x 10-15"
+            ],
+            [
+              "hammer_curl",
+              "3 x 10-12"
+            ],
+            [
+              "scapular_retraction",
+              "3 x 12-15"
+            ],
+            [
+              "dead_bug",
+              "3 x 10/lado"
+            ],
+            [
+              "mcgill_curlup",
+              "3 x 6-8"
+            ]
+          ],
+          "cardio": "20 min cardio indoor base"
+        },
+        {
+          "dia": "Miércoles",
+          "tipo": "Piernas B",
+          "fuerza": [
+            [
+              "goblet_squat",
+              "3 x 12"
+            ],
+            [
+              "reverse_lunge",
+              "3 x 10/lado"
+            ],
+            [
+              "romanian_deadlift",
+              "3 x 12"
+            ],
+            [
+              "hip_thrust",
+              "3 x 15"
+            ],
+            [
+              "calf_raise",
+              "3 x 20"
+            ]
+          ],
+          "cardio": "20 min intervalos 60 s rápido / 30 s moderado"
+        },
+        {
+          "dia": "Jueves",
+          "tipo": "Tren superior seguro + core",
+          "fuerza": [
+            [
+              "supported_row",
+              "3 x 12/lado"
+            ],
+            [
+              "hammer_curl",
+              "3 x 12"
+            ],
+            [
+              "biceps_curl",
+              "3 x 12"
+            ],
+            [
+              "scapular_retraction",
+              "3 x 12-15"
+            ],
+            [
+              "external_rotation",
+              "2 x 10-15 solo si tolerada"
+            ],
+            [
+              "bird_dog",
+              "3 x 8/lado o alternativa sin carga de hombro"
+            ]
+          ],
+          "cardio": "20-25 min indoor"
+        },
+        {
+          "dia": "Viernes",
+          "tipo": "Full body en circuito",
+          "fuerza": [
+            [
+              "goblet_squat",
+              "12 reps"
+            ],
+            [
+              "romanian_deadlift",
+              "12 reps"
+            ],
+            [
+              "supported_row",
+              "10/lado"
+            ],
+            [
+              "reverse_lunge",
+              "8/lado"
+            ],
+            [
+              "hip_thrust",
+              "15 reps"
+            ],
+            [
+              "hammer_curl",
+              "10 reps"
+            ]
+          ],
+          "formato": "4 rondas, 60-90 s de descanso entre rondas",
+          "cardio": "15-20 min intervalos indoor"
+        },
+        {
+          "dia": "Sábado",
+          "tipo": "Fuerza ligera + cardio largo",
+          "fuerza": [
+            [
+              "goblet_squat",
+              "3 x 15 ligera"
+            ],
+            [
+              "romanian_deadlift",
+              "3 x 15 ligera"
+            ],
+            [
+              "hip_thrust",
+              "3 x 20"
+            ],
+            [
+              "calf_raise",
+              "3 x 20"
+            ],
+            [
+              "dead_bug",
+              "3 x 8/lado"
+            ]
+          ],
+          "cardio": "25-30 min indoor; opcional sustituir parte por saco técnico si hombro tolera"
+        },
+        {
+          "dia": "Domingo",
+          "tipo": "Descanso",
+          "fuerza": [],
+          "cardio": "Sin sesión estructurada"
+        }
+      ]
+    },
+    "semanas_5_a_8": {
+      "dias": 6,
+      "duracion_min": "50-60",
+      "cambios": [
+        "Mantener la estructura de semanas 2-4.",
+        "Aumentar carga cuando se complete el máximo de repeticiones con 2-3 repeticiones en reserva.",
+        "Cardio final habitual: 20-25 min.",
+        "Sábado: 30-35 min de cardio."
+      ],
+      "cardio_objetivo_semanal_min": "150-180 aprox."
+    },
+    "semanas_9_a_12": {
+      "dias": 6,
+      "duracion_min": "50-60",
+      "cambios": [
+        "Mantener 30-35 min de fuerza y 25-30 min de cardio en la mayoría de sesiones.",
+        "Usar tempo lento, pausas y trabajo unilateral cuando los 20 kg se queden cortos.",
+        "Sábado: 30-40 min de cardio indoor.",
+        "No aumentar volumen del hombro si existe dolor o empeoramiento."
+      ],
+      "cardio_objetivo_semanal_min": "170-200+ aprox."
+    }
+  },
+  "progresion": {
+    "regla_doble_progresion": "Cuando completes el máximo de repeticiones de todas las series con técnica limpia y 2-3 repeticiones en reserva en dos sesiones consecutivas, aumenta ligeramente la carga.",
+    "si_no_hay_mas_peso": [
+      "Aumentar 1-2 repeticiones",
+      "Añadir 1 serie hasta el máximo previsto",
+      "Usar descenso de 3 segundos",
+      "Añadir pausa de 1-2 segundos",
+      "Usar versión unilateral asistida"
+    ],
+    "intensidad": "RPE aproximado 6-8/10; evitar fallo muscular habitual."
+  },
+  "seguimiento": {
+    "peso": "Pesarse 3-4 mañanas por semana en condiciones similares y usar el promedio semanal.",
+    "ajuste": "Si el promedio no baja durante 2 semanas consecutivas, revisar primero alimentación y después añadir 5 minutos de cardio a 3-4 sesiones.",
+    "señales_para_reducir_carga": [
+      "Dolor articular >3/10",
+      "Dolor de hombro que empeora al día siguiente",
+      "Fatiga que reduce el rendimiento durante varios días",
+      "Técnica claramente deteriorada"
+    ]
+  }
+}

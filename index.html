@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f1216">
+<title>Rutina 12 semanas</title>
+<meta name="description" content="Rutina de fuerza y cardio en casa de 12 semanas, con animaciones de cada ejercicio.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Rutina">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>
+:root{
+  --bg:#0f1216; --card:#171b21; --card2:#1d222a; --ink:#eef2f6; --muted:#98a2b0;
+  --line:#272e38; --acc:#ff7a45; --acc-soft:rgba(255,122,69,.14);
+  --cardio:#2dd4bf; --cardio-soft:rgba(45,212,191,.13);
+  --warn:#fbbf24; --warn-soft:rgba(251,191,36,.12);
+  --fig:#e8edf3; --fig-far:#6c7686; --fig-eq:#ff7a45; --fig-floor:#3a434f;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.25);
+  --r:16px;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f3f5f8; --card:#ffffff; --card2:#f7f9fb; --ink:#141920; --muted:#5d6672;
+    --line:#e3e8ee; --acc:#e2561f; --acc-soft:rgba(226,86,31,.1);
+    --cardio:#0d9488; --cardio-soft:rgba(13,148,136,.1);
+    --warn:#b45309; --warn-soft:rgba(180,83,9,.1);
+    --fig:#2b3440; --fig-far:#a9b3c0; --fig-eq:#e2561f; --fig-floor:#cfd6de;
+    --shadow:0 1px 2px rgba(16,24,40,.06), 0 6px 18px rgba(16,24,40,.07);
+  }
+}
+:root[data-theme="light"]{
+  --bg:#f3f5f8; --card:#ffffff; --card2:#f7f9fb; --ink:#141920; --muted:#5d6672;
+  --line:#e3e8ee; --acc:#e2561f; --acc-soft:rgba(226,86,31,.1);
+  --cardio:#0d9488; --cardio-soft:rgba(13,148,136,.1);
+  --warn:#b45309; --warn-soft:rgba(180,83,9,.1);
+  --fig:#2b3440; --fig-far:#a9b3c0; --fig-eq:#e2561f; --fig-floor:#cfd6de;
+  --shadow:0 1px 2px rgba(16,24,40,.06), 0 6px 18px rgba(16,24,40,.07);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;overflow-x:hidden}
+body{
+  background:var(--bg); color:var(--ink);
+  font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom));
+  overscroll-behavior-y:none;
+}
+.wrap{max-width:660px;margin:0 auto;padding:0 14px}
+h1,h2,h3{margin:0;line-height:1.25;letter-spacing:-.01em}
+
+/* ---------- top bar ---------- */
+.topbar{position:sticky;top:0;z-index:30;background:var(--bg);background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);
+  border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.topbar .wrap{display:flex;align-items:center;gap:10px;padding-top:10px;padding-bottom:10px}
+.brand h1{font-size:17px;font-weight:700}
+.brand p{margin:1px 0 0;font-size:12.5px;color:var(--muted)}
+.iconbtn{margin-left:auto;flex:none;width:40px;height:40px;border-radius:12px;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);font-size:17px;display:grid;place-items:center;cursor:pointer}
+
+/* ---------- strips ---------- */
+.strip{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:12px 14px;margin:0 -14px;scroll-snap-type:x proximity}
+.strip::-webkit-scrollbar{display:none}
+.pill{flex:none;scroll-snap-align:center;border:1px solid var(--line);background:var(--card);color:var(--muted);
+  border-radius:999px;padding:9px 14px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;min-height:40px}
+.pill[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;margin-bottom:14px}
+.day{border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:13px;padding:8px 0 7px;
+  cursor:pointer;text-align:center;position:relative;min-height:52px}
+.day b{display:block;font-size:14px;font-weight:700;color:inherit}
+.day small{display:block;font-size:9.5px;margin-top:2px;opacity:.75;padding:0 2px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.day[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+.day.today:after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:5px;width:4px;height:4px;
+  border-radius:50%;background:var(--acc)}
+.day[aria-pressed="true"].today:after{background:#fff}
+.day.rest{opacity:.62}
+
+/* ---------- cards ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:12px;overflow:hidden}
+.sess{padding:15px 15px 13px}
+.sess .kicker{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--acc)}
+.sess h2{font-size:21px;margin-top:3px}
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
+.tag{font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--card2);color:var(--muted);border:1px solid var(--line)}
+.tag.acc{background:var(--acc-soft);color:var(--acc);border-color:transparent}
+.tag.cardio{background:var(--cardio-soft);color:var(--cardio);border-color:transparent}
+.sec-title{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:22px 0 9px;padding:0 2px}
+
+/* ---------- exercise ---------- */
+.ex{border:1px solid var(--line);background:var(--card);border-radius:var(--r);margin-bottom:9px;box-shadow:var(--shadow);overflow:hidden}
+.ex>summary{display:flex;align-items:center;gap:12px;padding:10px 12px;cursor:pointer;list-style:none;min-height:66px}
+.ex>summary::-webkit-details-marker{display:none}
+.fig{flex:none;width:84px;height:66px;border-radius:11px;background:var(--card2);border:1px solid var(--line)}
+.fig svg{display:block;width:100%;height:100%}
+.ex .txt{flex:1;min-width:0}
+.ex .txt h3{font-size:15.5px;font-weight:650}
+.ex .dose{font-size:13.5px;color:var(--acc);font-weight:650;margin-top:2px}
+.ex .goal{font-size:12.5px;color:var(--muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chev{flex:none;color:var(--muted);transition:transform .18s ease;font-size:13px}
+.ex[open] .chev{transform:rotate(90deg)}
+.ex .body{padding:2px 14px 14px;border-top:1px solid var(--line);margin-top:2px}
+.bigfig{width:100%;height:180px;background:var(--card2);border:1px solid var(--line);border-radius:12px;margin:12px 0}
+.bigfig svg{display:block;width:100%;height:100%}
+.lbl{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 7px}
+.steps{margin:0;padding:0;list-style:none;counter-reset:s}
+.steps li{position:relative;padding:0 0 0 27px;margin-bottom:7px;font-size:14.5px;counter-increment:s}
+.steps li:before{content:counter(s);position:absolute;left:0;top:1px;width:19px;height:19px;border-radius:6px;
+  background:var(--acc-soft);color:var(--acc);font-size:11px;font-weight:700;display:grid;place-items:center}
+.alt{background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:10px 12px;margin-bottom:7px}
+.alt b{display:block;font-size:14px}
+.alt span{font-size:13.5px;color:var(--muted)}
+.vid{display:inline-flex;align-items:center;gap:7px;margin-top:12px;font-size:13.5px;font-weight:600;
+  color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--card2);padding:9px 13px;border-radius:11px}
+
+/* ---------- notes ---------- */
+.note{border-radius:var(--r);padding:12px 14px;margin-bottom:12px;font-size:14px;border:1px solid transparent}
+.note.cardio{background:var(--cardio-soft);border-color:var(--cardio-soft);border-color:color-mix(in srgb,var(--cardio) 28%,transparent)}
+.note.warn{background:var(--warn-soft);border-color:var(--warn-soft);border-color:color-mix(in srgb,var(--warn) 30%,transparent)}
+.note b{display:block;margin-bottom:4px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.note.cardio b{color:var(--cardio)} .note.warn b{color:var(--warn)}
+.note ul{margin:6px 0 0;padding-left:18px} .note li{margin-bottom:4px}
+.rest-msg{text-align:center;padding:30px 18px;color:var(--muted)}
+.rest-msg .big{font-size:40px;margin-bottom:8px}
+
+/* ---------- lists ---------- */
+.list{margin:0;padding:0;list-style:none}
+.list li{display:flex;gap:10px;font-size:14.5px;padding:9px 0;border-bottom:1px solid var(--line)}
+.list li:last-child{border-bottom:0}
+.list li:before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--acc);margin-top:8px}
+.list.plain li:before{display:none}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.kv:last-child{border-bottom:0}
+.kv span{color:var(--muted)} .kv b{font-weight:650;text-align:right}
+.pad{padding:14px 15px}
+.block-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.block-row:last-child{border-bottom:0}
+.block-row .t{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:700;color:var(--cardio);font-size:14px}
+.search{width:100%;padding:12px 14px;border-radius:13px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);font-size:16px;margin-bottom:12px}
+.search::placeholder{color:var(--muted)}
+
+/* ---------- tab bar ---------- */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--card);background:color-mix(in srgb,var(--card) 92%,transparent);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom);display:flex}
+.tabbar .inner{max-width:660px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(4,1fr)}
+.tab{background:none;border:0;color:var(--muted);padding:9px 0 8px;font-size:11px;font-weight:600;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:3px;min-height:56px;justify-content:center}
+.tab svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.tab[aria-selected="true"]{color:var(--acc)}
+.view[hidden]{display:none}
+.noscript{margin:18px 14px;padding:16px 18px;border:1px solid var(--line);border-radius:var(--r);
+  background:var(--card);max-width:620px;margin-left:auto;margin-right:auto}
+.noscript h2{font-size:17px;margin-bottom:8px}
+.noscript p{margin:0 0 8px;font-size:14.5px;color:var(--muted)}
+.noscript ol{margin:0;padding-left:20px;font-size:14.5px}
+.noscript li{margin-bottom:5px}
+.noscript b{color:var(--ink)}
+.foot{text-align:center;color:var(--muted);font-size:12px;padding:22px 10px 8px}
+@media (min-width:560px){ .fig{width:104px;height:78px} .ex>summary{min-height:78px} }
+</style>
+</head>
+<body>
+
+<noscript>
+  <div class="noscript">
+    <h2>Esta vista previa no puede mostrar la rutina</h2>
+    <p>Estás viendo el archivo en un visor que no ejecuta JavaScript (por ejemplo, la vista previa de Archivos en el iPhone). El contenido está intacto: solo hay que abrirlo en un navegador.</p>
+    <ol>
+      <li><b>iPhone / iPad:</b> en la app <b>Archivos</b>, mantén pulsado <b>rutina.html</b> → <b>Compartir</b> → elige <b>Safari</b> (o “Copiar en Safari”).</li>
+      <li><b>Android:</b> ábrelo con <b>Chrome</b> desde el gestor de archivos.</li>
+      <li><b>Computador:</b> doble clic, o clic derecho → Abrir con → tu navegador.</li>
+    </ol>
+  </div>
+</noscript>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <h1 id="hdrTitle">Rutina 12 semanas</h1>
+      <p id="hdrSub">en casa</p>
+    </div>
+    <button class="iconbtn" id="themeBtn" aria-label="Cambiar tema">◐</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="view" id="view-rutina">
+    <div class="strip" id="weekStrip"></div>
+    <div class="days" id="dayStrip"></div>
+    <div id="sessionWrap"></div>
+  </section>
+
+  <section class="view" id="view-ejercicios" hidden>
+    <div style="height:14px"></div>
+    <input class="search" id="exSearch" type="search" placeholder="Buscar ejercicio…" autocomplete="off">
+    <div id="catalogWrap"></div>
+  </section>
+
+  <section class="view" id="view-cardio" hidden>
+    <div style="height:14px"></div>
+    <div id="cardioWrap"></div>
+  </section>
+
+  <section class="view" id="view-guia" hidden>
+    <div style="height:14px"></div>
+    <div id="guiaWrap"></div>
+  </section>
+
+  <p class="foot" id="foot"></p>
+</main>
+
+<nav class="tabbar">
+  <div class="inner">
+    <button class="tab" data-view="rutina" aria-selected="true">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg>Rutina</button>
+    <button class="tab" data-view="ejercicios" aria-selected="false">
+      <svg viewBox="0 0 24 24"><path d="M4 9v6M7.5 7v10M16.5 7v10M20 9v6M7.5 12h9"/></svg>Ejercicios</button>
+    <button class="tab" data-view="cardio" aria-selected="false">
+      <svg viewBox="0 0 24 24"><path d="M3 12.5h4l2-4.5 3 9 2.5-6 1.5 3h5"/></svg>Cardio</button>
+    <button class="tab" data-view="guia" aria-selected="false">
+      <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-7.5-10A4.5 4.5 0 0 1 12 8.2 4.5 4.5 0 0 1 19.5 11c0 5.4-7.5 10-7.5 10z"/></svg>Guía</button>
+  </div>
+</nav>
+
+<script type="application/json" id="routine-data">{
+  "titulo": "Rutina de 12 semanas en casa - objetivo 81 kg a 70 kg",
+  "version": "1.1 con dos alternativas por ejercicio de fuerza",
+  "perfil": {
+    "altura_m": 1.65,
+    "peso_inicial_kg": 81,
+    "peso_objetivo_kg": 70,
+    "duracion_semanas": 12,
+    "experiencia_reciente": "Meses de sedentarismo, pero el usuario refiere buena resistencia cardiovascular.",
+    "disponibilidad_diaria_min": {
+      "min": 30,
+      "max": 60
+    },
+    "equipamiento": [
+      "Banco ajustable",
+      "Kit de pesas/mancuernas ajustables de hasta aproximadamente 20 kg",
+      "Saco de boxeo de aproximadamente 100 cm"
+    ],
+    "limitaciones": [
+      "Antecedente de problema en manguito rotador",
+      "Crepitación/chasquidos frecuentes en varias articulaciones"
+    ]
+  },
+  "objetivo": {
+    "perdida_total_objetivo_kg": 11,
+    "ritmo_medio_requerido_kg_semana": 0.92,
+    "nota": "Es una meta agresiva y no se puede garantizar. El entrenamiento debe combinarse con alimentación y seguimiento del promedio semanal de peso."
+  },
+  "principios": [
+    "Fuerza antes del cardio en los días combinados.",
+    "Seis días de actividad y un día de descanso estructurado desde la semana 2.",
+    "No entrenar el mismo grupo muscular pesado todos los días.",
+    "Mantener 2-3 repeticiones en reserva en la mayoría de series.",
+    "Elegir el ejercicio principal o UNA de sus alternativas; no hacer las tres variantes en la misma sesión salvo que esté indicado.",
+    "Todo el cardio se realiza dentro de casa con marcha en sitio, step-touch, desplazamientos y footwork."
+  ],
+  "seguridad": {
+    "hombro": [
+      "Evitar press militar, fondos, flexiones exigentes y golpeo máximo mientras exista problema activo del manguito rotador.",
+      "Detener cualquier movimiento que produzca dolor punzante/profundo, debilidad súbita o empeoramiento claro en las 24 horas siguientes.",
+      "La rotación externa se incluye solo si la lesión concreta la tolera o ha sido autorizada por un profesional."
+    ],
+    "articulaciones": [
+      "Los chasquidos sin dolor no implican necesariamente daño.",
+      "Consultar si aparecen inflamación, bloqueo, inestabilidad, dolor persistente, hormigueo o pérdida de fuerza."
+    ]
+  },
+  "catalogo_ejercicios_fuerza": {
+    "goblet_squat": {
+      "nombre": "Sentadilla goblet",
+      "objetivo": "Cuádriceps, glúteos y tronco.",
+      "series_reps_base": "3-4 x 10-12",
+      "tecnica": [
+        "Pesa pegada al pecho.",
+        "Pies estables y rodillas siguiendo la dirección de los pies.",
+        "Baja solo hasta mantener control y postura.",
+        "Sube empujando el suelo, sin rebotes."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Sentadilla al banco",
+          "como": "Toca suavemente el banco con los glúteos y vuelve a subir. Muy útil para controlar profundidad."
+        },
+        {
+          "nombre": "Split squat asistido",
+          "como": "Posición dividida, apoyo ligero en el banco para equilibrio; baja verticalmente y cambia de pierna."
+        }
+      ]
+    },
+    "romanian_deadlift": {
+      "nombre": "Peso muerto rumano con mancuernas",
+      "objetivo": "Glúteos, isquiotibiales y cadena posterior.",
+      "series_reps_base": "3-4 x 10-12",
+      "tecnica": [
+        "Rodillas ligeramente flexionadas.",
+        "Lleva la cadera hacia atrás.",
+        "Mancuernas cerca de las piernas.",
+        "Espalda neutra; sube contrayendo glúteos."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Bisagra de cadera lenta sin peso",
+          "como": "Practica el patrón con 3 segundos de descenso antes de aumentar carga."
+        },
+        {
+          "nombre": "Peso muerto rumano a una pierna asistido",
+          "como": "Una mano en el banco, una pierna de apoyo y carga ligera. Mantén pelvis estable."
+        }
+      ]
+    },
+    "hip_thrust": {
+      "nombre": "Hip thrust en banco",
+      "objetivo": "Glúteos y extensión de cadera.",
+      "series_reps_base": "3-4 x 12-15",
+      "tecnica": [
+        "Apoya la parte alta de la espalda en el banco.",
+        "Peso centrado sobre la pelvis.",
+        "Sube hasta alinear tronco y muslos.",
+        "Pausa 1-2 segundos arriba sin hiperextender la zona lumbar."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Puente de glúteos en el suelo",
+          "como": "Mismo patrón con espalda completa apoyada; puede hacerse con o sin peso."
+        },
+        {
+          "nombre": "Puente de glúteos a una pierna",
+          "como": "Sin carga o con carga muy ligera. Mantén la pelvis nivelada y alterna lados."
+        }
+      ]
+    },
+    "reverse_lunge": {
+      "nombre": "Zancada hacia atrás",
+      "objetivo": "Cuádriceps, glúteos y estabilidad unilateral.",
+      "series_reps_base": "3 x 8-10 por pierna",
+      "tecnica": [
+        "Da un paso hacia atrás, no hacia adelante.",
+        "Tronco estable.",
+        "Rodilla delantera sigue la línea del pie.",
+        "Usa el banco para equilibrio si lo necesitas."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Split squat asistido",
+          "como": "Mantén los pies fijos y baja verticalmente. Reduce la exigencia de coordinación."
+        },
+        {
+          "nombre": "Sentadilla goblet con postura escalonada",
+          "como": "Un pie ligeramente atrasado; la mayor carga queda en la pierna delantera."
+        }
+      ]
+    },
+    "calf_raise": {
+      "nombre": "Elevación de pantorrillas",
+      "objetivo": "Gemelos y sóleo.",
+      "series_reps_base": "3 x 15-20",
+      "tecnica": [
+        "Sube sobre la punta de los pies.",
+        "Pausa arriba.",
+        "Baja controlado.",
+        "Sujétate del banco si hace falta."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Elevación de pantorrilla sentado",
+          "como": "Sentado en el banco con peso sobre los muslos, eleva los talones."
+        },
+        {
+          "nombre": "Elevación de pantorrilla a una pierna asistida",
+          "como": "Una mano en el banco, una pierna a la vez y rango controlado."
+        }
+      ]
+    },
+    "supported_row": {
+      "nombre": "Remo unilateral apoyado en banco",
+      "objetivo": "Espalda y musculatura escapular.",
+      "series_reps_base": "3-4 x 10-12 por lado",
+      "tecnica": [
+        "Apoya la mano libre en el banco.",
+        "Agarre neutro.",
+        "Codo relativamente cerca del torso.",
+        "No eleves el hombro hacia la oreja.",
+        "Detén el ejercicio si aparece dolor punzante o profundo en el hombro."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Remo con pecho apoyado en banco inclinado",
+          "como": "Acuéstate boca abajo sobre el banco inclinado y rema con carga ligera, agarre neutro y rango cómodo."
+        },
+        {
+          "nombre": "Remo unilateral de rango corto",
+          "como": "Mismo apoyo en banco, pero reduce el recorrido y la carga para mantener el hombro indoloro."
+        }
+      ]
+    },
+    "biceps_curl": {
+      "nombre": "Curl de bíceps",
+      "objetivo": "Bíceps y flexores del codo.",
+      "series_reps_base": "3 x 10-15",
+      "tecnica": [
+        "Codos cerca del torso.",
+        "No balancees el cuerpo.",
+        "Sube y baja controlado.",
+        "Mantén hombros relajados."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Curl de concentración",
+          "como": "Sentado, apoya el brazo contra la cara interna del muslo y trabaja un lado a la vez."
+        },
+        {
+          "nombre": "Curl martillo",
+          "como": "Palmas enfrentadas durante todo el movimiento; suele ser cómodo para muñeca y hombro."
+        }
+      ]
+    },
+    "hammer_curl": {
+      "nombre": "Curl martillo",
+      "objetivo": "Braquial, braquiorradial y bíceps.",
+      "series_reps_base": "3 x 10-12",
+      "tecnica": [
+        "Palmas enfrentadas.",
+        "Codos quietos.",
+        "Evita encoger hombros.",
+        "Controla el descenso."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Curl martillo sentado",
+          "como": "Hazlo sentado en el banco para reducir balanceo del tronco."
+        },
+        {
+          "nombre": "Curl martillo cruzado",
+          "como": "Lleva la mancuerna hacia el hombro contrario sin rotar el tronco."
+        }
+      ]
+    },
+    "scapular_retraction": {
+      "nombre": "Retracción escapular",
+      "objetivo": "Control de escápulas y musculatura media de la espalda.",
+      "series_reps_base": "2-3 x 12-15",
+      "tecnica": [
+        "Lleva suavemente los omóplatos hacia atrás y abajo.",
+        "No saques el pecho de forma exagerada.",
+        "No encogas hombros.",
+        "Movimiento sin dolor."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Retracción escapular contra pared",
+          "como": "Espalda contra la pared; lleva omóplatos atrás y abajo sin despegar costillas."
+        },
+        {
+          "nombre": "Retracción escapular boca abajo en banco inclinado",
+          "como": "Sin peso, brazos relajados; junta suavemente los omóplatos y suelta."
+        }
+      ]
+    },
+    "external_rotation": {
+      "nombre": "Rotación externa de hombro muy ligera",
+      "objetivo": "Manguito rotador, solo si es tolerada y está permitida para la lesión concreta.",
+      "series_reps_base": "2 x 10-15",
+      "tecnica": [
+        "Carga mínima.",
+        "Codo pegado al cuerpo.",
+        "Rango corto y cómodo.",
+        "No realizar si genera dolor, pinchazo o empeoramiento posterior."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Rotación externa isométrica contra pared",
+          "como": "Con codo pegado al cuerpo, empuja el dorso de la mano contra la pared 15-20 segundos sin mover el brazo."
+        },
+        {
+          "nombre": "Rotación externa acostado de lado",
+          "como": "Con peso muy ligero o sin peso, codo pegado al cuerpo y movimiento lento dentro de rango indoloro."
+        }
+      ]
+    },
+    "dead_bug": {
+      "nombre": "Dead bug",
+      "objetivo": "Control lumbo-pélvico y core.",
+      "series_reps_base": "3 x 8-10 por lado",
+      "tecnica": [
+        "Espalda baja estable.",
+        "Mueve extremidades lentamente.",
+        "Exhala durante la extensión.",
+        "Reduce rango si la zona lumbar se arquea."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Heel taps",
+          "como": "Desde posición supina con rodillas flexionadas, baja un talón al suelo de forma alternada."
+        },
+        {
+          "nombre": "Bird dog",
+          "como": "En cuatro apoyos, extiende brazo y pierna contrarios; si el hombro molesta, mueve solo las piernas."
+        }
+      ]
+    },
+    "bird_dog": {
+      "nombre": "Bird dog",
+      "objetivo": "Core, estabilidad de columna y coordinación.",
+      "series_reps_base": "3 x 8 por lado",
+      "tecnica": [
+        "Columna neutra.",
+        "Evita girar la pelvis.",
+        "Extiende de forma lenta.",
+        "Si apoyar peso en el hombro molesta, usa otra opción de core."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Dead bug",
+          "como": "Opción en el suelo que descarga los hombros y permite trabajar control lumbo-pélvico."
+        },
+        {
+          "nombre": "Heel taps",
+          "como": "Alterna talones al suelo manteniendo abdomen activo y espalda estable."
+        }
+      ]
+    },
+    "mcgill_curlup": {
+      "nombre": "McGill curl-up modificado",
+      "objetivo": "Resistencia del core con baja flexión repetitiva de columna.",
+      "series_reps_base": "3 x 6-8, sosteniendo 5 s",
+      "tecnica": [
+        "Una pierna flexionada y otra extendida.",
+        "Mantén la zona lumbar neutra.",
+        "Eleva ligeramente cabeza y hombros.",
+        "No conviertas el movimiento en un abdominal completo."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Dead bug",
+          "como": "Mantiene trabajo del core con columna apoyada y control de extremidades."
+        },
+        {
+          "nombre": "Heel taps",
+          "como": "Menor complejidad; alterna el descenso de cada talón sin arquear la espalda."
+        }
+      ]
+    }
+  },
+  "cardio": {
+    "cardio_indoor_base": {
+      "nombre": "Cardio indoor de bajo impacto",
+      "bloque": [
+        {
+          "movimiento": "Marcha rápida en el sitio",
+          "duracion_s": 60
+        },
+        {
+          "movimiento": "Step-touch lateral",
+          "duracion_s": 60
+        },
+        {
+          "movimiento": "Rodillas alternas sin salto",
+          "duracion_s": 30
+        },
+        {
+          "movimiento": "Pasos adelante/atrás",
+          "duracion_s": 30
+        },
+        {
+          "movimiento": "Desplazamiento alrededor del saco",
+          "duracion_s": 60
+        },
+        {
+          "movimiento": "Marcha moderada",
+          "duracion_s": 30
+        }
+      ],
+      "nota": "Repetir el bloque hasta completar el tiempo previsto. No requiere caminadora ni salir de casa."
+    },
+    "intervalos": {
+      "nombre": "Intervalos indoor",
+      "estructura": "40-60 s rápido + 20-30 s moderado",
+      "movimientos_permitidos": [
+        "Marcha rápida",
+        "Step-touch",
+        "Rodillas alternas",
+        "Pasos adelante/atrás",
+        "Footwork de boxeo sin golpeo"
+      ]
+    },
+    "saco": {
+      "nombre": "Saco de boxeo técnico",
+      "restriccion": "Solo si el hombro está indoloro durante y después. Evitar potencia máxima, hooks/uppercuts violentos y fatiga técnica.",
+      "inicio_sugerido": "Desde semana 2-3 si el hombro lo tolera",
+      "formato_inicial": "6-8 rounds de 60 s, 60 s de descanso, 30-50% de potencia"
+    }
+  },
+  "programacion": {
+    "semana_1_adaptacion": {
+      "dias": 5,
+      "duracion_min": "30-40",
+      "objetivo": "Reintroducir patrones, tolerar volumen y proteger articulaciones.",
+      "sesiones": [
+        {
+          "dia": "Lunes",
+          "tipo": "Full body suave",
+          "fuerza": [
+            [
+              "goblet_squat",
+              "2 x 10, versión al banco si es necesario"
+            ],
+            [
+              "romanian_deadlift",
+              "2 x 10, carga ligera"
+            ],
+            [
+              "hip_thrust",
+              "2 x 12, puede ser puente en el suelo"
+            ],
+            [
+              "supported_row",
+              "2 x 10/lado solo sin dolor"
+            ],
+            [
+              "dead_bug",
+              "2 x 8/lado"
+            ]
+          ],
+          "cardio": "10 min cardio indoor base"
+        },
+        {
+          "dia": "Martes",
+          "tipo": "Cardio + core",
+          "fuerza": [
+            [
+              "dead_bug",
+              "2 x 8/lado"
+            ],
+            [
+              "mcgill_curlup",
+              "2 x 6"
+            ]
+          ],
+          "cardio": "20-25 min indoor bajo impacto"
+        },
+        {
+          "dia": "Miércoles",
+          "tipo": "Piernas suave",
+          "fuerza": [
+            [
+              "goblet_squat",
+              "2 x 10"
+            ],
+            [
+              "reverse_lunge",
+              "2 x 6/lado asistida"
+            ],
+            [
+              "calf_raise",
+              "2 x 15"
+            ],
+            [
+              "hip_thrust",
+              "2 x 12"
+            ]
+          ],
+          "cardio": "10 min indoor suave"
+        },
+        {
+          "dia": "Jueves",
+          "tipo": "Tren superior seguro + core",
+          "fuerza": [
+            [
+              "supported_row",
+              "2 x 10/lado"
+            ],
+            [
+              "biceps_curl",
+              "2 x 12"
+            ],
+            [
+              "scapular_retraction",
+              "2 x 12"
+            ],
+            [
+              "external_rotation",
+              "2 x 10 solo si está autorizada/tolerada"
+            ],
+            [
+              "dead_bug",
+              "2 x 8/lado"
+            ]
+          ],
+          "cardio": "10-15 min indoor"
+        },
+        {
+          "dia": "Viernes",
+          "tipo": "Full body ligero",
+          "fuerza": [
+            [
+              "goblet_squat",
+              "2 x 10"
+            ],
+            [
+              "romanian_deadlift",
+              "2 x 10"
+            ],
+            [
+              "hip_thrust",
+              "2 x 12"
+            ],
+            [
+              "hammer_curl",
+              "2 x 10"
+            ],
+            [
+              "mcgill_curlup",
+              "2 x 6"
+            ]
+          ],
+          "cardio": "15 min indoor"
+        },
+        {
+          "dia": "Sábado",
+          "tipo": "Recuperación activa opcional",
+          "fuerza": [],
+          "cardio": "15-20 min movilidad + marcha suave en sitio"
+        },
+        {
+          "dia": "Domingo",
+          "tipo": "Descanso",
+          "fuerza": [],
+          "cardio": "Sin sesión estructurada"
+        }
+      ]
+    },
+    "semanas_2_a_4": {
+      "dias": 6,
+      "duracion_min": "45-60",
+      "sesiones": [
+        {
+          "dia": "Lunes",
+          "tipo": "Piernas A",
+          "fuerza": [
+            [
+              "goblet_squat",
+              "4 x 10-12"
+            ],
+            [
+              "romanian_deadlift",
+              "4 x 10-12"
+            ],
+            [
+              "hip_thrust",
+              "4 x 12-15"
+            ],
+            [
+              "reverse_lunge",
+              "3 x 8/lado"
+            ],
+            [
+              "calf_raise",
+              "3 x 15-20"
+            ]
+          ],
+          "cardio": "15-20 min intervalos indoor, RPE 6-7/10"
+        },
+        {
+          "dia": "Martes",
+          "tipo": "Espalda + brazos + core",
+          "fuerza": [
+            [
+              "supported_row",
+              "4 x 10-12/lado"
+            ],
+            [
+              "biceps_curl",
+              "3 x 10-15"
+            ],
+            [
+              "hammer_curl",
+              "3 x 10-12"
+            ],
+            [
+              "scapular_retraction",
+              "3 x 12-15"
+            ],
+            [
+              "dead_bug",
+              "3 x 10/lado"
+            ],
+            [
+              "mcgill_curlup",
+              "3 x 6-8"
+            ]
+          ],
+          "cardio": "20 min cardio indoor base"
+        },
+        {
+          "dia": "Miércoles",
+          "tipo": "Piernas B",
+          "fuerza": [
+            [
+              "goblet_squat",
+              "3 x 12"
+            ],
+            [
+              "reverse_lunge",
+              "3 x 10/lado"
+            ],
+            [
+              "romanian_deadlift",
+              "3 x 12"
+            ],
+            [
+              "hip_thrust",
+              "3 x 15"
+            ],
+            [
+              "calf_raise",
+              "3 x 20"
+            ]
+          ],
+          "cardio": "20 min intervalos 60 s rápido / 30 s moderado"
+        },
+        {
+          "dia": "Jueves",
+          "tipo": "Tren superior seguro + core",
+          "fuerza": [
+            [
+              "supported_row",
+              "3 x 12/lado"
+            ],
+            [
+              "hammer_curl",
+              "3 x 12"
+            ],
+            [
+              "biceps_curl",
+              "3 x 12"
+            ],
+            [
+              "scapular_retraction",
+              "3 x 12-15"
+            ],
+            [
+              "external_rotation",
+              "2 x 10-15 solo si tolerada"
+            ],
+            [
+              "bird_dog",
+              "3 x 8/lado o alternativa sin carga de hombro"
+            ]
+          ],
+          "cardio": "20-25 min indoor"
+        },
+        {
+          "dia": "Viernes",
+          "tipo": "Full body en circuito",
+          "fuerza": [
+            [
+              "goblet_squat",
+              "12 reps"
+            ],
+            [
+              "romanian_deadlift",
+              "12 reps"
+            ],
+            [
+              "supported_row",
+              "10/lado"
+            ],
+            [
+              "reverse_lunge",
+              "8/lado"
+            ],
+            [
+              "hip_thrust",
+              "15 reps"
+            ],
+            [
+              "hammer_curl",
+              "10 reps"
+            ]
+          ],
+          "formato": "4 rondas, 60-90 s de descanso entre rondas",
+          "cardio": "15-20 min intervalos indoor"
+        },
+        {
+          "dia": "Sábado",
+          "tipo": "Fuerza ligera + cardio largo",
+          "fuerza": [
+            [
+              "goblet_squat",
+              "3 x 15 ligera"
+            ],
+            [
+              "romanian_deadlift",
+              "3 x 15 ligera"
+            ],
+            [
+              "hip_thrust",
+              "3 x 20"
+            ],
+            [
+              "calf_raise",
+              "3 x 20"
+            ],
+            [
+              "dead_bug",
+              "3 x 8/lado"
+            ]
+          ],
+          "cardio": "25-30 min indoor; opcional sustituir parte por saco técnico si hombro tolera"
+        },
+        {
+          "dia": "Domingo",
+          "tipo": "Descanso",
+          "fuerza": [],
+          "cardio": "Sin sesión estructurada"
+        }
+      ]
+    },
+    "semanas_5_a_8": {
+      "dias": 6,
+      "duracion_min": "50-60",
+      "cambios": [
+        "Mantener la estructura de semanas 2-4.",
+        "Aumentar carga cuando se complete el máximo de repeticiones con 2-3 repeticiones en reserva.",
+        "Cardio final habitual: 20-25 min.",
+        "Sábado: 30-35 min de cardio."
+      ],
+      "cardio_objetivo_semanal_min": "150-180 aprox."
+    },
+    "semanas_9_a_12": {
+      "dias": 6,
+      "duracion_min": "50-60",
+      "cambios": [
+        "Mantener 30-35 min de fuerza y 25-30 min de cardio en la mayoría de sesiones.",
+        "Usar tempo lento, pausas y trabajo unilateral cuando los 20 kg se queden cortos.",
+        "Sábado: 30-40 min de cardio indoor.",
+        "No aumentar volumen del hombro si existe dolor o empeoramiento."
+      ],
+      "cardio_objetivo_semanal_min": "170-200+ aprox."
+    }
+  },
+  "progresion": {
+    "regla_doble_progresion": "Cuando completes el máximo de repeticiones de todas las series con técnica limpia y 2-3 repeticiones en reserva en dos sesiones consecutivas, aumenta ligeramente la carga.",
+    "si_no_hay_mas_peso": [
+      "Aumentar 1-2 repeticiones",
+      "Añadir 1 serie hasta el máximo previsto",
+      "Usar descenso de 3 segundos",
+      "Añadir pausa de 1-2 segundos",
+      "Usar versión unilateral asistida"
+    ],
+    "intensidad": "RPE aproximado 6-8/10; evitar fallo muscular habitual."
+  },
+  "seguimiento": {
+    "peso": "Pesarse 3-4 mañanas por semana en condiciones similares y usar el promedio semanal.",
+    "ajuste": "Si el promedio no baja durante 2 semanas consecutivas, revisar primero alimentación y después añadir 5 minutos de cardio a 3-4 sesiones.",
+    "señales_para_reducir_carga": [
+      "Dolor articular >3/10",
+      "Dolor de hombro que empeora al día siguiente",
+      "Fatiga que reduce el rendimiento durante varios días",
+      "Técnica claramente deteriorada"
+    ]
+  }
+}</script>
+<script>
+"use strict";
+const D = JSON.parse(document.getElementById('routine-data').textContent);
+
+/* =======================================================================
+   MOTOR DE FIGURAS ANIMADAS (esqueleto + cinemática directa)
+   Ángulos en grados: 0 = arriba, 90 = derecha, 180 = abajo.
+   ======================================================================= */
+/*__FIG_START__*/
+const BONE = {torso:34, head:9, upper:17, fore:16, thigh:26, shin:26, foot:11};
+const RAD = Math.PI/180;
+function step(p, ang, len){ return [p[0] + Math.sin(ang*RAD)*len, p[1] - Math.cos(ang*RAD)*len]; }
+
+const BASE_POSE = {ax:100, ay:147, torso:4, headTilt:0, arm:[180,178], leg:[180,180,93]};
+
+function normFrame(f, anchor){
+  const o = {
+    anchor: anchor,
+    ax: f.ax !== undefined ? f.ax : BASE_POSE.ax,
+    ay: f.ay !== undefined ? f.ay : BASE_POSE.ay,
+    torso: f.torso !== undefined ? f.torso : BASE_POSE.torso,
+    headTilt: f.headTilt || 0,
+    arm: (f.arm || BASE_POSE.arm).slice(),
+    leg: (f.leg || BASE_POSE.leg).slice()
+  };
+  o.armF = (f.armF || o.arm).slice();
+  o.legF = (f.legF || o.leg).slice();
+  return o;
+}
+
+function solve(p){
+  let hip;
+  if(p.anchor === 'hip'){
+    hip = [p.ax, p.ay];
+  } else if(p.anchor === 'shoulder'){
+    hip = step([p.ax, p.ay], p.torso, -BONE.torso);
+  } else {
+    const L = (p.anchor === 'ankleF') ? p.legF : p.leg;
+    let ankle = [p.ax, p.ay];
+    if(p.anchor === 'toe') ankle = step(ankle, L[2], -BONE.foot);
+    const knee = step(ankle, L[1], -BONE.shin);
+    hip = step(knee, L[0], -BONE.thigh);
+  }
+  const legPts = L => {
+    const knee = step(hip, L[0], BONE.thigh);
+    const ankle = step(knee, L[1], BONE.shin);
+    return [hip, knee, ankle, step(ankle, L[2], BONE.foot)];
+  };
+  const sh = step(hip, p.torso, BONE.torso);
+  const armPts = A => {
+    const el = step(sh, A[0], BONE.upper);
+    return [sh, el, step(el, A[1], BONE.fore)];
+  };
+  return {
+    hip: hip, sh: sh,
+    head: step(sh, p.torso + p.headTilt, BONE.head),
+    legN: legPts(p.leg), legF: legPts(p.legF),
+    armN: armPts(p.arm), armF: armPts(p.armF)
+  };
+}
+
+function lerpFrame(a, b, t){
+  const m = (x,y) => x + (y-x)*t;
+  return {
+    anchor: a.anchor, ax:m(a.ax,b.ax), ay:m(a.ay,b.ay), torso:m(a.torso,b.torso), headTilt:m(a.headTilt,b.headTilt),
+    arm:[m(a.arm[0],b.arm[0]), m(a.arm[1],b.arm[1])],
+    armF:[m(a.armF[0],b.armF[0]), m(a.armF[1],b.armF[1])],
+    leg:[m(a.leg[0],b.leg[0]), m(a.leg[1],b.leg[1]), m(a.leg[2],b.leg[2])],
+    legF:[m(a.legF[0],b.legF[0]), m(a.legF[1],b.legF[1]), m(a.legF[2],b.legF[2])]
+  };
+}
+
+/* --- definiciones por ejercicio --------------------------------------- */
+const ANIM = {
+  goblet_squat:{ anchor:'ankle', hands:'goblet', dur:1500, frames:[
+    {leg:[180,180,93], torso:6, arm:[190,65]},
+    {leg:[112,228,93], torso:24, arm:[208,83]}
+  ]},
+  romanian_deadlift:{ anchor:'ankle', hands:'disc', dur:1500, frames:[
+    {leg:[180,180,93], torso:5, arm:[178,178]},
+    {leg:[168,172,93], torso:74, arm:[182,182]}
+  ]},
+  hip_thrust:{ anchor:'ankle', ax:135, ay:147, hands:'none', bench:{x:50,w:48,y:108}, dur:1400, frames:[
+    {ax:135, ay:147, leg:[66,170,93], torso:-46, arm:[250,255], headTilt:14},
+    {ax:135, ay:147, leg:[92,185,93], torso:-70, arm:[250,255], headTilt:16}
+  ]},
+  reverse_lunge:{ anchor:'ankle', hands:'disc', dur:1500, frames:[
+    {leg:[180,180,93], torso:5, arm:[180,178]},
+    {leg:[130,215,93], legF:[201,261,150], torso:9, arm:[180,178]}
+  ]},
+  calf_raise:{ anchor:'toe', ax:111, ay:147, hands:'disc', dur:1100, frames:[
+    {leg:[180,180,93], torso:4},
+    {leg:[180,180,120], torso:4}
+  ]},
+  supported_row:{ anchor:'ankle', ax:105, ay:147, hands:'near-disc', bench:{x:122,w:52,y:120}, dur:1400, frames:[
+    {ax:105, ay:147, leg:[180,180,93], torso:75, headTilt:-22, arm:[176,176], armF:[180,180]},
+    {ax:105, ay:147, leg:[180,180,93], torso:75, headTilt:-22, arm:[230,90], armF:[180,180]}
+  ]},
+  biceps_curl:{ anchor:'ankle', focus:'upper', hands:'disc', dur:1300, frames:[
+    {arm:[180,175]},
+    {arm:[183,60]}
+  ]},
+  hammer_curl:{ anchor:'ankle', focus:'upper', hands:'vert', dur:1300, frames:[
+    {arm:[180,176]},
+    {arm:[184,55]}
+  ]},
+  scapular_retraction:{ anchor:'ankle', focus:'upper', hands:'none', dur:1300, frames:[
+    {arm:[165,150], torso:4},
+    {arm:[196,161], torso:2}
+  ]},
+  external_rotation:{ anchor:'ankle', focus:'upper', hands:'near-disc', dur:1400, frames:[
+    {arm:[181,104], armF:[180,178]},
+    {arm:[181,58], armF:[180,178]}
+  ]},
+  dead_bug:{ anchor:'hip', ax:100, ay:141, hands:'none', dur:1200, loop:'cycle', frames:[
+    {ax:100, ay:141, torso:270, headTilt:16, arm:[0,0], armF:[0,0], leg:[0,90,45], legF:[0,90,45]},
+    {ax:100, ay:141, torso:270, headTilt:16, arm:[-75,-75], armF:[0,0], leg:[0,90,45], legF:[95,92,90]},
+    {ax:100, ay:141, torso:270, headTilt:16, arm:[0,0], armF:[0,0], leg:[0,90,45], legF:[0,90,45]},
+    {ax:100, ay:141, torso:270, headTilt:16, arm:[0,0], armF:[-75,-75], leg:[95,92,90], legF:[0,90,45]}
+  ]},
+  bird_dog:{ anchor:'hip', ax:100, ay:121, hands:'none', dur:1400, frames:[
+    {ax:100, ay:121, torso:78, headTilt:12, arm:[180,180], armF:[180,180], leg:[180,270,270], legF:[180,270,270]},
+    {ax:100, ay:121, torso:78, headTilt:8, arm:[95,95], armF:[180,180], leg:[180,270,270], legF:[265,270,250]}
+  ]},
+  mcgill_curlup:{ anchor:'hip', ax:100, ay:141, hands:'none', dur:1500, frames:[
+    {ax:100, ay:141, torso:270, headTilt:14, arm:[100,100], armF:[100,100], leg:[50,145,90], legF:[95,92,90]},
+    {ax:100, ay:141, torso:285, headTilt:22, arm:[100,100], armF:[100,100], leg:[50,145,90], legF:[95,92,90]}
+  ]},
+  /* --- cardio --- */
+  marcha:{ anchor:'hip', ax:100, ay:95, hands:'none', dur:520, loop:'cycle', frames:[
+    {ax:100, ay:95, leg:[110,170,80], legF:[180,180,93], arm:[205,240], armF:[155,120], torso:3},
+    {ax:100, ay:94, leg:[180,180,93], legF:[180,180,93], arm:[180,178], armF:[180,178], torso:4},
+    {ax:100, ay:95, leg:[180,180,93], legF:[110,170,80], arm:[155,120], armF:[205,240], torso:3},
+    {ax:100, ay:94, leg:[180,180,93], legF:[180,180,93], arm:[180,178], armF:[180,178], torso:4}
+  ]},
+  rodillas:{ anchor:'hip', ax:100, ay:93, hands:'none', dur:450, loop:'cycle', frames:[
+    {ax:100, ay:93, leg:[78,150,75], legF:[180,180,93], arm:[215,255], armF:[145,105], torso:2},
+    {ax:100, ay:96, leg:[180,180,93], legF:[180,180,93], arm:[180,178], armF:[180,178], torso:4},
+    {ax:100, ay:93, leg:[180,180,93], legF:[78,150,75], arm:[145,105], armF:[215,255], torso:2},
+    {ax:100, ay:96, leg:[180,180,93], legF:[180,180,93], arm:[180,178], armF:[180,178], torso:4}
+  ]},
+  step_touch:{ anchor:'hip', ax:100, ay:96, hands:'none', dur:620, loop:'cycle', frames:[
+    {ax:86, ay:97, leg:[196,196,100], legF:[163,163,85], arm:[160,150], armF:[160,150], torso:2},
+    {ax:100, ay:94, leg:[180,180,93], legF:[180,180,93], arm:[180,160], armF:[180,160], torso:4},
+    {ax:114, ay:97, leg:[164,164,86], legF:[197,197,99], arm:[200,210], armF:[200,210], torso:6},
+    {ax:100, ay:94, leg:[180,180,93], legF:[180,180,93], arm:[180,160], armF:[180,160], torso:4}
+  ]},
+  saco:{ anchor:'hip', ax:78, ay:96, hands:'none', bag:{x:132,w:24,y0:26,y1:132}, dur:420, loop:'cycle', frames:[
+    {ax:78, ay:96, leg:[168,168,88], legF:[196,196,104], arm:[168,18], armF:[188,10], torso:6, headTilt:8},
+    {ax:80, ay:95, leg:[168,168,88], legF:[196,196,104], arm:[97,92], armF:[188,10], torso:9, headTilt:8},
+    {ax:78, ay:96, leg:[168,168,88], legF:[196,196,104], arm:[168,18], armF:[188,10], torso:6, headTilt:8},
+    {ax:79, ay:95, leg:[168,168,88], legF:[196,196,104], arm:[168,18], armF:[100,96], torso:4, headTilt:8}
+  ]},
+  generic:{ anchor:'ankle', hands:'none', dur:1600, frames:[
+    {torso:4, arm:[180,178]},
+    {torso:6, arm:[172,168]}
+  ]}
+};
+/*__FIG_END__*/
+
+/* --- construcción y render del SVG ------------------------------------ */
+const NS = 'http://www.w3.org/2000/svg';
+const el = (n, attrs) => { const e = document.createElementNS(NS, n); for(const k in attrs) e.setAttribute(k, attrs[k]); return e; };
+const figures = [];
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+/* Encuadre automatico: recorta la vista al recorrido real de la figura. */
+function fitBox(seq, def){
+  let x0=1e9, x1=-1e9, y0=1e9, y1=-1e9;
+  const put = p => { x0=Math.min(x0,p[0]); x1=Math.max(x1,p[0]); y0=Math.min(y0,p[1]); y1=Math.max(y1,p[1]); };
+  for(let i=0; i<seq.length-1; i++){
+    for(let s=0; s<=6; s++){
+      const p = solve(lerpFrame(seq[i], seq[i+1], s/6));
+      const pts = (def.focus === 'upper') ? [p.hip, p.sh].concat(p.armN, p.armF)
+                                          : [p.hip, p.sh].concat(p.legN, p.legF, p.armN, p.armF);
+      pts.forEach(put);
+      put([p.head[0]-9, p.head[1]-9]); put([p.head[0]+9, p.head[1]+9]);
+    }
+  }
+  if(def.bench){ put([def.bench.x, def.bench.y]); put([def.bench.x+def.bench.w, 148]); }
+  if(def.bag){ put([def.bag.x, def.bag.y0]); put([def.bag.x+def.bag.w, def.bag.y1]); }
+  x0-=11; x1+=11; y0-=11; y1+=11;
+  if(y1 > 130) y1 = Math.max(y1, 154);          // deja ver el suelo
+  let w = x1-x0, h = y1-y0;
+  const AR = 1.25;                               // proporcion del recuadro
+  if(w/h < AR){ const nw = h*AR; x0 -= (nw-w)/2; w = nw; }
+  else { const nh = w/AR; y0 -= (nh-h)/2; h = nh; }
+  if(w < 120){ const k = (120-w)/2; x0 -= k; w = 120; y0 -= k/AR; h = 120/AR; }
+  return [x0.toFixed(1), y0.toFixed(1), w.toFixed(1), h.toFixed(1)].join(' ');
+}
+
+function buildFigure(key, big){
+  const def = ANIM[key] || ANIM.generic;
+  const frames = def.frames.map(f => normFrame(
+    Object.assign({ax:def.ax, ay:def.ay}, f), def.anchor
+  ));
+  const seq = (def.loop === 'cycle') ? frames.concat([frames[0]])
+                                     : frames.concat(frames.slice(0,-1).reverse());
+  const svg = el('svg', {viewBox:fitBox(seq, def), 'aria-hidden':'true'});
+  const g = el('g', {fill:'none', 'stroke-linecap':'round', 'stroke-linejoin':'round'});
+  svg.appendChild(g);
+
+  // suelo
+  g.appendChild(el('line', {x1:-60, y1:148, x2:260, y2:148, stroke:'var(--fig-floor)', 'stroke-width':2.5}));
+  // banco
+  if(def.bench){
+    const b = def.bench;
+    g.appendChild(el('rect', {x:b.x, y:b.y, width:b.w, height:7, rx:3.5, fill:'var(--fig-eq)', opacity:.28, stroke:'none'}));
+    g.appendChild(el('line', {x1:b.x+6, y1:b.y+7, x2:b.x+6, y2:148, stroke:'var(--fig-eq)', 'stroke-width':2.5, opacity:.45}));
+    g.appendChild(el('line', {x1:b.x+b.w-6, y1:b.y+7, x2:b.x+b.w-6, y2:148, stroke:'var(--fig-eq)', 'stroke-width':2.5, opacity:.45}));
+  }
+  // saco
+  if(def.bag){
+    const b = def.bag;
+    g.appendChild(el('line', {x1:b.x+b.w/2, y1:8, x2:b.x+b.w/2, y2:b.y0, stroke:'var(--fig-eq)', 'stroke-width':2, opacity:.5}));
+    g.appendChild(el('rect', {x:b.x, y:b.y0, width:b.w, height:b.y1-b.y0, rx:11, fill:'var(--fig-eq)', opacity:.3, stroke:'none'}));
+  }
+
+  const mk = (stroke, w, op) => { const p = el('polyline', {stroke:stroke, 'stroke-width':w, opacity:op||1}); g.appendChild(p); return p; };
+  const parts = {};
+  parts.legF = mk('var(--fig-far)', 5);
+  parts.armF = mk('var(--fig-far)', 4.5);
+  parts.torso = mk('var(--fig)', 6.5);
+  parts.head = el('circle', {r:7.5, fill:'var(--fig)', stroke:'none'}); g.appendChild(parts.head);
+  parts.legN = mk('var(--fig)', 5.5);
+  parts.armN = mk('var(--fig)', 5);
+  parts.w = el('g', {}); g.appendChild(parts.w);
+
+  const fig = {svg:svg, parts:parts, seq:seq, dur:def.dur || 1300, hands:def.hands || 'none', visible:false};
+  draw(fig, seq[0]);
+  figures.push(fig);
+  const box = document.createElement('div');
+  box.className = big ? 'bigfig' : 'fig';
+  box.appendChild(svg);
+  io.observe(box);
+  fig.box = box;
+  return box;
+}
+
+function poly(p, pts){ p.setAttribute('points', pts.map(a => a[0].toFixed(1)+','+a[1].toFixed(1)).join(' ')); }
+
+function weight(kind, p){
+  const out = [];
+  if(kind === 'goblet'){ out.push(el('circle', {cx:p[0], cy:p[1], r:8, fill:'var(--fig-eq)', opacity:.85})); }
+  else if(kind === 'vert'){
+    out.push(el('rect', {x:p[0]-3, y:p[1]-9, width:6, height:18, rx:2, fill:'var(--fig-eq)', opacity:.35}));
+    out.push(el('circle', {cx:p[0], cy:p[1]-8, r:4.5, fill:'var(--fig-eq)'}));
+    out.push(el('circle', {cx:p[0], cy:p[1]+8, r:4.5, fill:'var(--fig-eq)'}));
+  } else {
+    out.push(el('circle', {cx:p[0], cy:p[1], r:6, fill:'var(--fig-eq)', opacity:.9}));
+  }
+  return out;
+}
+
+function draw(fig, frame){
+  const s = solve(frame);
+  poly(fig.parts.legF, s.legF);
+  poly(fig.parts.armF, s.armF);
+  poly(fig.parts.torso, [s.hip, s.sh]);
+  fig.parts.head.setAttribute('cx', s.head[0].toFixed(1));
+  fig.parts.head.setAttribute('cy', s.head[1].toFixed(1));
+  poly(fig.parts.legN, s.legN);
+  poly(fig.parts.armN, s.armN);
+  const w = fig.parts.w;
+  while(w.firstChild) w.removeChild(w.firstChild);
+  if(fig.hands !== 'none'){
+    const kind = fig.hands === 'near-disc' ? 'disc' : fig.hands;
+    if(fig.hands !== 'near-disc' && fig.hands !== 'goblet') weight(kind, s.armF[2]).forEach(n => w.appendChild(n));
+    weight(kind, s.armN[2]).forEach(n => w.appendChild(n));
+  }
+}
+
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { const f = figures.find(x => x.box === e.target); if(f) f.visible = e.isIntersecting; });
+}, {rootMargin:'40px'});
+
+let last = 0;
+function tick(now){
+  requestAnimationFrame(tick);
+  if(now - last < 33) return;
+  last = now;
+  for(const f of figures){
+    if(!f.visible) continue;
+    const total = f.dur * (f.seq.length - 1);
+    const t = reduceMotion ? f.dur * 0.5 : (now % total);
+    const i = Math.min(Math.floor(t / f.dur), f.seq.length - 2);
+    const lt = t / f.dur - i;
+    const e = lt < .5 ? 2*lt*lt : 1 - Math.pow(-2*lt + 2, 2)/2;
+    draw(f, lerpFrame(f.seq[i], f.seq[i+1], e));
+  }
+}
+requestAnimationFrame(tick);
+
+/* =======================================================================
+   DATOS / VISTAS
+   ======================================================================= */
+const DAYS = ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+const SHORT = ['LUN','MAR','MIÉ','JUE','VIE','SÁB','DOM'];
+const CAT = D.catalogo_ejercicios_fuerza;
+
+function phaseFor(w){
+  if(w === 1) return {key:'semana_1_adaptacion', label:'Semana 1 · adaptación'};
+  if(w <= 4) return {key:'semanas_2_a_4', label:'Semanas 2-4 · construcción'};
+  if(w <= 8) return {key:'semanas_5_a_8', label:'Semanas 5-8 · progresión'};
+  return {key:'semanas_9_a_12', label:'Semanas 9-12 · consolidación'};
+}
+function planFor(w){
+  const ph = phaseFor(w);
+  const blk = D.programacion[ph.key];
+  return {ph:ph, blk:blk, sesiones: blk.sesiones || D.programacion.semanas_2_a_4.sesiones};
+}
+
+/* Preferencias de interfaz. En file:// algunos navegadores bloquean el
+   almacenamiento, asi que cualquier fallo se ignora en silencio. */
+const store = {
+  get: function(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } },
+  set: function(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+};
+
+let week = Math.min(D.perfil.duracion_semanas, Math.max(1, parseInt(store.get('rutina-week'), 10) || 1));
+let day = (new Date().getDay() + 6) % 7;
+const todayIdx = day;
+
+function h(tag, cls, txt){ const e = document.createElement(tag); if(cls) e.className = cls; if(txt != null) e.textContent = txt; return e; }
+
+function exerciseCard(key, dose){
+  const ex = CAT[key];
+  const d = document.createElement('details');
+  d.className = 'ex';
+  const sum = document.createElement('summary');
+  sum.appendChild(buildFigure(key, false));
+  const txt = h('div','txt');
+  txt.appendChild(h('h3', null, ex ? ex.nombre : key));
+  txt.appendChild(h('div','dose', dose || (ex ? ex.series_reps_base : '')));
+  if(ex) txt.appendChild(h('div','goal', ex.objetivo));
+  sum.appendChild(txt);
+  sum.appendChild(h('div','chev','❯'));
+  d.appendChild(sum);
+
+  const body = h('div','body');
+  if(ex){
+    body.appendChild(buildFigure(key, true));
+    if(dose && dose !== ex.series_reps_base){
+      const n = h('div','note cardio');
+      n.appendChild(h('b', null, 'Hoy'));
+      n.appendChild(document.createTextNode(dose + ' · base del ejercicio: ' + ex.series_reps_base));
+      body.appendChild(n);
+    }
+    body.appendChild(h('div','lbl','Técnica'));
+    const ol = h('ol','steps');
+    ex.tecnica.forEach(t => ol.appendChild(h('li', null, t)));
+    body.appendChild(ol);
+    body.appendChild(h('div','lbl','Alternativas'));
+    ex.alternativas.forEach(a => {
+      const c = h('div','alt');
+      c.appendChild(h('b', null, a.nombre));
+      c.appendChild(h('span', null, a.como));
+      body.appendChild(c);
+    });
+    const a = document.createElement('a');
+    a.className = 'vid';
+    a.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(ex.nombre + ' técnica ejercicio');
+    a.target = '_blank'; a.rel = 'noopener';
+    a.textContent = '▶  Buscar video (necesita internet)';
+    body.appendChild(a);
+  }
+  d.appendChild(body);
+  return d;
+}
+
+function renderStrips(){
+  const ws = document.getElementById('weekStrip');
+  ws.innerHTML = '';
+  for(let w = 1; w <= D.perfil.duracion_semanas; w++){
+    const b = h('button','pill','Semana ' + w);
+    b.setAttribute('aria-pressed', w === week);
+    b.onclick = () => { week = w; store.set('rutina-week', w); renderStrips(); renderSession(); ws.children[w-1].scrollIntoView({inline:'center', block:'nearest', behavior:'smooth'}); };
+    ws.appendChild(b);
+  }
+  const ds = document.getElementById('dayStrip');
+  ds.innerHTML = '';
+  const plan = planFor(week);
+  plan.sesiones.forEach((s, i) => {
+    const b = h('button','day');
+    b.appendChild(h('b', null, SHORT[i]));
+    b.appendChild(h('small', null, s.tipo));
+    if(i === todayIdx) b.classList.add('today');
+    if(!s.fuerza.length && /descanso/i.test(s.tipo)) b.classList.add('rest');
+    b.setAttribute('aria-pressed', i === day);
+    b.onclick = () => { day = i; renderStrips(); renderSession(); };
+    ds.appendChild(b);
+  });
+}
+
+function renderSession(){
+  const plan = planFor(week);
+  const s = plan.sesiones[day];
+  const wrap = document.getElementById('sessionWrap');
+  wrap.innerHTML = '';
+  document.getElementById('hdrSub').textContent = plan.ph.label;
+
+  const card = h('div','card sess');
+  card.appendChild(h('div','kicker', DAYS[day] + (day === todayIdx ? ' · hoy' : '') + ' · semana ' + week));
+  card.appendChild(h('h2', null, s.tipo));
+  const meta = h('div','meta');
+  meta.appendChild(h('span','tag acc', (plan.blk.duracion_min || '45-60') + ' min'));
+  if(s.fuerza.length) meta.appendChild(h('span','tag', s.fuerza.length + ' ejercicios'));
+  if(s.formato) meta.appendChild(h('span','tag', s.formato));
+  card.appendChild(meta);
+  wrap.appendChild(card);
+
+  if(plan.blk.cambios){
+    const n = h('div','note warn');
+    n.appendChild(h('b', null, 'Ajustes de esta fase'));
+    const ul = document.createElement('ul');
+    plan.blk.cambios.forEach(c => ul.appendChild(h('li', null, c)));
+    n.appendChild(ul);
+    if(plan.blk.cardio_objetivo_semanal_min){
+      n.appendChild(h('div', null, 'Cardio semanal objetivo: ' + plan.blk.cardio_objetivo_semanal_min + ' min'));
+    }
+    wrap.appendChild(n);
+  }
+
+  if(s.fuerza.length){
+    wrap.appendChild(h('div','sec-title','Fuerza'));
+    if(s.formato){
+      const n = h('div','note warn');
+      n.appendChild(h('b', null, 'Formato'));
+      n.appendChild(document.createTextNode(s.formato));
+      wrap.appendChild(n);
+    }
+    s.fuerza.forEach(p => wrap.appendChild(exerciseCard(p[0], p[1])));
+  } else {
+    const r = h('div','card');
+    const m = h('div','rest-msg');
+    m.appendChild(h('div','big', /descanso/i.test(s.tipo) ? '🛌' : '🧘'));
+    m.appendChild(h('div', null, /descanso/i.test(s.tipo) ? 'Sin sesión de fuerza. Descansa y duerme bien.' : 'Sin fuerza hoy: solo movilidad y cardio suave.'));
+    r.appendChild(m);
+    wrap.appendChild(r);
+  }
+
+  wrap.appendChild(h('div','sec-title','Cardio'));
+  const cn = h('div','note cardio');
+  cn.appendChild(h('b', null, 'Al final de la sesión'));
+  cn.appendChild(document.createTextNode(s.cardio));
+  wrap.appendChild(cn);
+  const cb = h('div','card pad');
+  cb.appendChild(h('div','lbl','Bloque base (repetir hasta completar el tiempo)'));
+  D.cardio.cardio_indoor_base.bloque.forEach(b => {
+    const r = h('div','block-row');
+    r.appendChild(h('span', null, b.movimiento));
+    r.appendChild(h('span','t', b.duracion_s + ' s'));
+    cb.appendChild(r);
+  });
+  wrap.appendChild(cb);
+}
+
+/* ---------- catálogo ---------- */
+function renderCatalog(){
+  const wrap = document.getElementById('catalogWrap');
+  wrap.innerHTML = '';
+  Object.keys(CAT).forEach(k => {
+    const c = exerciseCard(k, null);
+    c.dataset.name = (CAT[k].nombre + ' ' + CAT[k].objetivo).toLowerCase();
+    wrap.appendChild(c);
+  });
+  document.getElementById('exSearch').oninput = e => {
+    const q = e.target.value.toLowerCase().trim();
+    [...wrap.children].forEach(c => { c.hidden = q && c.dataset.name.indexOf(q) < 0; });
+  };
+}
+
+/* ---------- cardio ---------- */
+function cardioFigCard(key, title, sub){
+  const c = h('div','card');
+  const row = h('div','pad');
+  row.style.display = 'flex'; row.style.alignItems = 'center'; row.style.gap = '12px';
+  row.appendChild(buildFigure(key, false));
+  const t = h('div');
+  t.appendChild(h('h3', null, title));
+  t.appendChild(h('div','goal', sub)).style.color = 'var(--muted)';
+  row.appendChild(t);
+  c.appendChild(row);
+  return c;
+}
+function renderCardio(){
+  const wrap = document.getElementById('cardioWrap');
+  wrap.innerHTML = '';
+  const C = D.cardio;
+
+  wrap.appendChild(h('div','sec-title', C.cardio_indoor_base.nombre));
+  const g = h('div','card pad');
+  C.cardio_indoor_base.bloque.forEach(b => {
+    const r = h('div','block-row');
+    r.appendChild(h('span', null, b.movimiento));
+    r.appendChild(h('span','t', b.duracion_s + ' s'));
+    g.appendChild(r);
+  });
+  wrap.appendChild(g);
+  const n0 = h('div','note cardio'); n0.textContent = C.cardio_indoor_base.nota; wrap.appendChild(n0);
+
+  wrap.appendChild(h('div','sec-title','Movimientos'));
+  wrap.appendChild(cardioFigCard('marcha','Marcha en el sitio','Base de todo el cardio. Brazos activos.'));
+  wrap.appendChild(cardioFigCard('rodillas','Rodillas alternas','Sin salto. Sube la rodilla a la altura de la cadera.'));
+  wrap.appendChild(cardioFigCard('step_touch','Step-touch lateral','Paso lateral y toque. Bajo impacto.'));
+
+  wrap.appendChild(h('div','sec-title', C.intervalos.nombre));
+  const i = h('div','card pad');
+  i.appendChild(h('div','lbl','Estructura'));
+  i.appendChild(h('div', null, C.intervalos.estructura));
+  i.appendChild(h('div','lbl','Movimientos permitidos'));
+  const ul = h('ul','list');
+  C.intervalos.movimientos_permitidos.forEach(m => ul.appendChild(h('li', null, m)));
+  i.appendChild(ul);
+  wrap.appendChild(i);
+
+  wrap.appendChild(h('div','sec-title', C.saco.nombre));
+  const sc = h('div','card');
+  const row = h('div','pad');
+  row.style.display = 'flex'; row.style.alignItems = 'center'; row.style.gap = '12px';
+  row.appendChild(buildFigure('saco', false));
+  const t = h('div');
+  t.appendChild(h('div','dose', C.saco.formato_inicial));
+  t.appendChild(h('div','goal', C.saco.inicio_sugerido)).style.whiteSpace = 'normal';
+  row.appendChild(t);
+  sc.appendChild(row);
+  wrap.appendChild(sc);
+  const w = h('div','note warn');
+  w.appendChild(h('b', null, 'Restricción'));
+  w.appendChild(document.createTextNode(C.saco.restriccion));
+  wrap.appendChild(w);
+}
+
+/* ---------- guía ---------- */
+function renderGuia(){
+  const wrap = document.getElementById('guiaWrap');
+  wrap.innerHTML = '';
+
+  const w1 = h('div','note warn');
+  w1.appendChild(h('b', null, 'Hombro'));
+  const u1 = document.createElement('ul');
+  D.seguridad.hombro.forEach(x => u1.appendChild(h('li', null, x)));
+  w1.appendChild(u1);
+  wrap.appendChild(h('div','sec-title','Seguridad'));
+  wrap.appendChild(w1);
+  const w2 = h('div','note warn');
+  w2.appendChild(h('b', null, 'Articulaciones'));
+  const u2 = document.createElement('ul');
+  D.seguridad.articulaciones.forEach(x => u2.appendChild(h('li', null, x)));
+  w2.appendChild(u2);
+  wrap.appendChild(w2);
+
+  wrap.appendChild(h('div','sec-title','Principios'));
+  const p = h('div','card pad');
+  const ul = h('ul','list');
+  D.principios.forEach(x => ul.appendChild(h('li', null, x)));
+  p.appendChild(ul);
+  wrap.appendChild(p);
+
+  wrap.appendChild(h('div','sec-title','Progresión'));
+  const pr = h('div','card pad');
+  pr.appendChild(h('div','lbl','Doble progresión'));
+  pr.appendChild(h('div', null, D.progresion.regla_doble_progresion));
+  pr.appendChild(h('div','lbl','Si no hay más peso disponible'));
+  const ul2 = h('ul','list');
+  D.progresion.si_no_hay_mas_peso.forEach(x => ul2.appendChild(h('li', null, x)));
+  pr.appendChild(ul2);
+  pr.appendChild(h('div','lbl','Intensidad'));
+  pr.appendChild(h('div', null, D.progresion.intensidad));
+  wrap.appendChild(pr);
+
+  wrap.appendChild(h('div','sec-title','Seguimiento de peso'));
+  const sg = h('div','card pad');
+  sg.appendChild(h('div', null, D.seguimiento.peso));
+  sg.appendChild(h('div','lbl','Ajuste'));
+  sg.appendChild(h('div', null, D.seguimiento.ajuste));
+  sg.appendChild(h('div','lbl','Señales para reducir carga'));
+  const ul3 = h('ul','list');
+  (D.seguimiento['señales_para_reducir_carga'] || []).forEach(x => ul3.appendChild(h('li', null, x)));
+  sg.appendChild(ul3);
+  wrap.appendChild(sg);
+
+  wrap.appendChild(h('div','sec-title','Perfil y objetivo'));
+  const pf = h('div','card pad');
+  const kv = (k, v) => { const r = h('div','kv'); r.appendChild(h('span', null, k)); r.appendChild(h('b', null, v)); pf.appendChild(r); };
+  kv('Altura', D.perfil.altura_m + ' m');
+  kv('Peso inicial', D.perfil.peso_inicial_kg + ' kg');
+  kv('Peso objetivo', D.perfil.peso_objetivo_kg + ' kg');
+  kv('Duración', D.perfil.duracion_semanas + ' semanas');
+  kv('Sesión', D.perfil.disponibilidad_diaria_min.min + '-' + D.perfil.disponibilidad_diaria_min.max + ' min');
+  kv('Ritmo requerido', D.objetivo.ritmo_medio_requerido_kg_semana + ' kg/semana');
+  pf.appendChild(h('div','lbl','Equipamiento'));
+  const ule = h('ul','list');
+  D.perfil.equipamiento.forEach(x => ule.appendChild(h('li', null, x)));
+  pf.appendChild(ule);
+  pf.appendChild(h('div','lbl','Limitaciones'));
+  const ull = h('ul','list');
+  D.perfil.limitaciones.forEach(x => ull.appendChild(h('li', null, x)));
+  pf.appendChild(ull);
+  wrap.appendChild(pf);
+  const nt = h('div','note warn');
+  nt.appendChild(h('b', null, 'Nota del objetivo'));
+  nt.appendChild(document.createTextNode(D.objetivo.nota));
+  wrap.appendChild(nt);
+}
+
+/* ---------- navegación ---------- */
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-selected', b === btn));
+    document.querySelectorAll('.view').forEach(v => v.hidden = (v.id !== 'view-' + btn.dataset.view));
+    window.scrollTo({top:0});
+  };
+});
+
+const themeBtn = document.getElementById('themeBtn');
+const saved = store.get('rutina-theme');
+if(saved) document.documentElement.setAttribute('data-theme', saved);
+themeBtn.onclick = () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const dark = cur ? cur === 'dark' : !window.matchMedia('(prefers-color-scheme: light)').matches;
+  const next = dark ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  store.set('rutina-theme', next);
+};
+
+document.getElementById('hdrTitle').textContent = D.perfil.peso_inicial_kg + ' → ' + D.perfil.peso_objetivo_kg + ' kg';
+document.getElementById('foot').textContent = D.titulo + ' · ' + D.version;
+renderStrips();
+renderSession();
+renderCatalog();
+renderCardio();
+renderGuia();
+document.querySelectorAll('#weekStrip .pill')[week-1].scrollIntoView({inline:'center', block:'nearest'});
+
+/* Funcionamiento sin conexion cuando se abre desde una URL (GitHub Pages).
+   Se ignora al abrir el archivo directamente con file://. */
+if('serviceWorker' in navigator && location.protocol.indexOf('http') === 0){
+  window.addEventListener('load', function(){
+    navigator.serviceWorker.register('sw.js').catch(function(){});
+  });
+}
+</script>
+</body>
+</html>
