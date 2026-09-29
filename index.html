@@ -133,7 +133,7 @@ h1,h2,h3{margin:0;line-height:1.25;letter-spacing:-.01em}
 .list li:last-child{border-bottom:0}
 .list li:before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--acc);margin-top:8px}
 .list.plain li:before{display:none}
-.kv{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.kv{display:grid;grid-template-columns:minmax(92px,45%) 1fr;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
 .kv:last-child{border-bottom:0}
 .kv span{color:var(--muted)} .kv b{font-weight:650;text-align:right}
 .pad{padding:14px 15px}
@@ -161,6 +161,53 @@ h1,h2,h3{margin:0;line-height:1.25;letter-spacing:-.01em}
 .noscript ol{margin:0;padding-left:20px;font-size:14.5px}
 .noscript li{margin-bottom:5px}
 .noscript b{color:var(--ink)}
+/* ---------- bloques y superseries ---------- */
+.group{border:1px solid color-mix(in srgb,var(--acc) 30%,var(--line));border-radius:var(--r);
+  background:var(--acc-soft);padding:8px;margin-bottom:12px}
+.group .ex{margin-bottom:8px}
+.group .ex:last-child{margin-bottom:0}
+.grouphdr{padding:4px 6px 9px}
+.grouphdr b{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.grouphdr span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+.blocktag{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.enfoque{margin:11px 0 0;font-size:14px;color:var(--muted)}
+.ex .dose.cardio{color:var(--cardio)}
+.tag.hombro-alta{background:var(--warn-soft);color:var(--warn);border-color:transparent}
+.tag.hombro-baja,.tag.hombro-ninguna{background:var(--card2);color:var(--muted)}
+
+/* ---------- paneles plegables (fase, calentamiento) ---------- */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);
+  margin-bottom:12px;overflow:hidden}
+.panel>summary{display:flex;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;list-style:none;min-height:56px}
+.panel>summary::-webkit-details-marker{display:none}
+.panel>summary b{font-size:14.5px;font-weight:650}
+.panel>summary .mini{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.panel>summary>b{flex:1;min-width:0}
+.panel[open] .chev{transform:rotate(90deg)}
+.panel .body{padding:2px 15px 14px;border-top:1px solid var(--line)}
+.panel>summary>*:first-child{flex:1;min-width:0}
+
+/* ---------- fichas de cardio ---------- */
+.phase-row{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.phase-row:last-child{border-bottom:0}
+.phase-row b{flex:none;width:74px;font-size:12.5px;color:var(--muted)}
+.phase-row.on{background:var(--cardio-soft);border-radius:9px;padding:8px;margin:0 -8px}
+.phase-row.on b{color:var(--cardio)}
+.card2box{background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:2px 12px;margin-top:12px}
+
+/* ---------- tabla de proyección ---------- */
+.table{margin-top:4px}
+.trow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:8px 6px;border-bottom:1px solid var(--line);
+  font-size:14px;font-variant-numeric:tabular-nums}
+.trow:last-child{border-bottom:0}
+.trow.th{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.trow.on{background:var(--acc-soft);border-radius:9px}
+.trow span:first-child{color:var(--muted)}
+.change{padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.change:last-child{border-bottom:0}
+.change s{display:block;font-size:13px;color:var(--muted)}
+.small{font-size:12.5px;color:var(--muted);margin-top:10px}
+.list.warn li:before{background:var(--warn)}
 .foot{text-align:center;color:var(--muted);font-size:12px;padding:22px 10px 8px}
 @media (min-width:560px){ .fig{width:104px;height:78px} .ex>summary{min-height:78px} }
 </style>
@@ -229,747 +276,1309 @@ h1,h2,h3{margin:0;line-height:1.25;letter-spacing:-.01em}
 </nav>
 
 <script type="application/json" id="routine-data">{
-  "titulo": "Rutina de 12 semanas en casa - objetivo 81 kg a 70 kg",
-  "version": "1.1 con dos alternativas por ejercicio de fuerza",
+  "titulo": "Rutina de 8 semanas en casa - 5 días, 30-45 min - objetivo 81 kg a 70 kg",
+  "version": "2.0 - 5 días, pecho y espalda 2 veces por semana, protocolo de hombro y saco",
+  "cambios_vs_v1": [
+    {
+      "antes": "6 días de 45-60 min",
+      "ahora": "5 días de 30-45 min con superseries (empuje + tirón)"
+    },
+    {
+      "antes": "Pecho: ningún ejercicio",
+      "ahora": "Pecho 2 veces por semana: floor press, press inclinado bajo, press squeeze, flexiones y aperturas en el suelo, con agarre neutro y rango controlado"
+    },
+    {
+      "antes": "Espalda: un solo remo",
+      "ahora": "Espalda 2 veces por semana con 4 remos distintos + trabajo escapular, y más tirón que empuje para proteger el hombro"
+    },
+    {
+      "antes": "Sin tríceps",
+      "ahora": "Tríceps sin fondos ni extensiones por encima de la cabeza"
+    },
+    {
+      "antes": "Solo mancuernas",
+      "ahora": "Se usan mancuernas, barra y pesa rusa, con un orden por día para cambiar de modo una sola vez"
+    },
+    {
+      "antes": "3-4 días de pierna",
+      "ahora": "2 días de pierna, con trabajo a una pierna para compensar la carga limitada"
+    },
+    {
+      "antes": "Cardio de marcha en el sitio; saco casi sin usar",
+      "ahora": "Saco como cardio real (1 día con puños + 2 días de rodillazos), EMOM con pesa rusa e intervalos"
+    },
+    {
+      "antes": "Hombro: pautas generales",
+      "ahora": "Protocolo de hombro en cada calentamiento; días de carga alta para el hombro separados por 48 h, y progresión solo si el hombro lo tolera"
+    },
+    {
+      "antes": "Sin pautas de alimentación",
+      "ahora": "Objetivos de calorías, proteína y pasos, más una proyección realista"
+    }
+  ],
   "perfil": {
     "altura_m": 1.65,
     "peso_inicial_kg": 81,
     "peso_objetivo_kg": 70,
-    "duracion_semanas": 12,
-    "experiencia_reciente": "Meses de sedentarismo, pero el usuario refiere buena resistencia cardiovascular.",
+    "imc_inicial": 29.8,
+    "duracion_semanas": 8,
+    "dias_entrenamiento_semana": 5,
+    "experiencia_reciente": "Meses de sedentarismo, pero buena resistencia cardiovascular.",
     "disponibilidad_diaria_min": {
       "min": 30,
-      "max": 60
+      "max": 45
     },
     "equipamiento": [
-      "Banco ajustable",
-      "Kit de pesas/mancuernas ajustables de hasta aproximadamente 20 kg",
-      "Saco de boxeo de aproximadamente 100 cm"
+      "Banco ajustable (plano, inclinado y declinado, con soporte de piernas)",
+      "Kit convertible de 20 kg: 2 mancuernas, barra, pesa rusa y asas de flexiones (los discos se comparten entre modos)",
+      "Saco de boxeo de 100 cm con soporte de pared"
     ],
+    "modos_del_kit": {
+      "mancuernas": "Hasta unos 10 kg por mano. Press, remos, aperturas, búlgara, paseos, curl y tríceps.",
+      "barra": "Hasta unos 20 kg. Remo, peso muerto rumano, hip thrust y pantorrillas.",
+      "pesa_rusa": "Carga variable. Sentadilla goblet y swing.",
+      "asas_flexiones": "Agarre neutro para flexiones, solo cuando los discos no están montados en la barra."
+    },
+    "orden_de_modos_por_dia": {
+      "Lunes": "Mancuernas toda la sesión, con la misma carga en las dos (8-10 kg)",
+      "Martes": "Pesa rusa (o una mancuerna) → barra",
+      "Miércoles": "Sin kit (botella de agua para la rotación externa si quieres carga)",
+      "Jueves": "Mancuernas → pesa rusa",
+      "Viernes": "Barra → mancuernas"
+    },
     "limitaciones": [
-      "Antecedente de problema en manguito rotador",
+      "Problema de manguito rotador",
       "Crepitación/chasquidos frecuentes en varias articulaciones"
     ]
   },
   "objetivo": {
     "perdida_total_objetivo_kg": 11,
-    "ritmo_medio_requerido_kg_semana": 0.92,
-    "nota": "Es una meta agresiva y no se puede garantizar. El entrenamiento debe combinarse con alimentación y seguimiento del promedio semanal de peso."
+    "plazo_semanas": 8,
+    "ritmo_requerido_kg_semana": 1.38,
+    "proyeccion_realista": {
+      "ritmo_sostenible_kg_semana": "0,5-0,8",
+      "peso_estimado_semana_8_kg": "73-75,5",
+      "semana_estimada_70_kg": "12 (ritmo bueno) a 19 (ritmo conservador)"
+    },
+    "nota": "Bajar 11 kg en 8 semanas exige unos 1,4 kg por semana, lo que implica un déficit de unas 1.500 kcal diarias. Con ese déficit se pierde músculo, cae el rendimiento y el hombro se recupera peor. Llegar a 73-75,5 kg en 8 semanas es un resultado muy bueno. Si mantienes el plan después de la semana 8, los 70 kg llegan hacia la semana 12 con ritmo bueno, o más adelante (semana 19) con ritmo conservador."
   },
   "principios": [
-    "Fuerza antes del cardio en los días combinados.",
-    "Seis días de actividad y un día de descanso estructurado desde la semana 2.",
-    "No entrenar el mismo grupo muscular pesado todos los días.",
-    "Mantener 2-3 repeticiones en reserva en la mayoría de series.",
-    "Elegir el ejercicio principal o UNA de sus alternativas; no hacer las tres variantes en la misma sesión salvo que esté indicado.",
-    "Todo el cardio se realiza dentro de casa con marcha en sitio, step-touch, desplazamientos y footwork."
+    "Fuerza primero y cardio al final.",
+    "Superseries empuje + tirón: ahorran tiempo y equilibran el hombro.",
+    "Más volumen de tirón (remos) que de empuje (press).",
+    "Agarre neutro en todos los press; nada con carga por encima de la cabeza.",
+    "Días de carga alta para el hombro separados por 48 h: lunes, miércoles y viernes. El jueves la carga es baja (swing corto y paseos).",
+    "Cada día usa los modos del kit en un orden fijo, así solo montas y desmontas discos una vez por sesión.",
+    "Si pierdes un día, no lo acumules: sigue con el siguiente. Prioridad: los 4 días de fuerza.",
+    "Día con poco tiempo (30 min): calentamiento + bloque A + 8-10 min de cardio.",
+    "Si tienes 10 min extra, alarga el cardio o sal a caminar: es el mejor uso del tiempo sobrante."
   ],
   "seguridad": {
     "hombro": [
-      "Evitar press militar, fondos, flexiones exigentes y golpeo máximo mientras exista problema activo del manguito rotador.",
-      "Detener cualquier movimiento que produzca dolor punzante/profundo, debilidad súbita o empeoramiento claro en las 24 horas siguientes.",
-      "La rotación externa se incluye solo si la lesión concreta la tolera o ha sido autorizada por un profesional."
+      "Evitar press militar, fondos, pullover, elevaciones por encima de la cabeza, remo al mentón, ganchos, uppercuts y golpes a máxima potencia.",
+      "Todos los press con agarre neutro, codos a 30-45° y rango controlado.",
+      "Progresar un ejercicio de hombro (press en banco, flexiones, más saco) solo si en las 2 últimas sesiones el dolor fue de 0-2/10 y no empeoró al día siguiente.",
+      "Detener cualquier movimiento que produzca dolor punzante o profundo, debilidad súbita o empeoramiento claro en las 24 h siguientes.",
+      "Una valoración de fisioterapia (1-2 sesiones) confirma qué rangos puedes usar; este plan es conservador por defecto."
+    ],
+    "regla_dolor": {
+      "0-2/10": "Aceptable; continúa.",
+      "3/10": "Precaución: baja la carga o acorta el recorrido.",
+      "4+/10": "Detén el ejercicio y usa su alternativa.",
+      "24_horas": "Si al día siguiente el hombro está peor que antes, reduce a la mitad el volumen de ese ejercicio en la próxima sesión."
+    },
+    "consultar_si": [
+      "Dolor nocturno que te despierta",
+      "Pérdida de fuerza al levantar el brazo",
+      "Dolor mayor de 4/10 que no cede en 48 h",
+      "Hormigueo, inflamación, bloqueo o inestabilidad articular"
     ],
     "articulaciones": [
       "Los chasquidos sin dolor no implican necesariamente daño.",
-      "Consultar si aparecen inflamación, bloqueo, inestabilidad, dolor persistente, hormigueo o pérdida de fuerza."
+      "Consulta si aparecen inflamación, bloqueo, inestabilidad, dolor persistente, hormigueo o pérdida de fuerza."
     ]
   },
+  "calentamiento_estandar": {
+    "duracion_min": "5-7",
+    "movimientos": [
+      {
+        "movimiento": "Marcha en el sitio + step-touch lateral",
+        "cantidad": "60 s"
+      },
+      {
+        "movimiento": "Sentadilla al banco sin peso",
+        "cantidad": "10 repeticiones"
+      },
+      {
+        "movimiento": "Bisagra de cadera sin peso",
+        "cantidad": "10 repeticiones"
+      },
+      {
+        "movimiento": "Retracción escapular contra pared",
+        "cantidad": "10 repeticiones"
+      },
+      {
+        "movimiento": "Flexión escapular (serrato) en pared",
+        "cantidad": "10 repeticiones"
+      },
+      {
+        "movimiento": "Rotación externa isométrica contra el marco de una puerta",
+        "cantidad": "2 x 15 s por lado"
+      },
+      {
+        "movimiento": "Círculos de brazo pequeños por debajo de la altura del hombro",
+        "cantidad": "20 s"
+      },
+      {
+        "movimiento": "Serie de aproximación del primer ejercicio (50% de la carga)",
+        "cantidad": "1 x 10-12"
+      }
+    ]
+  },
+  "estructura_sesion": [
+    {
+      "parte": "Calentamiento + protocolo de hombro",
+      "min": "5-7"
+    },
+    {
+      "parte": "Fuerza en superseries (incluye cambios de modo del kit)",
+      "min": "16-29"
+    },
+    {
+      "parte": "Cardio o finisher",
+      "min": "8-12"
+    }
+  ],
+  "modelo_de_tiempo": "Estimación con 3 s por repetición (4-5 s con pausa o bajada lenta), 15 s de transición dentro de cada superserie, descanso tras cada pareja (67/60/50 s según la fase), 6 min de calentamiento y 1,5 min por cambio de modo del kit.",
   "catalogo_ejercicios_fuerza": {
+    "floor_press": {
+      "nombre": "Floor press con mancuernas (agarre neutro)",
+      "grupo": "Pecho",
+      "objetivo": "Pecho y tríceps con el rango más protegido para el hombro: el suelo frena el codo antes de la zona de riesgo.",
+      "series_reps_base": "3-4 x 10-12",
+      "carga_orientativa": "6-8 kg por mano al inicio; hasta 10 kg",
+      "tecnica": [
+        "Acostado en el suelo, rodillas flexionadas y pies apoyados.",
+        "Palmas enfrentadas (agarre neutro); codos a 30-45° del torso, nunca en forma de T.",
+        "Baja hasta que el tríceps toque suavemente el suelo, pausa 1 s y sube sin rebotar.",
+        "Omóplatos juntos y hacia abajo durante toda la serie."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Flexiones inclinadas con manos en el banco",
+          "como": "Cuanto más alto el apoyo, más fácil. Codos a 45° y cuerpo en bloque."
+        },
+        {
+          "nombre": "Press squeeze en el suelo",
+          "como": "Mancuernas juntas y apretadas entre sí; es la versión con menos tensión para el hombro."
+        }
+      ]
+    },
+    "incline_db_press": {
+      "nombre": "Press con mancuernas en banco inclinado bajo (15-30°)",
+      "grupo": "Pecho",
+      "objetivo": "Pecho (sobre todo la parte alta), tríceps y deltoide anterior sin llevar el brazo por encima de la cabeza.",
+      "series_reps_base": "4 x 8-12",
+      "carga_orientativa": "8-10 kg por mano",
+      "tecnica": [
+        "Respaldo a 15-30°; usa 30° para compartir ángulo con el remo del bloque A.",
+        "Agarre neutro o a 45° (semi-neutro); codos a 30-45° del torso.",
+        "Baja hasta que el brazo quede a la altura del banco (paralelo al suelo); más profundo solo tras 2 semanas sin molestias.",
+        "Omóplatos atrás y abajo; exhala al subir y no choques las mancuernas arriba."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Press en banco plano con agarre neutro",
+          "como": "Mismo gesto con el banco plano si la inclinación molesta en el hombro."
+        },
+        {
+          "nombre": "Floor press con mancuernas",
+          "como": "Vuelve a la versión en el suelo cualquier semana en que el hombro esté sensible."
+        }
+      ]
+    },
+    "squeeze_press": {
+      "nombre": "Press squeeze (mancuernas juntas) en banco plano",
+      "grupo": "Pecho",
+      "objetivo": "Pecho y tríceps con tensión constante; uno de los press más amables para el manguito rotador.",
+      "series_reps_base": "3 x 12-15",
+      "carga_orientativa": "Las mismas mancuernas del lunes (8-10 kg); ajusta con repeticiones",
+      "tecnica": [
+        "Junta las mancuernas a la altura del pecho y apriétalas entre sí todo el recorrido.",
+        "Codos pegados al cuerpo.",
+        "Baja hasta rozar la parte baja del pecho y sube empujando sin dejar de apretar.",
+        "Ritmo controlado: 2 s abajo, 1 s arriba."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Press squeeze en el suelo",
+          "como": "Si el banco plano molesta, haz el mismo gesto acostado en el suelo."
+        },
+        {
+          "nombre": "Flexiones inclinadas con agarre cerrado",
+          "como": "Manos en el banco, algo más juntas que los hombros y codos pegados."
+        }
+      ]
+    },
+    "pushup_handles": {
+      "nombre": "Flexiones (sobre las asas del kit o en el suelo)",
+      "grupo": "Pecho",
+      "objetivo": "Pecho, tríceps, serrato y core. Con tu peso corporal es el estímulo de pecho más pesado que tienes en casa.",
+      "series_reps_base": "3-4 x 6-15 (terminando a 2 repeticiones del fallo)",
+      "carga_orientativa": "Peso corporal. Progresión: inclinadas en el banco → rodillas → completas",
+      "tecnica": [
+        "Asas debajo de los hombros con palmas enfrentadas; si la barra tiene montados los discos, hazlas en el suelo con las manos un poco giradas hacia fuera.",
+        "Cuerpo en bloque: glúteos y abdomen apretados.",
+        "Codos a 30-45° (forma de flecha, no de T).",
+        "Con asas, baja solo hasta que el pecho quede a su altura; no te hundas más.",
+        "Arriba, empuja un poco más para separar los omóplatos (push-up plus)."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Flexiones inclinadas con manos en el banco",
+          "como": "Versión más ligera; úsala en la fase 1 o si el hombro está sensible."
+        },
+        {
+          "nombre": "Floor press con mancuernas",
+          "como": "Sustituto directo si apoyar peso en las manos molesta."
+        }
+      ]
+    },
+    "floor_fly": {
+      "nombre": "Aperturas en el suelo",
+      "grupo": "Pecho",
+      "objetivo": "Pecho con estiramiento controlado; el suelo limita el recorrido y protege el hombro.",
+      "series_reps_base": "3 x 12-15",
+      "carga_orientativa": "3-5 kg por mano",
+      "tecnica": [
+        "Acostado en el suelo, mancuernas arriba con palmas enfrentadas.",
+        "Brazos a 45-60° del torso al abrir (nunca en T); codos ligeramente flexionados y fijos.",
+        "Abre hasta que el tríceps se apoye en el suelo; cualquier pausa se hace con el brazo apoyado, no suspendido.",
+        "Cierra como si abrazaras un árbol, apretando el pecho."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Press squeeze en banco plano",
+          "como": "Si la apertura genera tensión en la parte delantera del hombro."
+        },
+        {
+          "nombre": "Flexiones inclinadas con pausa",
+          "como": "Manos en el banco y 2 s de pausa abajo."
+        }
+      ]
+    },
+    "chest_supported_row": {
+      "nombre": "Remo con pecho apoyado en banco inclinado",
+      "grupo": "Espalda",
+      "objetivo": "Dorsal, romboides y trapecio medio sin cargar la zona lumbar.",
+      "series_reps_base": "3-4 x 10-12",
+      "carga_orientativa": "8-10 kg por mano (las mismas del press)",
+      "tecnica": [
+        "Respaldo a unos 30° (el mismo del press), pecho apoyado y pies firmes en el suelo.",
+        "Agarre neutro; brazos colgando al empezar.",
+        "Lleva los codos hacia la cadera y junta los omóplatos; pausa 1 s arriba.",
+        "Baja controlado sin dejar que el hombro se vaya hacia delante."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Remo unilateral apoyado en banco",
+          "como": "Una mano y una rodilla en el banco; permite más carga por brazo."
+        },
+        {
+          "nombre": "Remo de rango corto",
+          "como": "Si el hombro molesta al final del recorrido, acórtalo y baja la carga."
+        }
+      ]
+    },
+    "supported_row": {
+      "nombre": "Remo unilateral apoyado en banco",
+      "grupo": "Espalda",
+      "objetivo": "Dorsal y espalda media con la carga más alta del plan para el tren superior.",
+      "series_reps_base": "3 x 10-12 por lado",
+      "carga_orientativa": "Una de las mancuernas del lunes (8-10 kg); progresa con repeticiones y bajada lenta",
+      "tecnica": [
+        "Mano y rodilla del mismo lado en el banco; espalda plana.",
+        "Agarre neutro; codo cerca del torso.",
+        "Lleva la mancuerna hacia la cadera, no hacia el hombro.",
+        "No encojas el hombro hacia la oreja."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Remo con pecho apoyado en banco inclinado",
+          "como": "Si la zona lumbar se cansa o quieres más estabilidad."
+        },
+        {
+          "nombre": "Remo unilateral de rango corto",
+          "como": "Mismo apoyo, menos recorrido y menos carga para mantener el hombro sin dolor."
+        }
+      ]
+    },
+    "barbell_row": {
+      "nombre": "Remo inclinado con la barra del kit (agarre supino)",
+      "grupo": "Espalda",
+      "objetivo": "Espalda completa y bíceps; con las palmas hacia arriba el hombro trabaja más cómodo.",
+      "series_reps_base": "3-4 x 10-12",
+      "carga_orientativa": "15-20 kg (barra completa)",
+      "tecnica": [
+        "Pies a la anchura de la cadera, rodillas flexionadas y torso inclinado a unos 45°.",
+        "Espalda neutra y abdomen firme.",
+        "Palmas hacia arriba, manos a la anchura de los hombros.",
+        "Lleva la barra hacia el ombligo, pausa 1 s y baja controlado; sin tirones."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Remo con pecho apoyado en banco inclinado",
+          "como": "Si se cansa la zona lumbar o quieres aislar la espalda."
+        },
+        {
+          "nombre": "Remo con barra y agarre prono",
+          "como": "Palmas hacia abajo; trabaja más la espalda alta. Solo si el hombro está cómodo."
+        }
+      ]
+    },
+    "upper_back_row": {
+      "nombre": "Remo con codos abiertos apoyado (espalda alta)",
+      "grupo": "Espalda",
+      "objetivo": "Trapecio medio, romboides y deltoide posterior: la musculatura que mantiene el hombro bien colocado.",
+      "series_reps_base": "3 x 12-15",
+      "carga_orientativa": "4-6 kg por mano",
+      "tecnica": [
+        "Pecho apoyado en el banco inclinado; palmas mirando hacia los pies.",
+        "Codos abiertos a unos 45-60° del torso, nunca a 90°.",
+        "Lleva los codos atrás solo hasta la línea del cuerpo.",
+        "Pausa 1 s juntando omóplatos."
+      ],
+      "alternativas": [
+        {
+          "nombre": "T boca abajo en banco inclinado",
+          "como": "Misma zona con menos carga; útil si el remo abierto molesta."
+        },
+        {
+          "nombre": "Retracción escapular boca abajo",
+          "como": "Solo juntar y soltar omóplatos, sin doblar codos."
+        }
+      ]
+    },
+    "prone_t": {
+      "nombre": "T boca abajo en banco inclinado (pulgares arriba)",
+      "grupo": "Hombro / manguito",
+      "objetivo": "Trapecio medio, romboides, deltoide posterior y manguito rotador.",
+      "series_reps_base": "2-3 x 12-15",
+      "carga_orientativa": "Sin peso o 0,5-2 kg (una botella de agua sirve)",
+      "tecnica": [
+        "Pecho apoyado en el banco inclinado, brazos colgando.",
+        "Pulgares hacia el techo.",
+        "Abre los brazos a los lados hasta la línea del torso y pausa 2 s.",
+        "Si molesta, reduce el recorrido; nunca por encima de la altura del hombro."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Retracción escapular boca abajo",
+          "como": "Solo juntar omóplatos, sin mover los brazos."
+        },
+        {
+          "nombre": "Rotación externa isométrica contra pared",
+          "como": "Codo pegado al cuerpo; empuja el dorso de la mano contra el marco de una puerta 15-20 s."
+        }
+      ]
+    },
+    "external_rotation": {
+      "nombre": "Rotación externa de hombro acostado de lado",
+      "grupo": "Hombro / manguito",
+      "objetivo": "Manguito rotador (infraespinoso y redondo menor). Es el ejercicio de mantenimiento del hombro.",
+      "series_reps_base": "2-3 x 12-15 por lado",
+      "carga_orientativa": "Sin peso o 0,5-1 kg",
+      "tecnica": [
+        "Acostado sobre el lado contrario, toalla enrollada entre el codo y el costado.",
+        "Codo a 90° pegado al cuerpo.",
+        "Gira el antebrazo hacia el techo en 2 s y baja en 3 s.",
+        "Rango sin dolor; nunca debe provocar pinchazo."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Rotación externa isométrica contra pared",
+          "como": "Codo pegado; empuja el dorso de la mano contra el marco de una puerta 15-20 s."
+        },
+        {
+          "nombre": "Rotación externa isométrica con tu otra mano",
+          "como": "De pie, codo a 90°: tu otra mano frena el giro hacia fuera durante 15-20 s."
+        }
+      ]
+    },
+    "scapular_retraction": {
+      "nombre": "Retracción escapular",
+      "grupo": "Hombro / manguito",
+      "objetivo": "Control de las escápulas y musculatura media de la espalda.",
+      "series_reps_base": "2-3 x 12-15",
+      "carga_orientativa": "Sin peso",
+      "tecnica": [
+        "Lleva suavemente los omóplatos hacia atrás y abajo.",
+        "No saques el pecho de forma exagerada.",
+        "No encojas los hombros.",
+        "Movimiento sin dolor."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Retracción escapular contra pared",
+          "como": "Espalda contra la pared; omóplatos atrás y abajo sin despegar las costillas."
+        },
+        {
+          "nombre": "Retracción escapular boca abajo en banco inclinado",
+          "como": "Brazos relajados; junta suavemente los omóplatos y suelta."
+        }
+      ]
+    },
+    "scapular_pushup": {
+      "nombre": "Flexión escapular (serrato) en pared o banco",
+      "grupo": "Hombro / manguito",
+      "objetivo": "Serrato anterior: estabiliza la escápula y protege el manguito al empujar y al golpear.",
+      "series_reps_base": "2 x 10-12",
+      "carga_orientativa": "Peso corporal",
+      "tecnica": [
+        "Manos en la pared o en el banco, brazos estirados.",
+        "Sin doblar los codos, deja que los omóplatos se junten.",
+        "Empuja la pared o el banco para separarlos al máximo.",
+        "Movimiento lento y corto."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Versión en pared",
+          "como": "La más suave; úsala si el hombro está sensible."
+        },
+        {
+          "nombre": "Versión en rodillas en el suelo",
+          "como": "Más exigente; solo si la pared resulta muy fácil."
+        }
+      ]
+    },
     "goblet_squat": {
-      "nombre": "Sentadilla goblet",
+      "nombre": "Sentadilla goblet (pesa rusa o una mancuerna)",
+      "grupo": "Pierna",
       "objetivo": "Cuádriceps, glúteos y tronco.",
       "series_reps_base": "3-4 x 10-12",
+      "carga_orientativa": "10-16 kg",
       "tecnica": [
-        "Pesa pegada al pecho.",
+        "Pesa pegada al pecho (pesa rusa por los lados del asa o mancuerna en vertical).",
         "Pies estables y rodillas siguiendo la dirección de los pies.",
-        "Baja solo hasta mantener control y postura.",
+        "Baja solo hasta donde mantengas control y espalda neutra.",
         "Sube empujando el suelo, sin rebotes."
       ],
       "alternativas": [
         {
           "nombre": "Sentadilla al banco",
-          "como": "Toca suavemente el banco con los glúteos y vuelve a subir. Muy útil para controlar profundidad."
+          "como": "Toca suavemente el banco con los glúteos y vuelve a subir; controla la profundidad."
         },
         {
-          "nombre": "Split squat asistido",
-          "como": "Posición dividida, apoyo ligero en el banco para equilibrio; baja verticalmente y cambia de pierna."
+          "nombre": "Sentadilla goblet con pausa",
+          "como": "2 s abajo; aumenta la dificultad sin más peso."
         }
       ]
     },
     "romanian_deadlift": {
-      "nombre": "Peso muerto rumano con mancuernas",
+      "nombre": "Peso muerto rumano con la barra del kit",
+      "grupo": "Pierna",
       "objetivo": "Glúteos, isquiotibiales y cadena posterior.",
       "series_reps_base": "3-4 x 10-12",
+      "carga_orientativa": "20 kg (barra completa)",
       "tecnica": [
         "Rodillas ligeramente flexionadas.",
-        "Lleva la cadera hacia atrás.",
-        "Mancuernas cerca de las piernas.",
-        "Espalda neutra; sube contrayendo glúteos."
+        "Lleva la cadera hacia atrás con la barra rozando los muslos.",
+        "Espalda neutra; baja hasta sentir tensión detrás de los muslos.",
+        "Sube contrayendo glúteos, sin echar el tronco hacia atrás."
       ],
       "alternativas": [
         {
-          "nombre": "Bisagra de cadera lenta sin peso",
-          "como": "Practica el patrón con 3 segundos de descenso antes de aumentar carga."
+          "nombre": "Peso muerto rumano con mancuernas",
+          "como": "Mismo patrón con una mancuerna en cada mano."
         },
         {
-          "nombre": "Peso muerto rumano a una pierna asistido",
-          "como": "Una mano en el banco, una pierna de apoyo y carga ligera. Mantén pelvis estable."
+          "nombre": "Bisagra de cadera lenta",
+          "como": "Sin peso o muy ligera, 3-4 s de bajada, para aprender el patrón."
         }
       ]
     },
     "hip_thrust": {
-      "nombre": "Hip thrust en banco",
+      "nombre": "Hip thrust en banco con la barra del kit",
+      "grupo": "Pierna",
       "objetivo": "Glúteos y extensión de cadera.",
       "series_reps_base": "3-4 x 12-15",
+      "carga_orientativa": "20 kg de barra + toalla doblada sobre la cadera",
       "tecnica": [
         "Apoya la parte alta de la espalda en el banco.",
-        "Peso centrado sobre la pelvis.",
+        "Barra centrada sobre la pelvis, con toalla.",
         "Sube hasta alinear tronco y muslos.",
-        "Pausa 1-2 segundos arriba sin hiperextender la zona lumbar."
+        "Pausa 1-2 s arriba sin arquear la zona lumbar."
       ],
       "alternativas": [
         {
           "nombre": "Puente de glúteos en el suelo",
-          "como": "Mismo patrón con espalda completa apoyada; puede hacerse con o sin peso."
+          "como": "Mismo patrón con la espalda completa apoyada."
         },
         {
-          "nombre": "Puente de glúteos a una pierna",
-          "como": "Sin carga o con carga muy ligera. Mantén la pelvis nivelada y alterna lados."
-        }
-      ]
-    },
-    "reverse_lunge": {
-      "nombre": "Zancada hacia atrás",
-      "objetivo": "Cuádriceps, glúteos y estabilidad unilateral.",
-      "series_reps_base": "3 x 8-10 por pierna",
-      "tecnica": [
-        "Da un paso hacia atrás, no hacia adelante.",
-        "Tronco estable.",
-        "Rodilla delantera sigue la línea del pie.",
-        "Usa el banco para equilibrio si lo necesitas."
-      ],
-      "alternativas": [
-        {
-          "nombre": "Split squat asistido",
-          "como": "Mantén los pies fijos y baja verticalmente. Reduce la exigencia de coordinación."
-        },
-        {
-          "nombre": "Sentadilla goblet con postura escalonada",
-          "como": "Un pie ligeramente atrasado; la mayor carga queda en la pierna delantera."
+          "nombre": "Hip thrust con una mancuerna",
+          "como": "Si la barra es incómoda sobre la cadera."
         }
       ]
     },
     "calf_raise": {
       "nombre": "Elevación de pantorrillas",
+      "grupo": "Pierna",
       "objetivo": "Gemelos y sóleo.",
       "series_reps_base": "3 x 15-20",
+      "carga_orientativa": "La barra sostenida a la altura de la cadera, o peso corporal",
       "tecnica": [
         "Sube sobre la punta de los pies.",
-        "Pausa arriba.",
+        "Pausa 1 s arriba.",
         "Baja controlado.",
         "Sujétate del banco si hace falta."
       ],
       "alternativas": [
         {
           "nombre": "Elevación de pantorrilla sentado",
-          "como": "Sentado en el banco con peso sobre los muslos, eleva los talones."
+          "como": "Sentado en el banco con peso sobre los muslos."
         },
         {
           "nombre": "Elevación de pantorrilla a una pierna asistida",
-          "como": "Una mano en el banco, una pierna a la vez y rango controlado."
+          "como": "Una mano en el banco, una pierna a la vez."
         }
       ]
     },
-    "supported_row": {
-      "nombre": "Remo unilateral apoyado en banco",
-      "objetivo": "Espalda y musculatura escapular.",
-      "series_reps_base": "3-4 x 10-12 por lado",
+    "bulgarian_split_squat": {
+      "nombre": "Sentadilla búlgara (pie trasero en el banco)",
+      "grupo": "Pierna",
+      "objetivo": "Cuádriceps y glúteos. Con carga limitada (20 kg) es el ejercicio de pierna que más exige.",
+      "series_reps_base": "3-4 x 8-10 por lado",
+      "carga_orientativa": "Peso corporal → 2 x 5-10 kg",
       "tecnica": [
-        "Apoya la mano libre en el banco.",
-        "Agarre neutro.",
-        "Codo relativamente cerca del torso.",
-        "No eleves el hombro hacia la oreja.",
-        "Detén el ejercicio si aparece dolor punzante o profundo en el hombro."
+        "Empeine del pie trasero apoyado en el banco plano.",
+        "Pie delantero lo bastante adelantado para bajar vertical.",
+        "Baja controlado hasta que la rodilla trasera se acerque al suelo.",
+        "Tronco ligeramente inclinado hacia delante; sube empujando con el talón delantero."
       ],
       "alternativas": [
         {
-          "nombre": "Remo con pecho apoyado en banco inclinado",
-          "como": "Acuéstate boca abajo sobre el banco inclinado y rema con carga ligera, agarre neutro y rango cómodo."
+          "nombre": "Split squat asistido",
+          "como": "Pie trasero en el suelo y una mano en la pared para equilibrio."
         },
         {
-          "nombre": "Remo unilateral de rango corto",
-          "como": "Mismo apoyo en banco, pero reduce el recorrido y la carga para mantener el hombro indoloro."
+          "nombre": "Zancada hacia atrás",
+          "como": "Paso atrás y vuelta; usa el banco para apoyarte si lo necesitas."
         }
       ]
     },
-    "biceps_curl": {
-      "nombre": "Curl de bíceps",
-      "objetivo": "Bíceps y flexores del codo.",
-      "series_reps_base": "3 x 10-15",
+    "single_leg_rdl": {
+      "nombre": "Peso muerto rumano a una pierna asistido",
+      "grupo": "Pierna",
+      "objetivo": "Glúteo e isquiotibial de cada pierna por separado; multiplica el efecto de la poca carga.",
+      "series_reps_base": "3 x 10 por lado",
+      "carga_orientativa": "Una mancuerna de 6-10 kg en la mano contraria a la pierna de apoyo",
       "tecnica": [
-        "Codos cerca del torso.",
-        "No balancees el cuerpo.",
-        "Sube y baja controlado.",
-        "Mantén hombros relajados."
+        "Mano libre apoyada en el banco o la pared.",
+        "Rodilla de apoyo levemente flexionada.",
+        "Lleva la cadera atrás mientras la pierna libre se estira hacia atrás.",
+        "Pelvis nivelada: no abras la cadera hacia un lado."
       ],
       "alternativas": [
         {
-          "nombre": "Curl de concentración",
-          "como": "Sentado, apoya el brazo contra la cara interna del muslo y trabaja un lado a la vez."
+          "nombre": "Peso muerto rumano con barra y bajada de 4 s",
+          "como": "Dos piernas, pero con tempo lento."
         },
         {
-          "nombre": "Curl martillo",
-          "como": "Palmas enfrentadas durante todo el movimiento; suele ser cómodo para muñeca y hombro."
+          "nombre": "Puente de glúteos a una pierna",
+          "como": "Si el equilibrio o la zona lumbar no lo toleran."
+        }
+      ]
+    },
+    "single_leg_hip_thrust": {
+      "nombre": "Hip thrust a una pierna en banco",
+      "grupo": "Pierna",
+      "objetivo": "Glúteo mayor y medio de forma unilateral.",
+      "series_reps_base": "3 x 10-12 por lado",
+      "carga_orientativa": "Peso corporal → mancuerna sobre la cadera",
+      "tecnica": [
+        "Espalda alta en el banco, una pierna apoyada y la otra en el aire.",
+        "Sube hasta alinear tronco y muslo.",
+        "Pausa 1-2 s arriba.",
+        "Pelvis nivelada durante todo el recorrido."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Puente de glúteos a una pierna en el suelo",
+          "como": "Menos recorrido y más estable."
+        },
+        {
+          "nombre": "Hip thrust a dos piernas con pausa de 3 s",
+          "como": "Si una pierna aún es demasiado."
+        }
+      ]
+    },
+    "kb_swing": {
+      "nombre": "Swing con pesa rusa (corto, hasta el ombligo)",
+      "grupo": "Pierna / acondicionamiento",
+      "objetivo": "Glúteos, isquiotibiales y corazón a la vez: es el ejercicio con más gasto por minuto del plan.",
+      "series_reps_base": "Bloques de 10-15 repeticiones (EMOM)",
+      "carga_orientativa": "8-12 kg; no pases de 12 kg hasta llevar 3 semanas sin molestias de hombro",
+      "tecnica": [
+        "Es una bisagra de cadera, no una sentadilla.",
+        "La pesa pasa entre los muslos y la cadera la proyecta con un golpe seco.",
+        "Los brazos son cuerdas: no levantan la pesa.",
+        "Sube solo hasta la altura del ombligo (máximo pecho bajo); nunca por encima.",
+        "Arriba: glúteos apretados y cuerpo recto, sin arquear la espalda.",
+        "Antes de cada EMOM, revisa y aprieta el cierre de los discos de la pesa rusa."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Peso muerto con pesa rusa",
+          "como": "Mismo patrón sin balanceo; úsalo hasta dominar la bisagra o si el hombro molesta."
+        },
+        {
+          "nombre": "Puente de glúteos rápido",
+          "como": "15-20 repeticiones explosivas si no hay espacio para balancear."
+        }
+      ]
+    },
+    "farmer_carry": {
+      "nombre": "Paseo del granjero",
+      "grupo": "Core / agarre",
+      "objetivo": "Agarre, trapecio, core y estabilidad del hombro.",
+      "series_reps_base": "3 x 30-45 s",
+      "carga_orientativa": "2 x 10 kg",
+      "tecnica": [
+        "Una mancuerna en cada mano.",
+        "Hombros atrás y lejos de las orejas.",
+        "Camina con pasos cortos por la casa, tronco alto.",
+        "Que las mancuernas no se balanceen."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Paseo de maleta",
+          "como": "Una sola mancuerna; más trabajo de core lateral."
+        },
+        {
+          "nombre": "Sostén estático de pie",
+          "como": "Si no hay espacio para caminar, mantén la posición quieto."
         }
       ]
     },
     "hammer_curl": {
-      "nombre": "Curl martillo",
-      "objetivo": "Braquial, braquiorradial y bíceps.",
+      "nombre": "Curl martillo con mancuernas",
+      "grupo": "Brazos",
+      "objetivo": "Bíceps, braquial y braquiorradial; cómodo para codo y hombro.",
       "series_reps_base": "3 x 10-12",
+      "carga_orientativa": "Las mismas mancuernas del bloque (6-10 kg)",
       "tecnica": [
-        "Palmas enfrentadas.",
-        "Codos quietos.",
-        "Evita encoger hombros.",
-        "Controla el descenso."
+        "Palmas enfrentadas todo el recorrido.",
+        "Codos pegados al torso y quietos.",
+        "Sube en 1 s y baja en 2-3 s.",
+        "No encojas los hombros ni balancees el cuerpo."
       ],
       "alternativas": [
         {
-          "nombre": "Curl martillo sentado",
-          "como": "Hazlo sentado en el banco para reducir balanceo del tronco."
+          "nombre": "Curl de bíceps con mancuernas",
+          "como": "Palmas hacia arriba; más bíceps."
         },
         {
-          "nombre": "Curl martillo cruzado",
-          "como": "Lleva la mancuerna hacia el hombro contrario sin rotar el tronco."
+          "nombre": "Curl de concentración",
+          "como": "Sentado, brazo apoyado en la cara interna del muslo."
         }
       ]
     },
-    "scapular_retraction": {
-      "nombre": "Retracción escapular",
-      "objetivo": "Control de escápulas y musculatura media de la espalda.",
-      "series_reps_base": "2-3 x 12-15",
+    "lying_triceps_extension": {
+      "nombre": "Extensión de tríceps acostado con mancuernas (agarre neutro)",
+      "grupo": "Brazos",
+      "objetivo": "Tríceps sin llevar el brazo por encima de la cabeza ni hacer fondos.",
+      "series_reps_base": "3 x 10-12",
+      "carga_orientativa": "4-6 kg por mano",
       "tecnica": [
-        "Lleva suavemente los omóplatos hacia atrás y abajo.",
-        "No saques el pecho de forma exagerada.",
-        "No encogas hombros.",
-        "Movimiento sin dolor."
+        "Acostado en el banco plano, brazos verticales y palmas enfrentadas.",
+        "Flexiona solo los codos, llevando las mancuernas junto a las orejas.",
+        "Los codos apuntan al techo todo el tiempo.",
+        "Sube sin bloquear los codos de golpe."
       ],
       "alternativas": [
         {
-          "nombre": "Retracción escapular contra pared",
-          "como": "Espalda contra la pared; lleva omóplatos atrás y abajo sin despegar costillas."
+          "nombre": "Patada de tríceps apoyado en banco",
+          "como": "Una mano y una rodilla en el banco; extiende el codo hacia atrás."
         },
         {
-          "nombre": "Retracción escapular boca abajo en banco inclinado",
-          "como": "Sin peso, brazos relajados; junta suavemente los omóplatos y suelta."
-        }
-      ]
-    },
-    "external_rotation": {
-      "nombre": "Rotación externa de hombro muy ligera",
-      "objetivo": "Manguito rotador, solo si es tolerada y está permitida para la lesión concreta.",
-      "series_reps_base": "2 x 10-15",
-      "tecnica": [
-        "Carga mínima.",
-        "Codo pegado al cuerpo.",
-        "Rango corto y cómodo.",
-        "No realizar si genera dolor, pinchazo o empeoramiento posterior."
-      ],
-      "alternativas": [
-        {
-          "nombre": "Rotación externa isométrica contra pared",
-          "como": "Con codo pegado al cuerpo, empuja el dorso de la mano contra la pared 15-20 segundos sin mover el brazo."
-        },
-        {
-          "nombre": "Rotación externa acostado de lado",
-          "como": "Con peso muy ligero o sin peso, codo pegado al cuerpo y movimiento lento dentro de rango indoloro."
+          "nombre": "Press cerrado en el suelo",
+          "como": "Mancuernas juntas, codos pegados; trabaja tríceps y pecho."
         }
       ]
     },
     "dead_bug": {
       "nombre": "Dead bug",
-      "objetivo": "Control lumbo-pélvico y core.",
+      "grupo": "Core",
+      "objetivo": "Control lumbopélvico y core.",
       "series_reps_base": "3 x 8-10 por lado",
+      "carga_orientativa": "Peso corporal",
       "tecnica": [
-        "Espalda baja estable.",
-        "Mueve extremidades lentamente.",
+        "Zona lumbar pegada al suelo.",
+        "Mueve brazo y pierna contrarios lentamente; el brazo solo hasta la altura de la oreja o menos si molesta.",
         "Exhala durante la extensión.",
-        "Reduce rango si la zona lumbar se arquea."
+        "Reduce el rango si la zona lumbar se arquea."
       ],
       "alternativas": [
         {
           "nombre": "Heel taps",
-          "como": "Desde posición supina con rodillas flexionadas, baja un talón al suelo de forma alternada."
+          "como": "Rodillas a 90°; baja un talón al suelo de forma alterna."
         },
         {
-          "nombre": "Bird dog",
-          "como": "En cuatro apoyos, extiende brazo y pierna contrarios; si el hombro molesta, mueve solo las piernas."
+          "nombre": "Dead bug solo con piernas",
+          "como": "Versión por defecto en la fase 1 si el hombro está sensible."
         }
       ]
     },
     "bird_dog": {
       "nombre": "Bird dog",
+      "grupo": "Core",
       "objetivo": "Core, estabilidad de columna y coordinación.",
       "series_reps_base": "3 x 8 por lado",
+      "carga_orientativa": "Peso corporal",
       "tecnica": [
         "Columna neutra.",
         "Evita girar la pelvis.",
-        "Extiende de forma lenta.",
-        "Si apoyar peso en el hombro molesta, usa otra opción de core."
+        "Extiende brazo y pierna contrarios lentamente; el brazo solo hasta la altura del hombro. Pausa 2 s.",
+        "Si apoyar peso en el hombro molesta, usa una alternativa."
       ],
       "alternativas": [
         {
           "nombre": "Dead bug",
-          "como": "Opción en el suelo que descarga los hombros y permite trabajar control lumbo-pélvico."
+          "como": "Opción en el suelo que descarga los hombros."
         },
         {
-          "nombre": "Heel taps",
-          "como": "Alterna talones al suelo manteniendo abdomen activo y espalda estable."
+          "nombre": "Bird dog solo con piernas",
+          "como": "Mueve solo las piernas y mantén ambas manos apoyadas."
         }
       ]
     },
-    "mcgill_curlup": {
-      "nombre": "McGill curl-up modificado",
-      "objetivo": "Resistencia del core con baja flexión repetitiva de columna.",
-      "series_reps_base": "3 x 6-8, sosteniendo 5 s",
+    "reverse_crunch": {
+      "nombre": "Crunch inverso en banco",
+      "grupo": "Core",
+      "objetivo": "Abdomen inferior sin tirar del cuello ni cargar el hombro.",
+      "series_reps_base": "3 x 10-12",
+      "carga_orientativa": "Peso corporal",
       "tecnica": [
-        "Una pierna flexionada y otra extendida.",
-        "Mantén la zona lumbar neutra.",
-        "Eleva ligeramente cabeza y hombros.",
-        "No conviertas el movimiento en un abdominal completo."
+        "Acostado en el banco plano; sujeta los lados del banco a la altura de la cadera (no por encima de la cabeza).",
+        "Rodillas a 90°.",
+        "Enrolla la pelvis llevando las rodillas hacia el pecho.",
+        "Baja en 3 s sin arquear la espalda."
       ],
       "alternativas": [
         {
-          "nombre": "Dead bug",
-          "como": "Mantiene trabajo del core con columna apoyada y control de extremidades."
+          "nombre": "Heel taps",
+          "como": "Versión más fácil en el suelo."
         },
         {
-          "nombre": "Heel taps",
-          "como": "Menor complejidad; alterna el descenso de cada talón sin arquear la espalda."
+          "nombre": "McGill curl-up modificado",
+          "como": "Una pierna flexionada, eleva solo cabeza y hombros y sostén 5 s."
         }
       ]
     }
   },
   "cardio": {
-    "cardio_indoor_base": {
-      "nombre": "Cardio indoor de bajo impacto",
-      "bloque": [
-        {
-          "movimiento": "Marcha rápida en el sitio",
-          "duracion_s": 60
-        },
-        {
-          "movimiento": "Step-touch lateral",
-          "duracion_s": 60
-        },
-        {
-          "movimiento": "Rodillas alternas sin salto",
-          "duracion_s": 30
-        },
-        {
-          "movimiento": "Pasos adelante/atrás",
-          "duracion_s": 30
-        },
-        {
-          "movimiento": "Desplazamiento alrededor del saco",
-          "duracion_s": 60
-        },
-        {
-          "movimiento": "Marcha moderada",
-          "duracion_s": 30
-        }
-      ],
-      "nota": "Repetir el bloque hasta completar el tiempo previsto. No requiere caminadora ni salir de casa."
-    },
-    "intervalos": {
-      "nombre": "Intervalos indoor",
-      "estructura": "40-60 s rápido + 20-30 s moderado",
-      "movimientos_permitidos": [
-        "Marcha rápida",
-        "Step-touch",
-        "Rodillas alternas",
-        "Pasos adelante/atrás",
-        "Footwork de boxeo sin golpeo"
+    "saco_punos": {
+      "nombre": "Saco de boxeo con puños (sesión principal del miércoles)",
+      "como": "Golpes rectos con técnica protectora. La distancia la ponen los pies, no el brazo; la potencia sale de piernas y cadera. El tiempo de puños sube poco a poco: 4 → 8 → 12 min por sesión.",
+      "fase_1": "8 rounds de 1 min / 1 min de pausa (15 min). Rounds impares: 1, 2 y 1-2 al 30-40% de potencia (4 min de puños). Rounds pares: rodillazos + footwork.",
+      "fase_2": "8 rounds de 2 min / 1 min de pausa (23 min). Impares: puños al 50-60% con 1-1-2, 1-2-1 y 1-2 + esquiva lateral (8 min de puños). Pares: rodillazos + footwork.",
+      "fase_3": "8 rounds de 2 min / 45 s de pausa (21 min). Rounds 3 y 6: rodillazos con ráfagas de 20 s a máxima velocidad. El resto: puños al 50-60% (12 min de puños).",
+      "reglas": [
+        "Sube al formato de la fase siguiente solo si en las 2 últimas sesiones el hombro estuvo en 0-2/10 y no empeoró al día siguiente. Si no, repite el formato anterior.",
+        "Guantes de saco de 12-14 oz y vendas: sin guantes no golpees; haz solo rodillazos y footwork.",
+        "Solo golpes rectos (1 y 2). Nada de ganchos ni uppercuts durante estas 8 semanas.",
+        "Codo ligeramente flexionado al impactar; nunca bloquees el brazo ni te estires para llegar al saco.",
+        "La mano vuelve a la guardia tan rápido como sale. Las ráfagas de velocidad se hacen con rodillas y pies, no con puños.",
+        "Nunca golpees a máxima potencia ni sigas golpeando con la técnica rota por la fatiga.",
+        "El soporte debe ir atornillado a concreto o ladrillo (no a drywall); revisa los tornillos cada semana."
       ]
     },
-    "saco": {
-      "nombre": "Saco de boxeo técnico",
-      "restriccion": "Solo si el hombro está indoloro durante y después. Evitar potencia máxima, hooks/uppercuts violentos y fatiga técnica.",
-      "inicio_sugerido": "Desde semana 2-3 si el hombro lo tolera",
-      "formato_inicial": "6-8 rounds de 60 s, 60 s de descanso, 30-50% de potencia"
+    "rodillazos_footwork": {
+      "nombre": "Rodillazos al saco + footwork (sin puños)",
+      "como": "Sujeta el saco a la altura del pecho (o manos en guardia si sujetarlo molesta). Alterna rodillazos al saco con desplazamientos alrededor de él: adelante-atrás, laterales y pivotes. Usas el saco sin cargar el hombro.",
+      "fase_1": "10 min: 30 s rodillazos / 30 s footwork suave",
+      "fase_2": "10 min: 40 s rodillazos / 20 s footwork",
+      "fase_3": "10 min: 40 s / 20 s; cada 3.er minuto, 20 s a máxima velocidad"
+    },
+    "emom_pesa_rusa": {
+      "nombre": "EMOM con pesa rusa + footwork",
+      "como": "EMOM = cada minuto, al inicio del minuto. Haces el trabajo y descansas lo que quede de ese minuto. Swing corto, hasta el ombligo.",
+      "fase_1": "8 min. Minutos impares: 10 swings suaves (o peso muerto con pesa rusa). Minutos pares: 30 s de footwork y descanso.",
+      "fase_2": "10 min. Impares: 12 swings. Pares: 40 s de rodillas altas sin salto.",
+      "fase_3": "10 min. Impares: 15 swings. Pares: 40 s de footwork rápido."
+    },
+    "intervalos_bajo_impacto": {
+      "nombre": "Intervalos indoor de bajo impacto",
+      "como": "Rota estos movimientos: marcha rápida, step-touch lateral rápido, rodillas altas sin salto, footwork de boxeo y sentadilla al aire + elevación de talones. Sin saltos en las fases 1-2 (protege rodillas y vecinos).",
+      "fase_1": "10 min: 30 s rápido / 30 s suave",
+      "fase_2": "12 min: 40 s rápido / 20 s suave",
+      "fase_3": "12 min: 40 s / 20 s; puedes añadir saltos pequeños si rodillas y tobillos van bien"
     }
   },
   "programacion": {
-    "semana_1_adaptacion": {
-      "dias": 5,
-      "duracion_min": "30-40",
-      "objetivo": "Reintroducir patrones, tolerar volumen y proteger articulaciones.",
-      "sesiones": [
-        {
-          "dia": "Lunes",
-          "tipo": "Full body suave",
-          "fuerza": [
-            [
-              "goblet_squat",
-              "2 x 10, versión al banco si es necesario"
-            ],
-            [
-              "romanian_deadlift",
-              "2 x 10, carga ligera"
-            ],
-            [
-              "hip_thrust",
-              "2 x 12, puede ser puente en el suelo"
-            ],
-            [
-              "supported_row",
-              "2 x 10/lado solo sin dolor"
-            ],
-            [
-              "dead_bug",
-              "2 x 8/lado"
-            ]
-          ],
-          "cardio": "10 min cardio indoor base"
+    "fases": [
+      {
+        "id": "fase_1",
+        "nombre": "Fase 1 - Adaptación y técnica",
+        "semanas": "1-2",
+        "series": "Bloque A: 2 (sem. 1) y 3 (sem. 2). Resto: 2",
+        "rir": "3",
+        "descanso_s": "60-75",
+        "claves": [
+          "Floor press en lugar del press en banco.",
+          "Split squat asistido en lugar de búlgara.",
+          "Flexiones inclinadas en el banco.",
+          "Saco: 4 min de puños rectos al 30-40%.",
+          "Aprende la bisagra antes de hacer swings."
+        ]
+      },
+      {
+        "id": "fase_2",
+        "nombre": "Fase 2 - Construcción",
+        "semanas": "3-5",
+        "series": "Bloque A: 4. Bloques B y C: 3. Hombro: 2",
+        "rir": "2",
+        "descanso_s": "60",
+        "claves": [
+          "Cambia una cosa del hombro por semana: sem. 3 press en banco, sem. 4 flexiones en el suelo o asas, sem. 5 saco completo.",
+          "Cada cambio solo si el hombro va en 0-2/10 y no empeora al día siguiente.",
+          "Búlgara con mancuernas.",
+          "Saco: 8 min de puños al 50-60%."
+        ]
+      },
+      {
+        "id": "fase_3",
+        "nombre": "Fase 3 - Densidad y quema",
+        "semanas": "6-8",
+        "series": "Como la fase 2",
+        "rir": "1-2",
+        "descanso_s": "45-60",
+        "claves": [
+          "Como los 20 kg se quedan cortos: bajada de 3 s, pausas y trabajo a una pierna.",
+          "Descansos más cortos = más gasto por minuto.",
+          "Saco: 12 min de puños al 50-60%, con ráfagas en los rounds de rodillazos."
+        ]
+      }
+    ],
+    "semana_tipo": [
+      {
+        "dia": "Lunes",
+        "sesion": "Torso A - Pecho + Espalda",
+        "carga_hombro": "alta",
+        "modos_kit": [
+          "mancuernas"
+        ],
+        "enfoque": "Press y remo en superseries (empuje + tirón). Solo mancuernas, con la misma carga en las dos durante toda la sesión.",
+        "cardio": {
+          "formato": "rodillazos_footwork",
+          "fase_1": "10 min",
+          "fase_2": "10 min",
+          "fase_3": "10 min"
         },
-        {
-          "dia": "Martes",
-          "tipo": "Cardio + core",
-          "fuerza": [
-            [
-              "dead_bug",
-              "2 x 8/lado"
-            ],
-            [
-              "mcgill_curlup",
-              "2 x 6"
-            ]
-          ],
-          "cardio": "20-25 min indoor bajo impacto"
+        "bloques": [
+          {
+            "bloque": "A1",
+            "ejercicio": "incline_db_press",
+            "nombre_bloque": "Press de pecho con mancuernas, agarre neutro (floor press → banco inclinado bajo)",
+            "ejercicio_fase_1": "floor_press",
+            "fase_1": "Floor press: 2-3 x 10-12",
+            "fase_2": "Banco inclinado bajo: 4 x 8-12",
+            "fase_3": "Banco inclinado bajo: 4 x 10, bajada 3 s"
+          },
+          {
+            "bloque": "A2",
+            "ejercicio": "chest_supported_row",
+            "fase_1": "2-3 x 12",
+            "fase_2": "4 x 10-12",
+            "fase_3": "4 x 12, pausa 1 s arriba"
+          },
+          {
+            "bloque": "B1",
+            "ejercicio": "squeeze_press",
+            "fase_1": "2 x 12",
+            "fase_2": "3 x 12-15",
+            "fase_3": "3 x 15, pausa 1 s abajo"
+          },
+          {
+            "bloque": "B2",
+            "ejercicio": "supported_row",
+            "fase_1": "2 x 10/lado",
+            "fase_2": "3 x 10-12/lado",
+            "fase_3": "3 x 12/lado"
+          },
+          {
+            "bloque": "C1",
+            "ejercicio": "prone_t",
+            "fase_1": "2 x 12 sin peso",
+            "fase_2": "2 x 12-15",
+            "fase_3": "2 x 12, pausa 2 s"
+          },
+          {
+            "bloque": "C2",
+            "ejercicio": "external_rotation",
+            "fase_1": "2 x 12/lado sin peso",
+            "fase_2": "2 x 12/lado",
+            "fase_3": "2 x 12/lado"
+          }
+        ],
+        "duracion_estimada_min": {
+          "fase_1": 39,
+          "fase_2": 44,
+          "fase_3": 45
         },
-        {
-          "dia": "Miércoles",
-          "tipo": "Piernas suave",
-          "fuerza": [
-            [
-              "goblet_squat",
-              "2 x 10"
-            ],
-            [
-              "reverse_lunge",
-              "2 x 6/lado asistida"
-            ],
-            [
-              "calf_raise",
-              "2 x 15"
-            ],
-            [
-              "hip_thrust",
-              "2 x 12"
-            ]
-          ],
-          "cardio": "10 min indoor suave"
-        },
-        {
-          "dia": "Jueves",
-          "tipo": "Tren superior seguro + core",
-          "fuerza": [
-            [
-              "supported_row",
-              "2 x 10/lado"
-            ],
-            [
-              "biceps_curl",
-              "2 x 12"
-            ],
-            [
-              "scapular_retraction",
-              "2 x 12"
-            ],
-            [
-              "external_rotation",
-              "2 x 10 solo si está autorizada/tolerada"
-            ],
-            [
-              "dead_bug",
-              "2 x 8/lado"
-            ]
-          ],
-          "cardio": "10-15 min indoor"
-        },
-        {
-          "dia": "Viernes",
-          "tipo": "Full body ligero",
-          "fuerza": [
-            [
-              "goblet_squat",
-              "2 x 10"
-            ],
-            [
-              "romanian_deadlift",
-              "2 x 10"
-            ],
-            [
-              "hip_thrust",
-              "2 x 12"
-            ],
-            [
-              "hammer_curl",
-              "2 x 10"
-            ],
-            [
-              "mcgill_curlup",
-              "2 x 6"
-            ]
-          ],
-          "cardio": "15 min indoor"
-        },
-        {
-          "dia": "Sábado",
-          "tipo": "Recuperación activa opcional",
-          "fuerza": [],
-          "cardio": "15-20 min movilidad + marcha suave en sitio"
-        },
-        {
-          "dia": "Domingo",
-          "tipo": "Descanso",
-          "fuerza": [],
-          "cardio": "Sin sesión estructurada"
+        "fuerza_estimada_min": {
+          "fase_1": 23,
+          "fase_2": 28,
+          "fase_3": 29
         }
-      ]
-    },
-    "semanas_2_a_4": {
-      "dias": 6,
-      "duracion_min": "45-60",
-      "sesiones": [
-        {
-          "dia": "Lunes",
-          "tipo": "Piernas A",
-          "fuerza": [
-            [
-              "goblet_squat",
-              "4 x 10-12"
-            ],
-            [
-              "romanian_deadlift",
-              "4 x 10-12"
-            ],
-            [
-              "hip_thrust",
-              "4 x 12-15"
-            ],
-            [
-              "reverse_lunge",
-              "3 x 8/lado"
-            ],
-            [
-              "calf_raise",
-              "3 x 15-20"
-            ]
-          ],
-          "cardio": "15-20 min intervalos indoor, RPE 6-7/10"
+      },
+      {
+        "dia": "Martes",
+        "sesion": "Pierna A - Sentadilla + bisagra",
+        "carga_hombro": "ninguna",
+        "modos_kit": [
+          "pesa rusa o 1 mancuerna",
+          "barra"
+        ],
+        "enfoque": "Piernas y glúteos con las dos piernas + core. El hombro descansa. Orden del kit: pesa rusa → barra.",
+        "cardio": {
+          "formato": "intervalos_bajo_impacto",
+          "fase_1": "10 min",
+          "fase_2": "12 min",
+          "fase_3": "12 min"
         },
-        {
-          "dia": "Martes",
-          "tipo": "Espalda + brazos + core",
-          "fuerza": [
-            [
-              "supported_row",
-              "4 x 10-12/lado"
-            ],
-            [
-              "biceps_curl",
-              "3 x 10-15"
-            ],
-            [
-              "hammer_curl",
-              "3 x 10-12"
-            ],
-            [
-              "scapular_retraction",
-              "3 x 12-15"
-            ],
-            [
-              "dead_bug",
-              "3 x 10/lado"
-            ],
-            [
-              "mcgill_curlup",
-              "3 x 6-8"
-            ]
-          ],
-          "cardio": "20 min cardio indoor base"
+        "bloques": [
+          {
+            "bloque": "A1",
+            "ejercicio": "goblet_squat",
+            "fase_1": "2-3 x 10 (al banco si hace falta)",
+            "fase_2": "4 x 10-12",
+            "fase_3": "4 x 12, bajada 3 s"
+          },
+          {
+            "bloque": "A2",
+            "ejercicio": "dead_bug",
+            "fase_1": "2-3 x 8/lado",
+            "fase_2": "4 x 8/lado",
+            "fase_3": "4 x 8/lado"
+          },
+          {
+            "bloque": "B1",
+            "ejercicio": "romanian_deadlift",
+            "fase_1": "2-3 x 10, ligero",
+            "fase_2": "3 x 10-12",
+            "fase_3": "3 x 12, bajada 3 s"
+          },
+          {
+            "bloque": "B2",
+            "ejercicio": "calf_raise",
+            "fase_1": "2-3 x 15",
+            "fase_2": "3 x 15-20",
+            "fase_3": "3 x 15, pausa arriba"
+          },
+          {
+            "bloque": "C",
+            "ejercicio": "hip_thrust",
+            "fase_1": "2 x 12",
+            "fase_2": "3 x 12-15",
+            "fase_3": "3 x 12, pausa 2 s"
+          }
+        ],
+        "duracion_estimada_min": {
+          "fase_1": 37,
+          "fase_2": 43,
+          "fase_3": 45
         },
-        {
-          "dia": "Miércoles",
-          "tipo": "Piernas B",
-          "fuerza": [
-            [
-              "goblet_squat",
-              "3 x 12"
-            ],
-            [
-              "reverse_lunge",
-              "3 x 10/lado"
-            ],
-            [
-              "romanian_deadlift",
-              "3 x 12"
-            ],
-            [
-              "hip_thrust",
-              "3 x 15"
-            ],
-            [
-              "calf_raise",
-              "3 x 20"
-            ]
-          ],
-          "cardio": "20 min intervalos 60 s rápido / 30 s moderado"
-        },
-        {
-          "dia": "Jueves",
-          "tipo": "Tren superior seguro + core",
-          "fuerza": [
-            [
-              "supported_row",
-              "3 x 12/lado"
-            ],
-            [
-              "hammer_curl",
-              "3 x 12"
-            ],
-            [
-              "biceps_curl",
-              "3 x 12"
-            ],
-            [
-              "scapular_retraction",
-              "3 x 12-15"
-            ],
-            [
-              "external_rotation",
-              "2 x 10-15 solo si tolerada"
-            ],
-            [
-              "bird_dog",
-              "3 x 8/lado o alternativa sin carga de hombro"
-            ]
-          ],
-          "cardio": "20-25 min indoor"
-        },
-        {
-          "dia": "Viernes",
-          "tipo": "Full body en circuito",
-          "fuerza": [
-            [
-              "goblet_squat",
-              "12 reps"
-            ],
-            [
-              "romanian_deadlift",
-              "12 reps"
-            ],
-            [
-              "supported_row",
-              "10/lado"
-            ],
-            [
-              "reverse_lunge",
-              "8/lado"
-            ],
-            [
-              "hip_thrust",
-              "15 reps"
-            ],
-            [
-              "hammer_curl",
-              "10 reps"
-            ]
-          ],
-          "formato": "4 rondas, 60-90 s de descanso entre rondas",
-          "cardio": "15-20 min intervalos indoor"
-        },
-        {
-          "dia": "Sábado",
-          "tipo": "Fuerza ligera + cardio largo",
-          "fuerza": [
-            [
-              "goblet_squat",
-              "3 x 15 ligera"
-            ],
-            [
-              "romanian_deadlift",
-              "3 x 15 ligera"
-            ],
-            [
-              "hip_thrust",
-              "3 x 20"
-            ],
-            [
-              "calf_raise",
-              "3 x 20"
-            ],
-            [
-              "dead_bug",
-              "3 x 8/lado"
-            ]
-          ],
-          "cardio": "25-30 min indoor; opcional sustituir parte por saco técnico si hombro tolera"
-        },
-        {
-          "dia": "Domingo",
-          "tipo": "Descanso",
-          "fuerza": [],
-          "cardio": "Sin sesión estructurada"
+        "fuerza_estimada_min": {
+          "fase_1": 19,
+          "fase_2": 24,
+          "fase_3": 25
         }
-      ]
-    },
-    "semanas_5_a_8": {
-      "dias": 6,
-      "duracion_min": "50-60",
-      "cambios": [
-        "Mantener la estructura de semanas 2-4.",
-        "Aumentar carga cuando se complete el máximo de repeticiones con 2-3 repeticiones en reserva.",
-        "Cardio final habitual: 20-25 min.",
-        "Sábado: 30-35 min de cardio."
-      ],
-      "cardio_objetivo_semanal_min": "150-180 aprox."
-    },
-    "semanas_9_a_12": {
-      "dias": 6,
-      "duracion_min": "50-60",
-      "cambios": [
-        "Mantener 30-35 min de fuerza y 25-30 min de cardio en la mayoría de sesiones.",
-        "Usar tempo lento, pausas y trabajo unilateral cuando los 20 kg se queden cortos.",
-        "Sábado: 30-40 min de cardio indoor.",
-        "No aumentar volumen del hombro si existe dolor o empeoramiento."
-      ],
-      "cardio_objetivo_semanal_min": "170-200+ aprox."
-    }
+      },
+      {
+        "dia": "Miércoles",
+        "sesion": "Saco + core + manguito",
+        "carga_hombro": "alta",
+        "modos_kit": [
+          "sin kit"
+        ],
+        "enfoque": "Cardio principal con el saco. Es el único día de golpes con puños.",
+        "cardio": {
+          "formato": "saco_punos",
+          "fase_1": "15 min",
+          "fase_2": "23 min",
+          "fase_3": "21 min"
+        },
+        "bloques": [
+          {
+            "bloque": "Saco",
+            "ejercicio": "saco_punos",
+            "fase_1": "8 rounds x 1 min (4 min de puños)",
+            "fase_2": "8 rounds x 2 min (8 min de puños)",
+            "fase_3": "8 rounds x 2 min (12 min de puños)"
+          },
+          {
+            "bloque": "C1",
+            "ejercicio": "reverse_crunch",
+            "fase_1": "Circuito 2 vueltas: 10",
+            "fase_2": "Circuito 2 vueltas: 12",
+            "fase_3": "Circuito 2 vueltas: 12, bajada 3 s"
+          },
+          {
+            "bloque": "C2",
+            "ejercicio": "bird_dog",
+            "fase_1": "8/lado (solo piernas si molesta)",
+            "fase_2": "8/lado",
+            "fase_3": "10/lado, pausa 2 s"
+          },
+          {
+            "bloque": "C3",
+            "ejercicio": "external_rotation",
+            "fase_1": "12/lado",
+            "fase_2": "12/lado",
+            "fase_3": "12/lado"
+          }
+        ],
+        "duracion_estimada_min": {
+          "fase_1": 34,
+          "fase_2": 43,
+          "fase_3": 42
+        },
+        "fuerza_estimada_min": {
+          "fase_1": 9,
+          "fase_2": 10,
+          "fase_3": 11
+        }
+      },
+      {
+        "dia": "Jueves",
+        "sesion": "Pierna B - Unilateral + swing",
+        "carga_hombro": "baja",
+        "modos_kit": [
+          "mancuernas",
+          "pesa rusa"
+        ],
+        "enfoque": "Trabajo a una pierna (multiplica el efecto de los 20 kg) y finisher con la pesa rusa. Orden del kit: mancuernas → pesa rusa.",
+        "cardio": {
+          "formato": "emom_pesa_rusa",
+          "fase_1": "8 min",
+          "fase_2": "10 min",
+          "fase_3": "10 min"
+        },
+        "bloques": [
+          {
+            "bloque": "A",
+            "ejercicio": "bulgarian_split_squat",
+            "nombre_bloque": "Sentadilla búlgara (split squat asistido en la fase 1)",
+            "fase_1": "Split squat asistido: 2-3 x 8/lado",
+            "fase_2": "Búlgara: 3 x 8-10/lado",
+            "fase_3": "Búlgara: 3 x 10/lado, bajada 3 s"
+          },
+          {
+            "bloque": "B1",
+            "ejercicio": "single_leg_rdl",
+            "fase_1": "2 x 8/lado, ligero",
+            "fase_2": "3 x 10/lado",
+            "fase_3": "3 x 10/lado, bajada 3 s"
+          },
+          {
+            "bloque": "B2",
+            "ejercicio": "farmer_carry",
+            "fase_1": "2 x 30 s",
+            "fase_2": "3 x 40 s",
+            "fase_3": "3 x 45 s"
+          },
+          {
+            "bloque": "C",
+            "ejercicio": "single_leg_hip_thrust",
+            "fase_1": "2 x 10/lado sin peso",
+            "fase_2": "3 x 10-12/lado",
+            "fase_3": "3 x 10/lado, pausa 2 s"
+          }
+        ],
+        "duracion_estimada_min": {
+          "fase_1": 32,
+          "fase_2": 40,
+          "fase_3": 44
+        },
+        "fuerza_estimada_min": {
+          "fase_1": 16,
+          "fase_2": 22,
+          "fase_3": 26
+        }
+      },
+      {
+        "dia": "Viernes",
+        "sesion": "Torso B - Espalda + Pecho + Brazos",
+        "carga_hombro": "alta",
+        "modos_kit": [
+          "barra",
+          "mancuernas"
+        ],
+        "enfoque": "Más tirón que empuje, flexiones progresivas y brazos sin nada por encima de la cabeza. Orden del kit: barra → mancuernas.",
+        "cardio": {
+          "formato": "rodillazos_footwork",
+          "fase_1": "10 min",
+          "fase_2": "10 min",
+          "fase_3": "10 min",
+          "nota": "Puedes cambiarlo por intervalos indoor de bajo impacto."
+        },
+        "bloques": [
+          {
+            "bloque": "A1",
+            "ejercicio": "barbell_row",
+            "fase_1": "2-3 x 10",
+            "fase_2": "4 x 10-12",
+            "fase_3": "4 x 12, pausa 1 s"
+          },
+          {
+            "bloque": "A2",
+            "ejercicio": "pushup_handles",
+            "nombre_bloque": "Flexiones (inclinadas en el banco → suelo o asas)",
+            "fase_1": "Inclinadas en el banco: 2-3 x 8-12",
+            "fase_2": "Rodillas o completas: 4 x 6-12 (RIR 2)",
+            "fase_3": "Completas: 4 series con 1-2 en reserva, bajada 3 s"
+          },
+          {
+            "bloque": "B1",
+            "ejercicio": "upper_back_row",
+            "fase_1": "2 x 12",
+            "fase_2": "3 x 12-15",
+            "fase_3": "3 x 15, pausa 1 s"
+          },
+          {
+            "bloque": "B2",
+            "ejercicio": "floor_fly",
+            "fase_1": "2 x 12, ligera",
+            "fase_2": "3 x 12-15",
+            "fase_3": "3 x 15"
+          },
+          {
+            "bloque": "C1",
+            "ejercicio": "hammer_curl",
+            "fase_1": "2 x 12",
+            "fase_2": "3 x 10-12",
+            "fase_3": "3 x 12, bajada 3 s"
+          },
+          {
+            "bloque": "C2",
+            "ejercicio": "lying_triceps_extension",
+            "fase_1": "2 x 12",
+            "fase_2": "3 x 10-12",
+            "fase_3": "3 x 12-15"
+          }
+        ],
+        "duracion_estimada_min": {
+          "fase_1": 35,
+          "fase_2": 41,
+          "fase_3": 44
+        },
+        "fuerza_estimada_min": {
+          "fase_1": 17,
+          "fase_2": 24,
+          "fase_3": 27
+        }
+      },
+      {
+        "dia": "Sábado",
+        "sesion": "Opcional: pasos y movilidad",
+        "carga_hombro": "ninguna",
+        "enfoque": "30-45 min de caminata (o marcha en casa) + 10 min de movilidad. Suma gasto sin fatiga.",
+        "bloques": [],
+        "cardio": null,
+        "duracion_estimada_min": null
+      },
+      {
+        "dia": "Domingo",
+        "sesion": "Descanso",
+        "carga_hombro": "ninguna",
+        "enfoque": "Sin sesión estructurada.",
+        "bloques": [],
+        "cardio": null,
+        "duracion_estimada_min": null
+      }
+    ]
   },
   "progresion": {
-    "regla_doble_progresion": "Cuando completes el máximo de repeticiones de todas las series con técnica limpia y 2-3 repeticiones en reserva en dos sesiones consecutivas, aumenta ligeramente la carga.",
+    "regla_doble_progresion": "Cuando completes el máximo de repeticiones de todas las series con técnica limpia y el RIR de la fase, en dos sesiones seguidas, sube ligeramente la carga.",
     "si_no_hay_mas_peso": [
-      "Aumentar 1-2 repeticiones",
-      "Añadir 1 serie hasta el máximo previsto",
-      "Usar descenso de 3 segundos",
-      "Añadir pausa de 1-2 segundos",
-      "Usar versión unilateral asistida"
-    ],
-    "intensidad": "RPE aproximado 6-8/10; evitar fallo muscular habitual."
+      "Añadir 1-2 repeticiones",
+      "Bajada de 3 s",
+      "Pausa de 1-2 s en la parte más difícil",
+      "Repeticiones 1½ (media bajada extra)",
+      "Pasar a una versión a una pierna o a un brazo",
+      "Acortar el descanso 15 s"
+    ]
+  },
+  "nutricion": {
+    "supuesto": "Estimación para un hombre adulto de unos 25-35 años con 81 kg, 1,65 m, 5 entrenamientos por semana y trabajo sentado. Si no es tu caso, recalcula.",
+    "gasto_estimado_kcal": "2.400-2.600 (con 7.000-10.000 pasos)",
+    "calorias_objetivo_kcal": "1.700-1.900",
+    "ritmo_esperado_kg_semana": "0,5-0,8",
+    "proteina_g_dia": "130-150",
+    "reglas": [
+      "Proteína en cada comida (30-40 g): huevos, pollo, atún, carne magra, queso campesino, yogur griego sin azúcar, lentejas o fríjoles.",
+      "Medio plato de verduras en almuerzo y cena; 2-3 frutas al día.",
+      "Carbohidratos (arroz, arepa, papa, plátano, avena) en porciones medidas, sobre todo alrededor del entrenamiento.",
+      "Agua: 2,5-3 L al día, más los días de saco.",
+      "Fuera: bebidas azucaradas, alcohol y el picoteo nocturno. Una comida libre por semana, no un día libre.",
+      "Pasos: 7.000-10.000 al día (caminar en llamadas o marcha en casa mientras ves algo).",
+      "Sueño: 7-8 h. Dormir poco aumenta el hambre y frena la pérdida de grasa.",
+      "No bajes de unas 1.600 kcal sin supervisión profesional."
+    ]
   },
   "seguimiento": {
-    "peso": "Pesarse 3-4 mañanas por semana en condiciones similares y usar el promedio semanal.",
-    "ajuste": "Si el promedio no baja durante 2 semanas consecutivas, revisar primero alimentación y después añadir 5 minutos de cardio a 3-4 sesiones.",
+    "peso": "Pésate 3-4 mañanas por semana, en ayunas y después de ir al baño; usa el promedio semanal.",
+    "cintura": "Mide la cintura a la altura del ombligo cada 2 semanas y haz una foto en las mismas condiciones.",
+    "ritmo_objetivo": "0,5-0,8 kg por semana de promedio (las semanas 1-2 bajan más por pérdida de agua).",
+    "ajuste": "Si el promedio no baja durante 2 semanas seguidas: quita 150-200 kcal diarias o suma 2.000 pasos al día. No añadas más días ni más saco.",
+    "si_baja_demasiado": "Si después de la semana 3 bajas más de 1,2 kg por semana y te sientes sin fuerza, suma 150 kcal diarias.",
+    "registro": "Anota carga y repeticiones de cada ejercicio para aplicar la doble progresión.",
     "señales_para_reducir_carga": [
-      "Dolor articular >3/10",
+      "Dolor articular mayor de 3/10",
       "Dolor de hombro que empeora al día siguiente",
-      "Fatiga que reduce el rendimiento durante varios días",
+      "Fatiga que baja el rendimiento durante varios días",
       "Técnica claramente deteriorada"
     ]
-  }
+  },
+  "proyeccion": [
+    {
+      "semana": 0,
+      "conservador_kg": 81,
+      "bueno_kg": 81
+    },
+    {
+      "semana": 2,
+      "conservador_kg": 78.5,
+      "bueno_kg": 77.9
+    },
+    {
+      "semana": 4,
+      "conservador_kg": 77.5,
+      "bueno_kg": 76.3
+    },
+    {
+      "semana": 6,
+      "conservador_kg": 76.5,
+      "bueno_kg": 74.7
+    },
+    {
+      "semana": 8,
+      "conservador_kg": 75.5,
+      "bueno_kg": 73.1
+    },
+    {
+      "semana": 10,
+      "conservador_kg": 74.5,
+      "bueno_kg": 71.5
+    },
+    {
+      "semana": 12,
+      "conservador_kg": 73.5,
+      "bueno_kg": 69.9
+    }
+  ],
+  "proyeccion_supuestos": "Incluye 1,5 kg de agua y glucógeno en las semanas 1-2, además de 0,5 kg de grasa por semana (conservador) o 0,8 kg por semana (bueno) desde la semana 1."
 }</script>
 <script>
 "use strict";
@@ -1045,72 +1654,164 @@ function lerpFrame(a, b, t){
 
 /* --- definiciones por ejercicio --------------------------------------- */
 const ANIM = {
-  goblet_squat:{ anchor:'ankle', hands:'goblet', dur:1500, frames:[
-    {leg:[180,180,93], torso:6, arm:[190,65]},
-    {leg:[112,228,93], torso:24, arm:[208,83]}
+  /* ---------- Pecho ---------- */
+  floor_press:{ anchor:'hip', ax:100, ay:141, hands:'disc', dur:1300, frames:[
+    {torso:270, headTilt:16, leg:[50,145,90], arm:[78,0]},
+    {torso:270, headTilt:16, leg:[50,145,90], arm:[10,10]}
   ]},
-  romanian_deadlift:{ anchor:'ankle', hands:'disc', dur:1500, frames:[
-    {leg:[180,180,93], torso:5, arm:[178,178]},
-    {leg:[168,172,93], torso:74, arm:[182,182]}
+  incline_db_press:{ anchor:'hip', ax:95, ay:112, hands:'disc', dur:1400,
+    bench:{pads:[[92,118,67,84],[93,119,116,122]], posts:[[99,119],[114,122]]}, frames:[
+    {torso:-35, headTilt:-8, leg:[135,133,90], arm:[120,10]},
+    {torso:-35, headTilt:-8, leg:[135,133,90], arm:[55,55]}
   ]},
-  hip_thrust:{ anchor:'ankle', ax:135, ay:147, hands:'none', bench:{x:50,w:48,y:108}, dur:1400, frames:[
-    {ax:135, ay:147, leg:[66,170,93], torso:-46, arm:[250,255], headTilt:14},
-    {ax:135, ay:147, leg:[92,185,93], torso:-70, arm:[250,255], headTilt:16}
+  squeeze_press:{ anchor:'hip', ax:100, ay:118, hands:'disc', dur:1300,
+    bench:{pads:[[58,118,124,118]], posts:[[64,118],[118,118]]}, frames:[
+    {torso:270, headTilt:16, leg:[145,110,90], arm:[60,320]},
+    {torso:270, headTilt:16, leg:[145,110,90], arm:[0,0]}
   ]},
-  reverse_lunge:{ anchor:'ankle', hands:'disc', dur:1500, frames:[
-    {leg:[180,180,93], torso:5, arm:[180,178]},
-    {leg:[130,215,93], legF:[201,261,150], torso:9, arm:[180,178]}
+  pushup_handles:{ anchor:'hip', hands:'none', dur:1200, frames:[
+    {ax:85, ay:127, torso:80, headTilt:20, leg:[258,255,165], arm:[145,205]},
+    {ax:85, ay:121, torso:80, headTilt:20, leg:[255,250,159], arm:[172,172]}
   ]},
-  calf_raise:{ anchor:'toe', ax:111, ay:147, hands:'disc', dur:1100, frames:[
-    {leg:[180,180,93], torso:4},
-    {leg:[180,180,120], torso:4}
+  floor_fly:{ anchor:'hip', ax:100, ay:141, hands:'disc', dur:1500, frames:[
+    {torso:270, headTilt:16, leg:[50,145,90], arm:[-35,-30]},
+    {torso:270, headTilt:16, leg:[50,145,90], arm:[0,0]}
   ]},
-  supported_row:{ anchor:'ankle', ax:105, ay:147, hands:'near-disc', bench:{x:122,w:52,y:120}, dur:1400, frames:[
-    {ax:105, ay:147, leg:[180,180,93], torso:75, headTilt:-22, arm:[176,176], armF:[180,180]},
-    {ax:105, ay:147, leg:[180,180,93], torso:75, headTilt:-22, arm:[230,90], armF:[180,180]}
+
+  /* ---------- Espalda ---------- */
+  chest_supported_row:{ anchor:'hip', ax:82, ay:96, hands:'disc', dur:1400,
+    bench:{pads:[[76,110,114,70]], posts:[[95,90]]}, frames:[
+    {torso:50, headTilt:25, leg:[175,178,93], arm:[180,180]},
+    {torso:50, headTilt:25, leg:[175,178,93], arm:[250,120]}
   ]},
-  biceps_curl:{ anchor:'ankle', focus:'upper', hands:'disc', dur:1300, frames:[
-    {arm:[180,175]},
-    {arm:[183,60]}
+  supported_row:{ anchor:'ankle', ax:105, ay:147, hands:'near-disc', dur:1400,
+    bench:{pads:[[122,120,174,120]], posts:[[128,120],[168,120]]}, frames:[
+    {leg:[180,180,93], torso:75, headTilt:-22, arm:[176,176], armF:[180,180]},
+    {leg:[180,180,93], torso:75, headTilt:-22, arm:[230,90], armF:[180,180]}
   ]},
-  hammer_curl:{ anchor:'ankle', focus:'upper', hands:'vert', dur:1300, frames:[
-    {arm:[180,176]},
-    {arm:[184,55]}
+  barbell_row:{ anchor:'ankle', ax:100, ay:147, hands:'plate', dur:1400, frames:[
+    {leg:[172,176,93], torso:68, headTilt:-18, arm:[178,178]},
+    {leg:[172,176,93], torso:68, headTilt:-18, arm:[235,105]}
+  ]},
+  upper_back_row:{ anchor:'hip', ax:82, ay:96, hands:'disc', dur:1400,
+    bench:{pads:[[76,110,114,70]], posts:[[95,90]]}, frames:[
+    {torso:50, headTilt:25, leg:[175,178,93], arm:[180,180]},
+    {torso:50, headTilt:25, leg:[175,178,93], arm:[270,100]}
+  ]},
+  prone_t:{ anchor:'hip', ax:82, ay:96, hands:'disc', dur:1500,
+    bench:{pads:[[76,110,114,70]], posts:[[95,90]]}, frames:[
+    {torso:50, headTilt:25, leg:[175,178,93], arm:[180,180]},
+    {torso:50, headTilt:25, leg:[175,178,93], arm:[235,235]}
+  ]},
+
+  /* ---------- Hombro / manguito ---------- */
+  external_rotation:{ anchor:'hip', ax:100, ay:141, hands:'near-disc', dur:1500, frames:[
+    {torso:270, headTilt:16, leg:[95,92,90], arm:[95,95], armF:[270,300]},
+    {torso:270, headTilt:16, leg:[95,92,90], arm:[95,5], armF:[270,300]}
   ]},
   scapular_retraction:{ anchor:'ankle', focus:'upper', hands:'none', dur:1300, frames:[
     {arm:[165,150], torso:4},
     {arm:[196,161], torso:2}
   ]},
-  external_rotation:{ anchor:'ankle', focus:'upper', hands:'near-disc', dur:1400, frames:[
-    {arm:[181,104], armF:[180,178]},
-    {arm:[181,58], armF:[180,178]}
+  scapular_pushup:{ anchor:'hip', hands:'none', dur:1200, frames:[
+    {ax:85, ay:124, torso:80, headTilt:20, leg:[255,250,159], arm:[170,174]},
+    {ax:85, ay:119, torso:80, headTilt:20, leg:[255,250,159], arm:[172,178]}
   ]},
+
+  /* ---------- Pierna ---------- */
+  goblet_squat:{ anchor:'ankle', hands:'goblet', dur:1500, frames:[
+    {leg:[180,180,93], torso:6, arm:[190,65]},
+    {leg:[112,228,93], torso:24, arm:[208,83]}
+  ]},
+  romanian_deadlift:{ anchor:'ankle', hands:'plate', dur:1500, frames:[
+    {leg:[180,180,93], torso:5, arm:[178,178]},
+    {leg:[168,172,93], torso:74, arm:[182,182]}
+  ]},
+  hip_thrust:{ anchor:'ankle', ax:135, ay:147, hands:'hip-plate', dur:1400,
+    bench:{pads:[[50,108,98,108]], posts:[[56,108],[92,108]]}, frames:[
+    {leg:[66,170,93], torso:-46, arm:[250,255], headTilt:14},
+    {leg:[92,185,93], torso:-70, arm:[250,255], headTilt:16}
+  ]},
+  calf_raise:{ anchor:'toe', ax:111, ay:147, hands:'disc', dur:1100, frames:[
+    {leg:[180,180,93], torso:4},
+    {leg:[180,180,120], torso:4}
+  ]},
+  bulgarian_split_squat:{ anchor:'ankle', ax:95, ay:147, hands:'disc', dur:1500,
+    bench:{pads:[[34,126,70,126]], posts:[[40,126],[64,126]]}, frames:[
+    {leg:[172,176,93], legF:[211,256,250], torso:6, arm:[180,178]},
+    {leg:[130,215,93], legF:[205,290,250], torso:12, arm:[180,178]}
+  ]},
+  single_leg_rdl:{ anchor:'ankle', ax:105, ay:147, hands:'near-disc', dur:1600, frames:[
+    {leg:[178,178,93], legF:[178,178,93], torso:5, arm:[180,180], armF:[180,180]},
+    {leg:[172,176,93], legF:[262,268,250], torso:78, headTilt:-20, arm:[180,180], armF:[180,180]}
+  ]},
+  single_leg_hip_thrust:{ anchor:'ankle', ax:135, ay:147, hands:'none', dur:1400,
+    bench:{pads:[[50,108,98,108]], posts:[[56,108],[92,108]]}, frames:[
+    {leg:[66,170,93], legF:[55,80,105], torso:-46, arm:[250,255], headTilt:14},
+    {leg:[92,185,93], legF:[60,85,110], torso:-70, arm:[250,255], headTilt:16}
+  ]},
+  kb_swing:{ anchor:'ankle', ax:100, ay:147, hands:'disc', dur:900, frames:[
+    {leg:[168,172,93], torso:65, headTilt:-14, arm:[210,210]},
+    {leg:[180,180,93], torso:2, arm:[135,135]}
+  ]},
+  farmer_carry:{ anchor:'hip', ax:100, ay:95, hands:'disc', dur:560, loop:'cycle', frames:[
+    {leg:[110,170,80], legF:[180,180,93], arm:[180,178], armF:[180,178], torso:3},
+    {leg:[180,180,93], legF:[180,180,93], arm:[180,178], armF:[180,178], torso:4},
+    {leg:[180,180,93], legF:[110,170,80], arm:[180,178], armF:[180,178], torso:3},
+    {leg:[180,180,93], legF:[180,180,93], arm:[180,178], armF:[180,178], torso:4}
+  ]},
+
+  /* ---------- Brazos ---------- */
+  hammer_curl:{ anchor:'ankle', focus:'upper', hands:'vert', dur:1300, frames:[
+    {arm:[180,176]},
+    {arm:[184,55]}
+  ]},
+  lying_triceps_extension:{ anchor:'hip', ax:100, ay:141, hands:'disc', dur:1300, frames:[
+    {torso:270, headTilt:16, leg:[50,145,90], arm:[0,290]},
+    {torso:270, headTilt:16, leg:[50,145,90], arm:[0,0]}
+  ]},
+
+  /* ---------- Core ---------- */
   dead_bug:{ anchor:'hip', ax:100, ay:141, hands:'none', dur:1200, loop:'cycle', frames:[
-    {ax:100, ay:141, torso:270, headTilt:16, arm:[0,0], armF:[0,0], leg:[0,90,45], legF:[0,90,45]},
-    {ax:100, ay:141, torso:270, headTilt:16, arm:[-75,-75], armF:[0,0], leg:[0,90,45], legF:[95,92,90]},
-    {ax:100, ay:141, torso:270, headTilt:16, arm:[0,0], armF:[0,0], leg:[0,90,45], legF:[0,90,45]},
-    {ax:100, ay:141, torso:270, headTilt:16, arm:[0,0], armF:[-75,-75], leg:[95,92,90], legF:[0,90,45]}
+    {torso:270, headTilt:16, arm:[0,0], armF:[0,0], leg:[0,90,45], legF:[0,90,45]},
+    {torso:270, headTilt:16, arm:[-75,-75], armF:[0,0], leg:[0,90,45], legF:[95,92,90]},
+    {torso:270, headTilt:16, arm:[0,0], armF:[0,0], leg:[0,90,45], legF:[0,90,45]},
+    {torso:270, headTilt:16, arm:[0,0], armF:[-75,-75], leg:[95,92,90], legF:[0,90,45]}
   ]},
   bird_dog:{ anchor:'hip', ax:100, ay:121, hands:'none', dur:1400, frames:[
-    {ax:100, ay:121, torso:78, headTilt:12, arm:[180,180], armF:[180,180], leg:[180,270,270], legF:[180,270,270]},
-    {ax:100, ay:121, torso:78, headTilt:8, arm:[95,95], armF:[180,180], leg:[180,270,270], legF:[265,270,250]}
+    {torso:78, headTilt:12, arm:[180,180], armF:[180,180], leg:[180,270,270], legF:[180,270,270]},
+    {torso:78, headTilt:8, arm:[95,95], armF:[180,180], leg:[180,270,270], legF:[265,270,250]}
   ]},
-  mcgill_curlup:{ anchor:'hip', ax:100, ay:141, hands:'none', dur:1500, frames:[
-    {ax:100, ay:141, torso:270, headTilt:14, arm:[100,100], armF:[100,100], leg:[50,145,90], legF:[95,92,90]},
-    {ax:100, ay:141, torso:285, headTilt:22, arm:[100,100], armF:[100,100], leg:[50,145,90], legF:[95,92,90]}
+  reverse_crunch:{ anchor:'hip', ax:100, ay:118, hands:'none', dur:1400,
+    bench:{pads:[[52,118,126,118]], posts:[[58,118],[120,118]]}, frames:[
+    {torso:270, headTilt:16, arm:[250,250], leg:[0,90,45]},
+    {torso:270, headTilt:16, arm:[250,250], leg:[315,45,90]}
   ]},
-  /* --- cardio --- */
+
+  /* ---------- Cardio ---------- */
+  saco_punos:{ anchor:'hip', ax:78, ay:96, hands:'none', bag:{x:132,w:24,y0:26,y1:132}, dur:420, loop:'cycle', frames:[
+    {leg:[168,168,88], legF:[196,196,104], arm:[168,18], armF:[188,10], torso:6, headTilt:8},
+    {leg:[168,168,88], legF:[196,196,104], arm:[97,92], armF:[188,10], torso:9, headTilt:8, ax:80, ay:95},
+    {leg:[168,168,88], legF:[196,196,104], arm:[168,18], armF:[188,10], torso:6, headTilt:8},
+    {leg:[168,168,88], legF:[196,196,104], arm:[168,18], armF:[100,96], torso:4, headTilt:8, ax:79, ay:95}
+  ]},
+  rodillazos_footwork:{ anchor:'hip', ax:100, ay:95, hands:'none', bag:{x:134,w:24,y0:26,y1:132}, dur:520, loop:'cycle', frames:[
+    {leg:[95,170,90], legF:[180,180,93], arm:[168,18], armF:[188,10], torso:6, headTilt:6},
+    {leg:[180,180,93], legF:[180,180,93], arm:[168,18], armF:[188,10], torso:4, headTilt:6},
+    {leg:[180,180,93], legF:[95,170,90], arm:[168,18], armF:[188,10], torso:6, headTilt:6},
+    {leg:[180,180,93], legF:[180,180,93], arm:[168,18], armF:[188,10], torso:4, headTilt:6}
+  ]},
   marcha:{ anchor:'hip', ax:100, ay:95, hands:'none', dur:520, loop:'cycle', frames:[
-    {ax:100, ay:95, leg:[110,170,80], legF:[180,180,93], arm:[205,240], armF:[155,120], torso:3},
-    {ax:100, ay:94, leg:[180,180,93], legF:[180,180,93], arm:[180,178], armF:[180,178], torso:4},
-    {ax:100, ay:95, leg:[180,180,93], legF:[110,170,80], arm:[155,120], armF:[205,240], torso:3},
-    {ax:100, ay:94, leg:[180,180,93], legF:[180,180,93], arm:[180,178], armF:[180,178], torso:4}
+    {leg:[110,170,80], legF:[180,180,93], arm:[205,240], armF:[155,120], torso:3},
+    {leg:[180,180,93], legF:[180,180,93], arm:[180,178], armF:[180,178], torso:4, ay:94},
+    {leg:[180,180,93], legF:[110,170,80], arm:[155,120], armF:[205,240], torso:3},
+    {leg:[180,180,93], legF:[180,180,93], arm:[180,178], armF:[180,178], torso:4, ay:94}
   ]},
   rodillas:{ anchor:'hip', ax:100, ay:93, hands:'none', dur:450, loop:'cycle', frames:[
-    {ax:100, ay:93, leg:[78,150,75], legF:[180,180,93], arm:[215,255], armF:[145,105], torso:2},
-    {ax:100, ay:96, leg:[180,180,93], legF:[180,180,93], arm:[180,178], armF:[180,178], torso:4},
-    {ax:100, ay:93, leg:[180,180,93], legF:[78,150,75], arm:[145,105], armF:[215,255], torso:2},
-    {ax:100, ay:96, leg:[180,180,93], legF:[180,180,93], arm:[180,178], armF:[180,178], torso:4}
+    {leg:[78,150,75], legF:[180,180,93], arm:[215,255], armF:[145,105], torso:2},
+    {leg:[180,180,93], legF:[180,180,93], arm:[180,178], armF:[180,178], torso:4, ay:96},
+    {leg:[180,180,93], legF:[78,150,75], arm:[145,105], armF:[215,255], torso:2},
+    {leg:[180,180,93], legF:[180,180,93], arm:[180,178], armF:[180,178], torso:4, ay:96}
   ]},
   step_touch:{ anchor:'hip', ax:100, ay:96, hands:'none', dur:620, loop:'cycle', frames:[
     {ax:86, ay:97, leg:[196,196,100], legF:[163,163,85], arm:[160,150], armF:[160,150], torso:2},
@@ -1118,17 +1819,15 @@ const ANIM = {
     {ax:114, ay:97, leg:[164,164,86], legF:[197,197,99], arm:[200,210], armF:[200,210], torso:6},
     {ax:100, ay:94, leg:[180,180,93], legF:[180,180,93], arm:[180,160], armF:[180,160], torso:4}
   ]},
-  saco:{ anchor:'hip', ax:78, ay:96, hands:'none', bag:{x:132,w:24,y0:26,y1:132}, dur:420, loop:'cycle', frames:[
-    {ax:78, ay:96, leg:[168,168,88], legF:[196,196,104], arm:[168,18], armF:[188,10], torso:6, headTilt:8},
-    {ax:80, ay:95, leg:[168,168,88], legF:[196,196,104], arm:[97,92], armF:[188,10], torso:9, headTilt:8},
-    {ax:78, ay:96, leg:[168,168,88], legF:[196,196,104], arm:[168,18], armF:[188,10], torso:6, headTilt:8},
-    {ax:79, ay:95, leg:[168,168,88], legF:[196,196,104], arm:[168,18], armF:[100,96], torso:4, headTilt:8}
-  ]},
+
   generic:{ anchor:'ankle', hands:'none', dur:1600, frames:[
     {torso:4, arm:[180,178]},
     {torso:6, arm:[172,168]}
   ]}
 };
+/* Formatos de cardio que reutilizan un movimiento ya definido */
+ANIM.emom_pesa_rusa = ANIM.kb_swing;
+ANIM.intervalos_bajo_impacto = ANIM.rodillas;
 /*__FIG_END__*/
 
 /* --- construcción y render del SVG ------------------------------------ */
@@ -1151,7 +1850,10 @@ function fitBox(seq, def){
       put([p.head[0]-9, p.head[1]-9]); put([p.head[0]+9, p.head[1]+9]);
     }
   }
-  if(def.bench){ put([def.bench.x, def.bench.y]); put([def.bench.x+def.bench.w, 148]); }
+  if(def.bench){
+    (def.bench.pads || []).forEach(p => { put([p[0], p[1]]); put([p[2], p[3]]); });
+    (def.bench.posts || []).forEach(p => { put([p[0], p[1]]); put([p[0], 148]); });
+  }
   if(def.bag){ put([def.bag.x, def.bag.y0]); put([def.bag.x+def.bag.w, def.bag.y1]); }
   x0-=11; x1+=11; y0-=11; y1+=11;
   if(y1 > 130) y1 = Math.max(y1, 154);          // deja ver el suelo
@@ -1178,10 +1880,13 @@ function buildFigure(key, big){
   g.appendChild(el('line', {x1:-60, y1:148, x2:260, y2:148, stroke:'var(--fig-floor)', 'stroke-width':2.5}));
   // banco
   if(def.bench){
-    const b = def.bench;
-    g.appendChild(el('rect', {x:b.x, y:b.y, width:b.w, height:7, rx:3.5, fill:'var(--fig-eq)', opacity:.28, stroke:'none'}));
-    g.appendChild(el('line', {x1:b.x+6, y1:b.y+7, x2:b.x+6, y2:148, stroke:'var(--fig-eq)', 'stroke-width':2.5, opacity:.45}));
-    g.appendChild(el('line', {x1:b.x+b.w-6, y1:b.y+7, x2:b.x+b.w-6, y2:148, stroke:'var(--fig-eq)', 'stroke-width':2.5, opacity:.45}));
+    (def.bench.posts || []).forEach(p => {
+      g.appendChild(el('line', {x1:p[0], y1:p[1], x2:p[0], y2:148, stroke:'var(--fig-eq)', 'stroke-width':2.5, opacity:.45}));
+    });
+    (def.bench.pads || []).forEach(p => {
+      g.appendChild(el('line', {x1:p[0], y1:p[1], x2:p[2], y2:p[3], stroke:'var(--fig-eq)',
+        'stroke-width':7, 'stroke-linecap':'round', opacity:.32}));
+    });
   }
   // saco
   if(def.bag){
@@ -1220,6 +1925,9 @@ function weight(kind, p){
     out.push(el('rect', {x:p[0]-3, y:p[1]-9, width:6, height:18, rx:2, fill:'var(--fig-eq)', opacity:.35}));
     out.push(el('circle', {cx:p[0], cy:p[1]-8, r:4.5, fill:'var(--fig-eq)'}));
     out.push(el('circle', {cx:p[0], cy:p[1]+8, r:4.5, fill:'var(--fig-eq)'}));
+  } else if(kind === 'plate'){
+    out.push(el('circle', {cx:p[0], cy:p[1], r:8, fill:'var(--fig-eq)', opacity:.85}));
+    out.push(el('circle', {cx:p[0], cy:p[1], r:3, fill:'var(--card2)'}));
   } else {
     out.push(el('circle', {cx:p[0], cy:p[1], r:6, fill:'var(--fig-eq)', opacity:.9}));
   }
@@ -1237,7 +1945,9 @@ function draw(fig, frame){
   poly(fig.parts.armN, s.armN);
   const w = fig.parts.w;
   while(w.firstChild) w.removeChild(w.firstChild);
-  if(fig.hands !== 'none'){
+  if(fig.hands === 'hip-plate'){
+    weight('plate', s.hip).forEach(n => w.appendChild(n));
+  } else if(fig.hands !== 'none'){
     const kind = fig.hands === 'near-disc' ? 'disc' : fig.hands;
     if(fig.hands !== 'near-disc' && fig.hands !== 'goblet') weight(kind, s.armF[2]).forEach(n => w.appendChild(n));
     weight(kind, s.armN[2]).forEach(n => w.appendChild(n));
@@ -1271,17 +1981,28 @@ requestAnimationFrame(tick);
 const DAYS = ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
 const SHORT = ['LUN','MAR','MIÉ','JUE','VIE','SÁB','DOM'];
 const CAT = D.catalogo_ejercicios_fuerza;
+const FASES = D.programacion.fases;
+const SEMANA = D.programacion.semana_tipo;
+const WEEKS = D.perfil.duracion_semanas;
 
-function phaseFor(w){
-  if(w === 1) return {key:'semana_1_adaptacion', label:'Semana 1 · adaptación'};
-  if(w <= 4) return {key:'semanas_2_a_4', label:'Semanas 2-4 · construcción'};
-  if(w <= 8) return {key:'semanas_5_a_8', label:'Semanas 5-8 · progresión'};
-  return {key:'semanas_9_a_12', label:'Semanas 9-12 · consolidación'};
+/* Semana -> fase, leyendo el rango "1-2" / "3-5" del propio JSON. */
+function faseFor(w){
+  for(const f of FASES){
+    const m = String(f.semanas).match(/(\d+)\s*[-–]\s*(\d+)/);
+    if(m){ if(w >= +m[1] && w <= +m[2]) return f; }
+    else if(String(f.semanas).trim() === String(w)) return f;
+  }
+  return FASES[FASES.length - 1];
 }
-function planFor(w){
-  const ph = phaseFor(w);
-  const blk = D.programacion[ph.key];
-  return {ph:ph, blk:blk, sesiones: blk.sesiones || D.programacion.semanas_2_a_4.sesiones};
+
+function h(tag, cls, txt){ const e = document.createElement(tag); if(cls) e.className = cls; if(txt != null) e.textContent = txt; return e; }
+function ul(items, cls){ const l = h('ul', cls || 'list'); (items || []).forEach(x => l.appendChild(h('li', null, x))); return l; }
+function kvRow(parent, k, v){ const r = h('div','kv'); r.appendChild(h('span', null, k)); r.appendChild(h('b', null, v)); parent.appendChild(r); return r; }
+function note(cls, title, txt){
+  const n = h('div','note ' + cls);
+  if(title) n.appendChild(h('b', null, title));
+  if(txt) n.appendChild(document.createTextNode(txt));
+  return n;
 }
 
 /* Preferencias de interfaz. En file:// algunos navegadores bloquean el
@@ -1291,22 +2012,22 @@ const store = {
   set: function(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
 };
 
-let week = Math.min(D.perfil.duracion_semanas, Math.max(1, parseInt(store.get('rutina-week'), 10) || 1));
+let week = Math.min(WEEKS, Math.max(1, parseInt(store.get('rutina-week'), 10) || 1));
 let day = (new Date().getDay() + 6) % 7;
 const todayIdx = day;
 
-function h(tag, cls, txt){ const e = document.createElement(tag); if(cls) e.className = cls; if(txt != null) e.textContent = txt; return e; }
-
-function exerciseCard(key, dose){
+/* ---------- ficha de ejercicio ---------- */
+function exerciseCard(key, dose, titulo, etiqueta){
   const ex = CAT[key];
   const d = document.createElement('details');
   d.className = 'ex';
   const sum = document.createElement('summary');
   sum.appendChild(buildFigure(key, false));
   const txt = h('div','txt');
+  if(etiqueta) txt.appendChild(h('div','blocktag', etiqueta));
   txt.appendChild(h('h3', null, ex ? ex.nombre : key));
-  txt.appendChild(h('div','dose', dose || (ex ? ex.series_reps_base : '')));
-  if(ex) txt.appendChild(h('div','goal', ex.objetivo));
+  if(dose) txt.appendChild(h('div','dose', dose));
+  if(ex) txt.appendChild(h('div','goal', ex.grupo + ' · ' + ex.objetivo));
   sum.appendChild(txt);
   sum.appendChild(h('div','chev','❯'));
   d.appendChild(sum);
@@ -1314,23 +2035,24 @@ function exerciseCard(key, dose){
   const body = h('div','body');
   if(ex){
     body.appendChild(buildFigure(key, true));
-    if(dose && dose !== ex.series_reps_base){
-      const n = h('div','note cardio');
-      n.appendChild(h('b', null, 'Hoy'));
-      n.appendChild(document.createTextNode(dose + ' · base del ejercicio: ' + ex.series_reps_base));
-      body.appendChild(n);
-    }
+    if(titulo) body.appendChild(note('cardio', 'En este bloque', titulo));
+    const info = h('div','card2box');
+    kvRow(info, 'Series y reps base', ex.series_reps_base);
+    if(ex.carga_orientativa) kvRow(info, 'Carga orientativa', ex.carga_orientativa);
+    body.appendChild(info);
     body.appendChild(h('div','lbl','Técnica'));
     const ol = h('ol','steps');
     ex.tecnica.forEach(t => ol.appendChild(h('li', null, t)));
     body.appendChild(ol);
-    body.appendChild(h('div','lbl','Alternativas'));
-    ex.alternativas.forEach(a => {
-      const c = h('div','alt');
-      c.appendChild(h('b', null, a.nombre));
-      c.appendChild(h('span', null, a.como));
-      body.appendChild(c);
-    });
+    if(ex.alternativas && ex.alternativas.length){
+      body.appendChild(h('div','lbl','Alternativas'));
+      ex.alternativas.forEach(a => {
+        const c = h('div','alt');
+        c.appendChild(h('b', null, a.nombre));
+        c.appendChild(h('span', null, a.como));
+        body.appendChild(c);
+      });
+    }
     const a = document.createElement('a');
     a.className = 'vid';
     a.href = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(ex.nombre + ' técnica ejercicio');
@@ -1342,240 +2064,383 @@ function exerciseCard(key, dose){
   return d;
 }
 
+/* ---------- ficha de un formato de cardio ---------- */
+function cardioCard(key, dose, etiqueta, faseId, compact){
+  const c = D.cardio[key];
+  if(!c) return h('div','card pad', key);
+  const d = document.createElement('details');
+  d.className = 'ex cardio';
+  const sum = document.createElement('summary');
+  sum.appendChild(buildFigure(key, false));
+  const txt = h('div','txt');
+  if(etiqueta) txt.appendChild(h('div','blocktag', etiqueta));
+  txt.appendChild(h('h3', null, c.nombre));
+  if(dose) txt.appendChild(h('div','dose cardio', dose));
+  sum.appendChild(txt);
+  sum.appendChild(h('div','chev','❯'));
+  d.appendChild(sum);
+
+  const body = h('div','body');
+  if(!compact) body.appendChild(buildFigure(key, true));
+  if(c.como){ body.appendChild(h('div','lbl','Cómo se hace')); body.appendChild(h('div', null, c.como)); }
+  body.appendChild(h('div','lbl','Por fase'));
+  FASES.forEach(f => {
+    if(!c[f.id]) return;
+    const r = h('div','phase-row' + (f.id === faseId ? ' on' : ''));
+    r.appendChild(h('b', null, f.nombre.replace(/ - .*/, '')));
+    r.appendChild(h('span', null, c[f.id]));
+    body.appendChild(r);
+  });
+  if(c.reglas){ body.appendChild(h('div','lbl','Reglas')); body.appendChild(ul(c.reglas)); }
+  d.appendChild(body);
+  return d;
+}
+
+/* ---------- selectores de semana y día ---------- */
 function renderStrips(){
   const ws = document.getElementById('weekStrip');
   ws.innerHTML = '';
-  for(let w = 1; w <= D.perfil.duracion_semanas; w++){
+  for(let w = 1; w <= WEEKS; w++){
     const b = h('button','pill','Semana ' + w);
     b.setAttribute('aria-pressed', w === week);
-    b.onclick = () => { week = w; store.set('rutina-week', w); renderStrips(); renderSession(); ws.children[w-1].scrollIntoView({inline:'center', block:'nearest', behavior:'smooth'}); };
+    b.onclick = () => {
+      week = w; store.set('rutina-week', w);
+      renderStrips(); renderSession();
+      document.querySelectorAll('#weekStrip .pill')[w-1].scrollIntoView({inline:'center', block:'nearest', behavior:'smooth'});
+    };
     ws.appendChild(b);
   }
   const ds = document.getElementById('dayStrip');
   ds.innerHTML = '';
-  const plan = planFor(week);
-  plan.sesiones.forEach((s, i) => {
+  SEMANA.forEach((s, i) => {
     const b = h('button','day');
     b.appendChild(h('b', null, SHORT[i]));
-    b.appendChild(h('small', null, s.tipo));
+    b.appendChild(h('small', null, s.sesion));
     if(i === todayIdx) b.classList.add('today');
-    if(!s.fuerza.length && /descanso/i.test(s.tipo)) b.classList.add('rest');
+    if(!s.bloques || !s.bloques.length) b.classList.add('rest');
     b.setAttribute('aria-pressed', i === day);
     b.onclick = () => { day = i; renderStrips(); renderSession(); };
     ds.appendChild(b);
   });
 }
 
+/* ---------- sesión del día ---------- */
 function renderSession(){
-  const plan = planFor(week);
-  const s = plan.sesiones[day];
+  const fase = faseFor(week);
+  const faseId = fase.id;
+  const s = SEMANA[day];
   const wrap = document.getElementById('sessionWrap');
   wrap.innerHTML = '';
-  document.getElementById('hdrSub').textContent = plan.ph.label;
+  document.getElementById('hdrSub').textContent = fase.nombre;
 
   const card = h('div','card sess');
   card.appendChild(h('div','kicker', DAYS[day] + (day === todayIdx ? ' · hoy' : '') + ' · semana ' + week));
-  card.appendChild(h('h2', null, s.tipo));
+  card.appendChild(h('h2', null, s.sesion));
   const meta = h('div','meta');
-  meta.appendChild(h('span','tag acc', (plan.blk.duracion_min || '45-60') + ' min'));
-  if(s.fuerza.length) meta.appendChild(h('span','tag', s.fuerza.length + ' ejercicios'));
-  if(s.formato) meta.appendChild(h('span','tag', s.formato));
+  const dur = s.duracion_estimada_min && s.duracion_estimada_min[faseId];
+  if(dur) meta.appendChild(h('span','tag acc', dur + ' min'));
+  if(s.fuerza_estimada_min && s.fuerza_estimada_min[faseId]) meta.appendChild(h('span','tag', s.fuerza_estimada_min[faseId] + ' min de fuerza'));
+  if(s.carga_hombro) meta.appendChild(h('span','tag hombro-' + s.carga_hombro, 'hombro: ' + s.carga_hombro));
+  (s.modos_kit || []).forEach(m => meta.appendChild(h('span','tag', m)));
   card.appendChild(meta);
+  if(s.enfoque) card.appendChild(h('p','enfoque', s.enfoque));
   wrap.appendChild(card);
 
-  if(plan.blk.cambios){
-    const n = h('div','note warn');
-    n.appendChild(h('b', null, 'Ajustes de esta fase'));
-    const ul = document.createElement('ul');
-    plan.blk.cambios.forEach(c => ul.appendChild(h('li', null, c)));
-    n.appendChild(ul);
-    if(plan.blk.cardio_objetivo_semanal_min){
-      n.appendChild(h('div', null, 'Cardio semanal objetivo: ' + plan.blk.cardio_objetivo_semanal_min + ' min'));
-    }
-    wrap.appendChild(n);
-  }
+  /* fase actual */
+  const fd = document.createElement('details');
+  fd.className = 'panel';
+  const fs = document.createElement('summary');
+  fs.appendChild(h('b', null, fase.nombre));
+  fs.appendChild(h('span','mini', 'semanas ' + fase.semanas + ' · RIR ' + fase.rir + ' · descanso ' + fase.descanso_s + ' s'));
+  fs.appendChild(h('div','chev','❯'));
+  fd.appendChild(fs);
+  const fb = h('div','body');
+  kvRow(fb, 'Series', fase.series);
+  kvRow(fb, 'RIR (reps en reserva)', fase.rir);
+  kvRow(fb, 'Descanso', fase.descanso_s + ' s');
+  if(fase.claves){ fb.appendChild(h('div','lbl','Claves de la fase')); fb.appendChild(ul(fase.claves)); }
+  fd.appendChild(fb);
+  wrap.appendChild(fd);
 
-  if(s.fuerza.length){
-    wrap.appendChild(h('div','sec-title','Fuerza'));
-    if(s.formato){
-      const n = h('div','note warn');
-      n.appendChild(h('b', null, 'Formato'));
-      n.appendChild(document.createTextNode(s.formato));
-      wrap.appendChild(n);
-    }
-    s.fuerza.forEach(p => wrap.appendChild(exerciseCard(p[0], p[1])));
-  } else {
+  if(!s.bloques || !s.bloques.length){
     const r = h('div','card');
     const m = h('div','rest-msg');
-    m.appendChild(h('div','big', /descanso/i.test(s.tipo) ? '🛌' : '🧘'));
-    m.appendChild(h('div', null, /descanso/i.test(s.tipo) ? 'Sin sesión de fuerza. Descansa y duerme bien.' : 'Sin fuerza hoy: solo movilidad y cardio suave.'));
+    m.appendChild(h('div','big', /descanso/i.test(s.sesion) ? '🛌' : '🚶'));
+    m.appendChild(h('div', null, s.enfoque || 'Sin sesión estructurada.'));
     r.appendChild(m);
     wrap.appendChild(r);
+    return;
   }
 
-  wrap.appendChild(h('div','sec-title','Cardio'));
-  const cn = h('div','note cardio');
-  cn.appendChild(h('b', null, 'Al final de la sesión'));
-  cn.appendChild(document.createTextNode(s.cardio));
-  wrap.appendChild(cn);
-  const cb = h('div','card pad');
-  cb.appendChild(h('div','lbl','Bloque base (repetir hasta completar el tiempo)'));
-  D.cardio.cardio_indoor_base.bloque.forEach(b => {
+  /* calentamiento */
+  const cal = D.calentamiento_estandar;
+  const cd = document.createElement('details');
+  cd.className = 'panel';
+  const cs = document.createElement('summary');
+  cs.appendChild(h('b', null, 'Calentamiento + protocolo de hombro'));
+  cs.appendChild(h('span','mini', cal.duracion_min + ' min · antes de empezar'));
+  cs.appendChild(h('div','chev','❯'));
+  cd.appendChild(cs);
+  const cb = h('div','body');
+  cal.movimientos.forEach(m => {
     const r = h('div','block-row');
-    r.appendChild(h('span', null, b.movimiento));
-    r.appendChild(h('span','t', b.duracion_s + ' s'));
+    r.appendChild(h('span', null, m.movimiento));
+    r.appendChild(h('span','t', m.cantidad));
     cb.appendChild(r);
   });
-  wrap.appendChild(cb);
+  cd.appendChild(cb);
+  wrap.appendChild(cd);
+
+  /* bloques, agrupados en superseries por la letra (A1 + A2 = superserie A) */
+  const soloFuerza = s.bloques.every(b => CAT[(faseId === 'fase_1' && b.ejercicio_fase_1) ? b.ejercicio_fase_1 : b.ejercicio]);
+  wrap.appendChild(h('div','sec-title', soloFuerza ? 'Fuerza' : 'Sesión'));
+  const grupos = [];
+  s.bloques.forEach(b => {
+    const letra = String(b.bloque).match(/^[A-Za-zÁÉÍÓÚáéíóú]+/);
+    const g = letra ? letra[0] : b.bloque;
+    const last = grupos[grupos.length - 1];
+    if(last && last.g === g) last.items.push(b);
+    else grupos.push({g:g, items:[b]});
+  });
+
+  grupos.forEach(grupo => {
+    const multi = grupo.items.length > 1;
+    const box = h('div', multi ? 'group' : null);
+    if(multi){
+      const hd = h('div','grouphdr');
+      hd.appendChild(h('b', null, (grupo.items.length === 2 ? 'Superserie ' : 'Circuito ') + grupo.g));
+      hd.appendChild(h('span', null, grupo.items.length === 2
+        ? 'Alterna los dos ejercicios y descansa al terminar la pareja.'
+        : 'Encadena los ejercicios y descansa al terminar la vuelta.'));
+      box.appendChild(hd);
+    }
+    grupo.items.forEach(b => {
+      const key = (faseId === 'fase_1' && b.ejercicio_fase_1) ? b.ejercicio_fase_1 : b.ejercicio;
+      const dose = b[faseId] || '';
+      if(CAT[key]) box.appendChild(exerciseCard(key, dose, b.nombre_bloque, b.bloque));
+      else box.appendChild(cardioCard(key, dose, b.bloque, faseId, true));
+    });
+    wrap.appendChild(box);
+  });
+
+  /* cardio del día */
+  if(s.cardio && s.cardio.formato){
+    const c = s.cardio;
+    const yaEstaArriba = s.bloques.some(b => b.ejercicio === c.formato);
+    wrap.appendChild(h('div','sec-title','Cardio'));
+    if(yaEstaArriba){
+      wrap.appendChild(note('cardio', 'Es el bloque de arriba',
+        'El cardio de hoy es ese mismo bloque: ' + (c[faseId] || '') + ' en total.'));
+    } else {
+      wrap.appendChild(cardioCard(c.formato, c[faseId] || '', null, faseId, true));
+    }
+    if(c.nota) wrap.appendChild(note('cardio', 'Nota', c.nota));
+  }
 }
 
 /* ---------- catálogo ---------- */
 function renderCatalog(){
   const wrap = document.getElementById('catalogWrap');
   wrap.innerHTML = '';
+  const grupos = [];
   Object.keys(CAT).forEach(k => {
-    const c = exerciseCard(k, null);
-    c.dataset.name = (CAT[k].nombre + ' ' + CAT[k].objetivo).toLowerCase();
-    wrap.appendChild(c);
+    const g = CAT[k].grupo || 'Otros';
+    let e = grupos.find(x => x.g === g);
+    if(!e){ e = {g:g, keys:[]}; grupos.push(e); }
+    e.keys.push(k);
+  });
+  grupos.forEach(gr => {
+    const t = h('div','sec-title', gr.g);
+    t.dataset.group = '1';
+    wrap.appendChild(t);
+    gr.keys.forEach(k => {
+      const c = exerciseCard(k, CAT[k].series_reps_base, null, null);
+      c.dataset.name = (CAT[k].nombre + ' ' + CAT[k].objetivo + ' ' + gr.g).toLowerCase();
+      wrap.appendChild(c);
+    });
   });
   document.getElementById('exSearch').oninput = e => {
     const q = e.target.value.toLowerCase().trim();
-    [...wrap.children].forEach(c => { c.hidden = q && c.dataset.name.indexOf(q) < 0; });
+    let visiblesEnGrupo = 0, titulo = null;
+    [...wrap.children].forEach(c => {
+      if(c.dataset.group){
+        if(titulo) titulo.hidden = visiblesEnGrupo === 0;
+        titulo = c; visiblesEnGrupo = 0; c.hidden = false;
+        return;
+      }
+      const ok = !q || c.dataset.name.indexOf(q) >= 0;
+      c.hidden = !ok;
+      if(ok) visiblesEnGrupo++;
+    });
+    if(titulo) titulo.hidden = visiblesEnGrupo === 0;
   };
 }
 
 /* ---------- cardio ---------- */
-function cardioFigCard(key, title, sub){
-  const c = h('div','card');
-  const row = h('div','pad');
-  row.style.display = 'flex'; row.style.alignItems = 'center'; row.style.gap = '12px';
-  row.appendChild(buildFigure(key, false));
-  const t = h('div');
-  t.appendChild(h('h3', null, title));
-  t.appendChild(h('div','goal', sub)).style.color = 'var(--muted)';
-  row.appendChild(t);
-  c.appendChild(row);
-  return c;
-}
 function renderCardio(){
   const wrap = document.getElementById('cardioWrap');
   wrap.innerHTML = '';
-  const C = D.cardio;
-
-  wrap.appendChild(h('div','sec-title', C.cardio_indoor_base.nombre));
-  const g = h('div','card pad');
-  C.cardio_indoor_base.bloque.forEach(b => {
-    const r = h('div','block-row');
-    r.appendChild(h('span', null, b.movimiento));
-    r.appendChild(h('span','t', b.duracion_s + ' s'));
-    g.appendChild(r);
+  const faseId = faseFor(week).id;
+  wrap.appendChild(note('cardio', 'Cómo se usa', 'El cardio va siempre al final de la sesión. Cada día tiene su formato; el detalle cambia según la fase en la que estés.'));
+  Object.keys(D.cardio).forEach(k => {
+    wrap.appendChild(cardioCard(k, '', null, faseId, false));
   });
-  wrap.appendChild(g);
-  const n0 = h('div','note cardio'); n0.textContent = C.cardio_indoor_base.nota; wrap.appendChild(n0);
-
-  wrap.appendChild(h('div','sec-title','Movimientos'));
-  wrap.appendChild(cardioFigCard('marcha','Marcha en el sitio','Base de todo el cardio. Brazos activos.'));
-  wrap.appendChild(cardioFigCard('rodillas','Rodillas alternas','Sin salto. Sube la rodilla a la altura de la cadera.'));
-  wrap.appendChild(cardioFigCard('step_touch','Step-touch lateral','Paso lateral y toque. Bajo impacto.'));
-
-  wrap.appendChild(h('div','sec-title', C.intervalos.nombre));
-  const i = h('div','card pad');
-  i.appendChild(h('div','lbl','Estructura'));
-  i.appendChild(h('div', null, C.intervalos.estructura));
-  i.appendChild(h('div','lbl','Movimientos permitidos'));
-  const ul = h('ul','list');
-  C.intervalos.movimientos_permitidos.forEach(m => ul.appendChild(h('li', null, m)));
-  i.appendChild(ul);
-  wrap.appendChild(i);
-
-  wrap.appendChild(h('div','sec-title', C.saco.nombre));
-  const sc = h('div','card');
-  const row = h('div','pad');
-  row.style.display = 'flex'; row.style.alignItems = 'center'; row.style.gap = '12px';
-  row.appendChild(buildFigure('saco', false));
-  const t = h('div');
-  t.appendChild(h('div','dose', C.saco.formato_inicial));
-  t.appendChild(h('div','goal', C.saco.inicio_sugerido)).style.whiteSpace = 'normal';
-  row.appendChild(t);
-  sc.appendChild(row);
-  wrap.appendChild(sc);
-  const w = h('div','note warn');
-  w.appendChild(h('b', null, 'Restricción'));
-  w.appendChild(document.createTextNode(C.saco.restriccion));
-  wrap.appendChild(w);
 }
 
 /* ---------- guía ---------- */
 function renderGuia(){
   const wrap = document.getElementById('guiaWrap');
   wrap.innerHTML = '';
+  const S = D.seguridad;
 
-  const w1 = h('div','note warn');
-  w1.appendChild(h('b', null, 'Hombro'));
-  const u1 = document.createElement('ul');
-  D.seguridad.hombro.forEach(x => u1.appendChild(h('li', null, x)));
-  w1.appendChild(u1);
+  /* seguridad */
   wrap.appendChild(h('div','sec-title','Seguridad'));
+  const w1 = note('warn', 'Hombro');
+  w1.appendChild(ul(S.hombro, 'list warn'));
   wrap.appendChild(w1);
-  const w2 = h('div','note warn');
-  w2.appendChild(h('b', null, 'Articulaciones'));
-  const u2 = document.createElement('ul');
-  D.seguridad.articulaciones.forEach(x => u2.appendChild(h('li', null, x)));
-  w2.appendChild(u2);
-  wrap.appendChild(w2);
+  if(S.regla_dolor){
+    const rd = h('div','card pad');
+    rd.appendChild(h('div','lbl','Regla del dolor'));
+    Object.keys(S.regla_dolor).forEach(k => kvRow(rd, k.replace('24_horas','A las 24 h'), S.regla_dolor[k]));
+    wrap.appendChild(rd);
+  }
+  if(S.consultar_si){
+    const cs = note('warn', 'Consulta a un profesional si aparece');
+    cs.appendChild(ul(S.consultar_si, 'list warn'));
+    wrap.appendChild(cs);
+  }
+  if(S.articulaciones){
+    const ar = h('div','card pad');
+    ar.appendChild(h('div','lbl','Articulaciones'));
+    ar.appendChild(ul(S.articulaciones));
+    wrap.appendChild(ar);
+  }
 
+  /* principios y estructura */
   wrap.appendChild(h('div','sec-title','Principios'));
-  const p = h('div','card pad');
-  const ul = h('ul','list');
-  D.principios.forEach(x => ul.appendChild(h('li', null, x)));
-  p.appendChild(ul);
-  wrap.appendChild(p);
+  const p = h('div','card pad'); p.appendChild(ul(D.principios)); wrap.appendChild(p);
 
+  wrap.appendChild(h('div','sec-title','Estructura de la sesión'));
+  const es = h('div','card pad');
+  D.estructura_sesion.forEach(x => kvRow(es, x.parte, x.min + ' min'));
+  if(D.modelo_de_tiempo){ es.appendChild(h('div','lbl','Cómo se calculan los tiempos')); es.appendChild(h('div','small', D.modelo_de_tiempo)); }
+  wrap.appendChild(es);
+
+  /* fases */
+  wrap.appendChild(h('div','sec-title','Fases'));
+  FASES.forEach(f => {
+    const c = h('div','card pad');
+    c.appendChild(h('h3', null, f.nombre));
+    c.appendChild(h('div','dose', 'Semanas ' + f.semanas));
+    kvRow(c, 'Series', f.series);
+    kvRow(c, 'RIR', f.rir);
+    kvRow(c, 'Descanso', f.descanso_s + ' s');
+    c.appendChild(ul(f.claves));
+    wrap.appendChild(c);
+  });
+
+  /* progresión */
   wrap.appendChild(h('div','sec-title','Progresión'));
   const pr = h('div','card pad');
   pr.appendChild(h('div','lbl','Doble progresión'));
   pr.appendChild(h('div', null, D.progresion.regla_doble_progresion));
   pr.appendChild(h('div','lbl','Si no hay más peso disponible'));
-  const ul2 = h('ul','list');
-  D.progresion.si_no_hay_mas_peso.forEach(x => ul2.appendChild(h('li', null, x)));
-  pr.appendChild(ul2);
-  pr.appendChild(h('div','lbl','Intensidad'));
-  pr.appendChild(h('div', null, D.progresion.intensidad));
+  pr.appendChild(ul(D.progresion.si_no_hay_mas_peso));
   wrap.appendChild(pr);
 
-  wrap.appendChild(h('div','sec-title','Seguimiento de peso'));
+  /* nutrición */
+  if(D.nutricion){
+    wrap.appendChild(h('div','sec-title','Alimentación'));
+    const n = h('div','card pad');
+    kvRow(n, 'Gasto estimado', D.nutricion.gasto_estimado_kcal + ' kcal');
+    kvRow(n, 'Objetivo diario', D.nutricion.calorias_objetivo_kcal + ' kcal');
+    kvRow(n, 'Proteína', D.nutricion.proteina_g_dia + ' g/día');
+    kvRow(n, 'Ritmo esperado', D.nutricion.ritmo_esperado_kg_semana + ' kg/semana');
+    n.appendChild(ul(D.nutricion.reglas));
+    n.appendChild(h('div','small', D.nutricion.supuesto));
+    wrap.appendChild(n);
+  }
+
+  /* seguimiento */
+  wrap.appendChild(h('div','sec-title','Seguimiento'));
   const sg = h('div','card pad');
-  sg.appendChild(h('div', null, D.seguimiento.peso));
-  sg.appendChild(h('div','lbl','Ajuste'));
-  sg.appendChild(h('div', null, D.seguimiento.ajuste));
-  sg.appendChild(h('div','lbl','Señales para reducir carga'));
-  const ul3 = h('ul','list');
-  (D.seguimiento['señales_para_reducir_carga'] || []).forEach(x => ul3.appendChild(h('li', null, x)));
-  sg.appendChild(ul3);
+  const SG = D.seguimiento;
+  [['Peso','peso'],['Cintura','cintura'],['Ritmo objetivo','ritmo_objetivo'],['Si se estanca','ajuste'],['Si baja demasiado','si_baja_demasiado'],['Registro','registro']].forEach(par => {
+    if(SG[par[1]]){ sg.appendChild(h('div','lbl', par[0])); sg.appendChild(h('div', null, SG[par[1]])); }
+  });
+  const sen = SG['señales_para_reducir_carga'];
+  if(sen){ sg.appendChild(h('div','lbl','Señales para reducir carga')); sg.appendChild(ul(sen)); }
   wrap.appendChild(sg);
 
-  wrap.appendChild(h('div','sec-title','Perfil y objetivo'));
+  /* objetivo y proyección */
+  wrap.appendChild(h('div','sec-title','Objetivo y proyección'));
+  const ob = h('div','card pad');
+  kvRow(ob, 'Peso inicial → objetivo', D.perfil.peso_inicial_kg + ' → ' + D.perfil.peso_objetivo_kg + ' kg');
+  kvRow(ob, 'Plazo del plan', D.objetivo.plazo_semanas + ' semanas');
+  kvRow(ob, 'Ritmo que exigiría', D.objetivo.ritmo_requerido_kg_semana + ' kg/semana');
+  const pj = D.objetivo.proyeccion_realista;
+  if(pj){
+    kvRow(ob, 'Ritmo sostenible', pj.ritmo_sostenible_kg_semana + ' kg/semana');
+    kvRow(ob, 'Peso estimado en la semana 8', pj.peso_estimado_semana_8_kg + ' kg');
+    kvRow(ob, 'Llegada a 70 kg', 'semana ' + pj.semana_estimada_70_kg);
+  }
+  wrap.appendChild(ob);
+  if(D.objetivo.nota) wrap.appendChild(note('warn', 'Expectativa realista', D.objetivo.nota));
+
+  if(D.proyeccion){
+    const tb = h('div','card pad');
+    tb.appendChild(h('div','lbl','Proyección de peso'));
+    const tab = h('div','table');
+    const head = h('div','trow th');
+    head.appendChild(h('span', null, 'Semana'));
+    head.appendChild(h('span', null, 'Conservador'));
+    head.appendChild(h('span', null, 'Bueno'));
+    tab.appendChild(head);
+    D.proyeccion.forEach(r => {
+      const tr = h('div','trow' + (r.semana === week ? ' on' : ''));
+      tr.appendChild(h('span', null, String(r.semana)));
+      tr.appendChild(h('span', null, r.conservador_kg + ' kg'));
+      tr.appendChild(h('span', null, r.bueno_kg + ' kg'));
+      tab.appendChild(tr);
+    });
+    tb.appendChild(tab);
+    if(D.proyeccion_supuestos) tb.appendChild(h('div','small', D.proyeccion_supuestos));
+    wrap.appendChild(tb);
+  }
+
+  /* perfil */
+  wrap.appendChild(h('div','sec-title','Perfil y equipo'));
   const pf = h('div','card pad');
-  const kv = (k, v) => { const r = h('div','kv'); r.appendChild(h('span', null, k)); r.appendChild(h('b', null, v)); pf.appendChild(r); };
-  kv('Altura', D.perfil.altura_m + ' m');
-  kv('Peso inicial', D.perfil.peso_inicial_kg + ' kg');
-  kv('Peso objetivo', D.perfil.peso_objetivo_kg + ' kg');
-  kv('Duración', D.perfil.duracion_semanas + ' semanas');
-  kv('Sesión', D.perfil.disponibilidad_diaria_min.min + '-' + D.perfil.disponibilidad_diaria_min.max + ' min');
-  kv('Ritmo requerido', D.objetivo.ritmo_medio_requerido_kg_semana + ' kg/semana');
+  kvRow(pf, 'Altura', D.perfil.altura_m + ' m');
+  kvRow(pf, 'IMC inicial', D.perfil.imc_inicial);
+  kvRow(pf, 'Días por semana', D.perfil.dias_entrenamiento_semana);
+  kvRow(pf, 'Sesión', D.perfil.disponibilidad_diaria_min.min + '-' + D.perfil.disponibilidad_diaria_min.max + ' min');
   pf.appendChild(h('div','lbl','Equipamiento'));
-  const ule = h('ul','list');
-  D.perfil.equipamiento.forEach(x => ule.appendChild(h('li', null, x)));
-  pf.appendChild(ule);
+  pf.appendChild(ul(D.perfil.equipamiento));
+  if(D.perfil.modos_del_kit){
+    pf.appendChild(h('div','lbl','Modos del kit'));
+    Object.keys(D.perfil.modos_del_kit).forEach(k => kvRow(pf, k.replace(/_/g,' '), D.perfil.modos_del_kit[k]));
+  }
+  if(D.perfil.orden_de_modos_por_dia){
+    pf.appendChild(h('div','lbl','Orden de montaje por día'));
+    Object.keys(D.perfil.orden_de_modos_por_dia).forEach(k => kvRow(pf, k, D.perfil.orden_de_modos_por_dia[k]));
+  }
   pf.appendChild(h('div','lbl','Limitaciones'));
-  const ull = h('ul','list');
-  D.perfil.limitaciones.forEach(x => ull.appendChild(h('li', null, x)));
-  pf.appendChild(ull);
+  pf.appendChild(ul(D.perfil.limitaciones));
   wrap.appendChild(pf);
-  const nt = h('div','note warn');
-  nt.appendChild(h('b', null, 'Nota del objetivo'));
-  nt.appendChild(document.createTextNode(D.objetivo.nota));
-  wrap.appendChild(nt);
+
+  /* novedades */
+  if(D.cambios_vs_v1){
+    wrap.appendChild(h('div','sec-title','Qué cambió respecto a la versión 1'));
+    const cv = h('div','card pad');
+    D.cambios_vs_v1.forEach(c => {
+      const r = h('div','change');
+      r.appendChild(h('s', null, c.antes));
+      r.appendChild(h('div', null, c.ahora));
+      cv.appendChild(r);
+    });
+    wrap.appendChild(cv);
+  }
 }
 
 /* ---------- navegación ---------- */
@@ -1599,7 +2464,7 @@ themeBtn.onclick = () => {
 };
 
 document.getElementById('hdrTitle').textContent = D.perfil.peso_inicial_kg + ' → ' + D.perfil.peso_objetivo_kg + ' kg';
-document.getElementById('foot').textContent = D.titulo + ' · ' + D.version;
+document.getElementById('foot').textContent = D.titulo + ' · v' + D.version;
 renderStrips();
 renderSession();
 renderCatalog();

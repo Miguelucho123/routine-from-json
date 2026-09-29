@@ -12,7 +12,16 @@ import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE = os.path.join(ROOT, "src", "template.html")
-DATA = os.path.join(ROOT, "data", "rutina_12_semanas_70kg.json")
+def _find_data():
+    """Usa el unico JSON de rutina que haya en data/."""
+    d = os.path.join(ROOT, "data")
+    jsons = sorted(f for f in os.listdir(d) if f.endswith(".json"))
+    if len(jsons) != 1:
+        raise SystemExit("Se esperaba exactamente un .json en data/, hay %d: %s" % (len(jsons), jsons))
+    return os.path.join(d, jsons[0])
+
+
+DATA = _find_data()
 OUTPUT = os.path.join(ROOT, "index.html")
 PLACEHOLDER = "__ROUTINE_JSON__"
 
@@ -36,8 +45,8 @@ def main():
 
     ejercicios = len(rutina["catalogo_ejercicios_fuerza"])
     semanas = rutina["perfil"]["duracion_semanas"]
-    print("index.html generado: %d KB | %d ejercicios | %d semanas"
-          % (len(html) // 1024, ejercicios, semanas))
+    print("index.html generado desde %s" % os.path.basename(DATA))
+    print("  %d KB | %d ejercicios | %d semanas" % (len(html) // 1024, ejercicios, semanas))
 
 
 if __name__ == "__main__":

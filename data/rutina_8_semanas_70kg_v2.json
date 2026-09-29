@@ -1,0 +1,1305 @@
+{
+  "titulo": "Rutina de 8 semanas en casa - 5 días, 30-45 min - objetivo 81 kg a 70 kg",
+  "version": "2.0 - 5 días, pecho y espalda 2 veces por semana, protocolo de hombro y saco",
+  "cambios_vs_v1": [
+    {
+      "antes": "6 días de 45-60 min",
+      "ahora": "5 días de 30-45 min con superseries (empuje + tirón)"
+    },
+    {
+      "antes": "Pecho: ningún ejercicio",
+      "ahora": "Pecho 2 veces por semana: floor press, press inclinado bajo, press squeeze, flexiones y aperturas en el suelo, con agarre neutro y rango controlado"
+    },
+    {
+      "antes": "Espalda: un solo remo",
+      "ahora": "Espalda 2 veces por semana con 4 remos distintos + trabajo escapular, y más tirón que empuje para proteger el hombro"
+    },
+    {
+      "antes": "Sin tríceps",
+      "ahora": "Tríceps sin fondos ni extensiones por encima de la cabeza"
+    },
+    {
+      "antes": "Solo mancuernas",
+      "ahora": "Se usan mancuernas, barra y pesa rusa, con un orden por día para cambiar de modo una sola vez"
+    },
+    {
+      "antes": "3-4 días de pierna",
+      "ahora": "2 días de pierna, con trabajo a una pierna para compensar la carga limitada"
+    },
+    {
+      "antes": "Cardio de marcha en el sitio; saco casi sin usar",
+      "ahora": "Saco como cardio real (1 día con puños + 2 días de rodillazos), EMOM con pesa rusa e intervalos"
+    },
+    {
+      "antes": "Hombro: pautas generales",
+      "ahora": "Protocolo de hombro en cada calentamiento; días de carga alta para el hombro separados por 48 h, y progresión solo si el hombro lo tolera"
+    },
+    {
+      "antes": "Sin pautas de alimentación",
+      "ahora": "Objetivos de calorías, proteína y pasos, más una proyección realista"
+    }
+  ],
+  "perfil": {
+    "altura_m": 1.65,
+    "peso_inicial_kg": 81,
+    "peso_objetivo_kg": 70,
+    "imc_inicial": 29.8,
+    "duracion_semanas": 8,
+    "dias_entrenamiento_semana": 5,
+    "experiencia_reciente": "Meses de sedentarismo, pero buena resistencia cardiovascular.",
+    "disponibilidad_diaria_min": {
+      "min": 30,
+      "max": 45
+    },
+    "equipamiento": [
+      "Banco ajustable (plano, inclinado y declinado, con soporte de piernas)",
+      "Kit convertible de 20 kg: 2 mancuernas, barra, pesa rusa y asas de flexiones (los discos se comparten entre modos)",
+      "Saco de boxeo de 100 cm con soporte de pared"
+    ],
+    "modos_del_kit": {
+      "mancuernas": "Hasta unos 10 kg por mano. Press, remos, aperturas, búlgara, paseos, curl y tríceps.",
+      "barra": "Hasta unos 20 kg. Remo, peso muerto rumano, hip thrust y pantorrillas.",
+      "pesa_rusa": "Carga variable. Sentadilla goblet y swing.",
+      "asas_flexiones": "Agarre neutro para flexiones, solo cuando los discos no están montados en la barra."
+    },
+    "orden_de_modos_por_dia": {
+      "Lunes": "Mancuernas toda la sesión, con la misma carga en las dos (8-10 kg)",
+      "Martes": "Pesa rusa (o una mancuerna) → barra",
+      "Miércoles": "Sin kit (botella de agua para la rotación externa si quieres carga)",
+      "Jueves": "Mancuernas → pesa rusa",
+      "Viernes": "Barra → mancuernas"
+    },
+    "limitaciones": [
+      "Problema de manguito rotador",
+      "Crepitación/chasquidos frecuentes en varias articulaciones"
+    ]
+  },
+  "objetivo": {
+    "perdida_total_objetivo_kg": 11,
+    "plazo_semanas": 8,
+    "ritmo_requerido_kg_semana": 1.38,
+    "proyeccion_realista": {
+      "ritmo_sostenible_kg_semana": "0,5-0,8",
+      "peso_estimado_semana_8_kg": "73-75,5",
+      "semana_estimada_70_kg": "12 (ritmo bueno) a 19 (ritmo conservador)"
+    },
+    "nota": "Bajar 11 kg en 8 semanas exige unos 1,4 kg por semana, lo que implica un déficit de unas 1.500 kcal diarias. Con ese déficit se pierde músculo, cae el rendimiento y el hombro se recupera peor. Llegar a 73-75,5 kg en 8 semanas es un resultado muy bueno. Si mantienes el plan después de la semana 8, los 70 kg llegan hacia la semana 12 con ritmo bueno, o más adelante (semana 19) con ritmo conservador."
+  },
+  "principios": [
+    "Fuerza primero y cardio al final.",
+    "Superseries empuje + tirón: ahorran tiempo y equilibran el hombro.",
+    "Más volumen de tirón (remos) que de empuje (press).",
+    "Agarre neutro en todos los press; nada con carga por encima de la cabeza.",
+    "Días de carga alta para el hombro separados por 48 h: lunes, miércoles y viernes. El jueves la carga es baja (swing corto y paseos).",
+    "Cada día usa los modos del kit en un orden fijo, así solo montas y desmontas discos una vez por sesión.",
+    "Si pierdes un día, no lo acumules: sigue con el siguiente. Prioridad: los 4 días de fuerza.",
+    "Día con poco tiempo (30 min): calentamiento + bloque A + 8-10 min de cardio.",
+    "Si tienes 10 min extra, alarga el cardio o sal a caminar: es el mejor uso del tiempo sobrante."
+  ],
+  "seguridad": {
+    "hombro": [
+      "Evitar press militar, fondos, pullover, elevaciones por encima de la cabeza, remo al mentón, ganchos, uppercuts y golpes a máxima potencia.",
+      "Todos los press con agarre neutro, codos a 30-45° y rango controlado.",
+      "Progresar un ejercicio de hombro (press en banco, flexiones, más saco) solo si en las 2 últimas sesiones el dolor fue de 0-2/10 y no empeoró al día siguiente.",
+      "Detener cualquier movimiento que produzca dolor punzante o profundo, debilidad súbita o empeoramiento claro en las 24 h siguientes.",
+      "Una valoración de fisioterapia (1-2 sesiones) confirma qué rangos puedes usar; este plan es conservador por defecto."
+    ],
+    "regla_dolor": {
+      "0-2/10": "Aceptable; continúa.",
+      "3/10": "Precaución: baja la carga o acorta el recorrido.",
+      "4+/10": "Detén el ejercicio y usa su alternativa.",
+      "24_horas": "Si al día siguiente el hombro está peor que antes, reduce a la mitad el volumen de ese ejercicio en la próxima sesión."
+    },
+    "consultar_si": [
+      "Dolor nocturno que te despierta",
+      "Pérdida de fuerza al levantar el brazo",
+      "Dolor mayor de 4/10 que no cede en 48 h",
+      "Hormigueo, inflamación, bloqueo o inestabilidad articular"
+    ],
+    "articulaciones": [
+      "Los chasquidos sin dolor no implican necesariamente daño.",
+      "Consulta si aparecen inflamación, bloqueo, inestabilidad, dolor persistente, hormigueo o pérdida de fuerza."
+    ]
+  },
+  "calentamiento_estandar": {
+    "duracion_min": "5-7",
+    "movimientos": [
+      {
+        "movimiento": "Marcha en el sitio + step-touch lateral",
+        "cantidad": "60 s"
+      },
+      {
+        "movimiento": "Sentadilla al banco sin peso",
+        "cantidad": "10 repeticiones"
+      },
+      {
+        "movimiento": "Bisagra de cadera sin peso",
+        "cantidad": "10 repeticiones"
+      },
+      {
+        "movimiento": "Retracción escapular contra pared",
+        "cantidad": "10 repeticiones"
+      },
+      {
+        "movimiento": "Flexión escapular (serrato) en pared",
+        "cantidad": "10 repeticiones"
+      },
+      {
+        "movimiento": "Rotación externa isométrica contra el marco de una puerta",
+        "cantidad": "2 x 15 s por lado"
+      },
+      {
+        "movimiento": "Círculos de brazo pequeños por debajo de la altura del hombro",
+        "cantidad": "20 s"
+      },
+      {
+        "movimiento": "Serie de aproximación del primer ejercicio (50% de la carga)",
+        "cantidad": "1 x 10-12"
+      }
+    ]
+  },
+  "estructura_sesion": [
+    {
+      "parte": "Calentamiento + protocolo de hombro",
+      "min": "5-7"
+    },
+    {
+      "parte": "Fuerza en superseries (incluye cambios de modo del kit)",
+      "min": "16-29"
+    },
+    {
+      "parte": "Cardio o finisher",
+      "min": "8-12"
+    }
+  ],
+  "modelo_de_tiempo": "Estimación con 3 s por repetición (4-5 s con pausa o bajada lenta), 15 s de transición dentro de cada superserie, descanso tras cada pareja (67/60/50 s según la fase), 6 min de calentamiento y 1,5 min por cambio de modo del kit.",
+  "catalogo_ejercicios_fuerza": {
+    "floor_press": {
+      "nombre": "Floor press con mancuernas (agarre neutro)",
+      "grupo": "Pecho",
+      "objetivo": "Pecho y tríceps con el rango más protegido para el hombro: el suelo frena el codo antes de la zona de riesgo.",
+      "series_reps_base": "3-4 x 10-12",
+      "carga_orientativa": "6-8 kg por mano al inicio; hasta 10 kg",
+      "tecnica": [
+        "Acostado en el suelo, rodillas flexionadas y pies apoyados.",
+        "Palmas enfrentadas (agarre neutro); codos a 30-45° del torso, nunca en forma de T.",
+        "Baja hasta que el tríceps toque suavemente el suelo, pausa 1 s y sube sin rebotar.",
+        "Omóplatos juntos y hacia abajo durante toda la serie."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Flexiones inclinadas con manos en el banco",
+          "como": "Cuanto más alto el apoyo, más fácil. Codos a 45° y cuerpo en bloque."
+        },
+        {
+          "nombre": "Press squeeze en el suelo",
+          "como": "Mancuernas juntas y apretadas entre sí; es la versión con menos tensión para el hombro."
+        }
+      ]
+    },
+    "incline_db_press": {
+      "nombre": "Press con mancuernas en banco inclinado bajo (15-30°)",
+      "grupo": "Pecho",
+      "objetivo": "Pecho (sobre todo la parte alta), tríceps y deltoide anterior sin llevar el brazo por encima de la cabeza.",
+      "series_reps_base": "4 x 8-12",
+      "carga_orientativa": "8-10 kg por mano",
+      "tecnica": [
+        "Respaldo a 15-30°; usa 30° para compartir ángulo con el remo del bloque A.",
+        "Agarre neutro o a 45° (semi-neutro); codos a 30-45° del torso.",
+        "Baja hasta que el brazo quede a la altura del banco (paralelo al suelo); más profundo solo tras 2 semanas sin molestias.",
+        "Omóplatos atrás y abajo; exhala al subir y no choques las mancuernas arriba."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Press en banco plano con agarre neutro",
+          "como": "Mismo gesto con el banco plano si la inclinación molesta en el hombro."
+        },
+        {
+          "nombre": "Floor press con mancuernas",
+          "como": "Vuelve a la versión en el suelo cualquier semana en que el hombro esté sensible."
+        }
+      ]
+    },
+    "squeeze_press": {
+      "nombre": "Press squeeze (mancuernas juntas) en banco plano",
+      "grupo": "Pecho",
+      "objetivo": "Pecho y tríceps con tensión constante; uno de los press más amables para el manguito rotador.",
+      "series_reps_base": "3 x 12-15",
+      "carga_orientativa": "Las mismas mancuernas del lunes (8-10 kg); ajusta con repeticiones",
+      "tecnica": [
+        "Junta las mancuernas a la altura del pecho y apriétalas entre sí todo el recorrido.",
+        "Codos pegados al cuerpo.",
+        "Baja hasta rozar la parte baja del pecho y sube empujando sin dejar de apretar.",
+        "Ritmo controlado: 2 s abajo, 1 s arriba."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Press squeeze en el suelo",
+          "como": "Si el banco plano molesta, haz el mismo gesto acostado en el suelo."
+        },
+        {
+          "nombre": "Flexiones inclinadas con agarre cerrado",
+          "como": "Manos en el banco, algo más juntas que los hombros y codos pegados."
+        }
+      ]
+    },
+    "pushup_handles": {
+      "nombre": "Flexiones (sobre las asas del kit o en el suelo)",
+      "grupo": "Pecho",
+      "objetivo": "Pecho, tríceps, serrato y core. Con tu peso corporal es el estímulo de pecho más pesado que tienes en casa.",
+      "series_reps_base": "3-4 x 6-15 (terminando a 2 repeticiones del fallo)",
+      "carga_orientativa": "Peso corporal. Progresión: inclinadas en el banco → rodillas → completas",
+      "tecnica": [
+        "Asas debajo de los hombros con palmas enfrentadas; si la barra tiene montados los discos, hazlas en el suelo con las manos un poco giradas hacia fuera.",
+        "Cuerpo en bloque: glúteos y abdomen apretados.",
+        "Codos a 30-45° (forma de flecha, no de T).",
+        "Con asas, baja solo hasta que el pecho quede a su altura; no te hundas más.",
+        "Arriba, empuja un poco más para separar los omóplatos (push-up plus)."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Flexiones inclinadas con manos en el banco",
+          "como": "Versión más ligera; úsala en la fase 1 o si el hombro está sensible."
+        },
+        {
+          "nombre": "Floor press con mancuernas",
+          "como": "Sustituto directo si apoyar peso en las manos molesta."
+        }
+      ]
+    },
+    "floor_fly": {
+      "nombre": "Aperturas en el suelo",
+      "grupo": "Pecho",
+      "objetivo": "Pecho con estiramiento controlado; el suelo limita el recorrido y protege el hombro.",
+      "series_reps_base": "3 x 12-15",
+      "carga_orientativa": "3-5 kg por mano",
+      "tecnica": [
+        "Acostado en el suelo, mancuernas arriba con palmas enfrentadas.",
+        "Brazos a 45-60° del torso al abrir (nunca en T); codos ligeramente flexionados y fijos.",
+        "Abre hasta que el tríceps se apoye en el suelo; cualquier pausa se hace con el brazo apoyado, no suspendido.",
+        "Cierra como si abrazaras un árbol, apretando el pecho."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Press squeeze en banco plano",
+          "como": "Si la apertura genera tensión en la parte delantera del hombro."
+        },
+        {
+          "nombre": "Flexiones inclinadas con pausa",
+          "como": "Manos en el banco y 2 s de pausa abajo."
+        }
+      ]
+    },
+    "chest_supported_row": {
+      "nombre": "Remo con pecho apoyado en banco inclinado",
+      "grupo": "Espalda",
+      "objetivo": "Dorsal, romboides y trapecio medio sin cargar la zona lumbar.",
+      "series_reps_base": "3-4 x 10-12",
+      "carga_orientativa": "8-10 kg por mano (las mismas del press)",
+      "tecnica": [
+        "Respaldo a unos 30° (el mismo del press), pecho apoyado y pies firmes en el suelo.",
+        "Agarre neutro; brazos colgando al empezar.",
+        "Lleva los codos hacia la cadera y junta los omóplatos; pausa 1 s arriba.",
+        "Baja controlado sin dejar que el hombro se vaya hacia delante."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Remo unilateral apoyado en banco",
+          "como": "Una mano y una rodilla en el banco; permite más carga por brazo."
+        },
+        {
+          "nombre": "Remo de rango corto",
+          "como": "Si el hombro molesta al final del recorrido, acórtalo y baja la carga."
+        }
+      ]
+    },
+    "supported_row": {
+      "nombre": "Remo unilateral apoyado en banco",
+      "grupo": "Espalda",
+      "objetivo": "Dorsal y espalda media con la carga más alta del plan para el tren superior.",
+      "series_reps_base": "3 x 10-12 por lado",
+      "carga_orientativa": "Una de las mancuernas del lunes (8-10 kg); progresa con repeticiones y bajada lenta",
+      "tecnica": [
+        "Mano y rodilla del mismo lado en el banco; espalda plana.",
+        "Agarre neutro; codo cerca del torso.",
+        "Lleva la mancuerna hacia la cadera, no hacia el hombro.",
+        "No encojas el hombro hacia la oreja."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Remo con pecho apoyado en banco inclinado",
+          "como": "Si la zona lumbar se cansa o quieres más estabilidad."
+        },
+        {
+          "nombre": "Remo unilateral de rango corto",
+          "como": "Mismo apoyo, menos recorrido y menos carga para mantener el hombro sin dolor."
+        }
+      ]
+    },
+    "barbell_row": {
+      "nombre": "Remo inclinado con la barra del kit (agarre supino)",
+      "grupo": "Espalda",
+      "objetivo": "Espalda completa y bíceps; con las palmas hacia arriba el hombro trabaja más cómodo.",
+      "series_reps_base": "3-4 x 10-12",
+      "carga_orientativa": "15-20 kg (barra completa)",
+      "tecnica": [
+        "Pies a la anchura de la cadera, rodillas flexionadas y torso inclinado a unos 45°.",
+        "Espalda neutra y abdomen firme.",
+        "Palmas hacia arriba, manos a la anchura de los hombros.",
+        "Lleva la barra hacia el ombligo, pausa 1 s y baja controlado; sin tirones."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Remo con pecho apoyado en banco inclinado",
+          "como": "Si se cansa la zona lumbar o quieres aislar la espalda."
+        },
+        {
+          "nombre": "Remo con barra y agarre prono",
+          "como": "Palmas hacia abajo; trabaja más la espalda alta. Solo si el hombro está cómodo."
+        }
+      ]
+    },
+    "upper_back_row": {
+      "nombre": "Remo con codos abiertos apoyado (espalda alta)",
+      "grupo": "Espalda",
+      "objetivo": "Trapecio medio, romboides y deltoide posterior: la musculatura que mantiene el hombro bien colocado.",
+      "series_reps_base": "3 x 12-15",
+      "carga_orientativa": "4-6 kg por mano",
+      "tecnica": [
+        "Pecho apoyado en el banco inclinado; palmas mirando hacia los pies.",
+        "Codos abiertos a unos 45-60° del torso, nunca a 90°.",
+        "Lleva los codos atrás solo hasta la línea del cuerpo.",
+        "Pausa 1 s juntando omóplatos."
+      ],
+      "alternativas": [
+        {
+          "nombre": "T boca abajo en banco inclinado",
+          "como": "Misma zona con menos carga; útil si el remo abierto molesta."
+        },
+        {
+          "nombre": "Retracción escapular boca abajo",
+          "como": "Solo juntar y soltar omóplatos, sin doblar codos."
+        }
+      ]
+    },
+    "prone_t": {
+      "nombre": "T boca abajo en banco inclinado (pulgares arriba)",
+      "grupo": "Hombro / manguito",
+      "objetivo": "Trapecio medio, romboides, deltoide posterior y manguito rotador.",
+      "series_reps_base": "2-3 x 12-15",
+      "carga_orientativa": "Sin peso o 0,5-2 kg (una botella de agua sirve)",
+      "tecnica": [
+        "Pecho apoyado en el banco inclinado, brazos colgando.",
+        "Pulgares hacia el techo.",
+        "Abre los brazos a los lados hasta la línea del torso y pausa 2 s.",
+        "Si molesta, reduce el recorrido; nunca por encima de la altura del hombro."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Retracción escapular boca abajo",
+          "como": "Solo juntar omóplatos, sin mover los brazos."
+        },
+        {
+          "nombre": "Rotación externa isométrica contra pared",
+          "como": "Codo pegado al cuerpo; empuja el dorso de la mano contra el marco de una puerta 15-20 s."
+        }
+      ]
+    },
+    "external_rotation": {
+      "nombre": "Rotación externa de hombro acostado de lado",
+      "grupo": "Hombro / manguito",
+      "objetivo": "Manguito rotador (infraespinoso y redondo menor). Es el ejercicio de mantenimiento del hombro.",
+      "series_reps_base": "2-3 x 12-15 por lado",
+      "carga_orientativa": "Sin peso o 0,5-1 kg",
+      "tecnica": [
+        "Acostado sobre el lado contrario, toalla enrollada entre el codo y el costado.",
+        "Codo a 90° pegado al cuerpo.",
+        "Gira el antebrazo hacia el techo en 2 s y baja en 3 s.",
+        "Rango sin dolor; nunca debe provocar pinchazo."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Rotación externa isométrica contra pared",
+          "como": "Codo pegado; empuja el dorso de la mano contra el marco de una puerta 15-20 s."
+        },
+        {
+          "nombre": "Rotación externa isométrica con tu otra mano",
+          "como": "De pie, codo a 90°: tu otra mano frena el giro hacia fuera durante 15-20 s."
+        }
+      ]
+    },
+    "scapular_retraction": {
+      "nombre": "Retracción escapular",
+      "grupo": "Hombro / manguito",
+      "objetivo": "Control de las escápulas y musculatura media de la espalda.",
+      "series_reps_base": "2-3 x 12-15",
+      "carga_orientativa": "Sin peso",
+      "tecnica": [
+        "Lleva suavemente los omóplatos hacia atrás y abajo.",
+        "No saques el pecho de forma exagerada.",
+        "No encojas los hombros.",
+        "Movimiento sin dolor."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Retracción escapular contra pared",
+          "como": "Espalda contra la pared; omóplatos atrás y abajo sin despegar las costillas."
+        },
+        {
+          "nombre": "Retracción escapular boca abajo en banco inclinado",
+          "como": "Brazos relajados; junta suavemente los omóplatos y suelta."
+        }
+      ]
+    },
+    "scapular_pushup": {
+      "nombre": "Flexión escapular (serrato) en pared o banco",
+      "grupo": "Hombro / manguito",
+      "objetivo": "Serrato anterior: estabiliza la escápula y protege el manguito al empujar y al golpear.",
+      "series_reps_base": "2 x 10-12",
+      "carga_orientativa": "Peso corporal",
+      "tecnica": [
+        "Manos en la pared o en el banco, brazos estirados.",
+        "Sin doblar los codos, deja que los omóplatos se junten.",
+        "Empuja la pared o el banco para separarlos al máximo.",
+        "Movimiento lento y corto."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Versión en pared",
+          "como": "La más suave; úsala si el hombro está sensible."
+        },
+        {
+          "nombre": "Versión en rodillas en el suelo",
+          "como": "Más exigente; solo si la pared resulta muy fácil."
+        }
+      ]
+    },
+    "goblet_squat": {
+      "nombre": "Sentadilla goblet (pesa rusa o una mancuerna)",
+      "grupo": "Pierna",
+      "objetivo": "Cuádriceps, glúteos y tronco.",
+      "series_reps_base": "3-4 x 10-12",
+      "carga_orientativa": "10-16 kg",
+      "tecnica": [
+        "Pesa pegada al pecho (pesa rusa por los lados del asa o mancuerna en vertical).",
+        "Pies estables y rodillas siguiendo la dirección de los pies.",
+        "Baja solo hasta donde mantengas control y espalda neutra.",
+        "Sube empujando el suelo, sin rebotes."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Sentadilla al banco",
+          "como": "Toca suavemente el banco con los glúteos y vuelve a subir; controla la profundidad."
+        },
+        {
+          "nombre": "Sentadilla goblet con pausa",
+          "como": "2 s abajo; aumenta la dificultad sin más peso."
+        }
+      ]
+    },
+    "romanian_deadlift": {
+      "nombre": "Peso muerto rumano con la barra del kit",
+      "grupo": "Pierna",
+      "objetivo": "Glúteos, isquiotibiales y cadena posterior.",
+      "series_reps_base": "3-4 x 10-12",
+      "carga_orientativa": "20 kg (barra completa)",
+      "tecnica": [
+        "Rodillas ligeramente flexionadas.",
+        "Lleva la cadera hacia atrás con la barra rozando los muslos.",
+        "Espalda neutra; baja hasta sentir tensión detrás de los muslos.",
+        "Sube contrayendo glúteos, sin echar el tronco hacia atrás."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Peso muerto rumano con mancuernas",
+          "como": "Mismo patrón con una mancuerna en cada mano."
+        },
+        {
+          "nombre": "Bisagra de cadera lenta",
+          "como": "Sin peso o muy ligera, 3-4 s de bajada, para aprender el patrón."
+        }
+      ]
+    },
+    "hip_thrust": {
+      "nombre": "Hip thrust en banco con la barra del kit",
+      "grupo": "Pierna",
+      "objetivo": "Glúteos y extensión de cadera.",
+      "series_reps_base": "3-4 x 12-15",
+      "carga_orientativa": "20 kg de barra + toalla doblada sobre la cadera",
+      "tecnica": [
+        "Apoya la parte alta de la espalda en el banco.",
+        "Barra centrada sobre la pelvis, con toalla.",
+        "Sube hasta alinear tronco y muslos.",
+        "Pausa 1-2 s arriba sin arquear la zona lumbar."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Puente de glúteos en el suelo",
+          "como": "Mismo patrón con la espalda completa apoyada."
+        },
+        {
+          "nombre": "Hip thrust con una mancuerna",
+          "como": "Si la barra es incómoda sobre la cadera."
+        }
+      ]
+    },
+    "calf_raise": {
+      "nombre": "Elevación de pantorrillas",
+      "grupo": "Pierna",
+      "objetivo": "Gemelos y sóleo.",
+      "series_reps_base": "3 x 15-20",
+      "carga_orientativa": "La barra sostenida a la altura de la cadera, o peso corporal",
+      "tecnica": [
+        "Sube sobre la punta de los pies.",
+        "Pausa 1 s arriba.",
+        "Baja controlado.",
+        "Sujétate del banco si hace falta."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Elevación de pantorrilla sentado",
+          "como": "Sentado en el banco con peso sobre los muslos."
+        },
+        {
+          "nombre": "Elevación de pantorrilla a una pierna asistida",
+          "como": "Una mano en el banco, una pierna a la vez."
+        }
+      ]
+    },
+    "bulgarian_split_squat": {
+      "nombre": "Sentadilla búlgara (pie trasero en el banco)",
+      "grupo": "Pierna",
+      "objetivo": "Cuádriceps y glúteos. Con carga limitada (20 kg) es el ejercicio de pierna que más exige.",
+      "series_reps_base": "3-4 x 8-10 por lado",
+      "carga_orientativa": "Peso corporal → 2 x 5-10 kg",
+      "tecnica": [
+        "Empeine del pie trasero apoyado en el banco plano.",
+        "Pie delantero lo bastante adelantado para bajar vertical.",
+        "Baja controlado hasta que la rodilla trasera se acerque al suelo.",
+        "Tronco ligeramente inclinado hacia delante; sube empujando con el talón delantero."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Split squat asistido",
+          "como": "Pie trasero en el suelo y una mano en la pared para equilibrio."
+        },
+        {
+          "nombre": "Zancada hacia atrás",
+          "como": "Paso atrás y vuelta; usa el banco para apoyarte si lo necesitas."
+        }
+      ]
+    },
+    "single_leg_rdl": {
+      "nombre": "Peso muerto rumano a una pierna asistido",
+      "grupo": "Pierna",
+      "objetivo": "Glúteo e isquiotibial de cada pierna por separado; multiplica el efecto de la poca carga.",
+      "series_reps_base": "3 x 10 por lado",
+      "carga_orientativa": "Una mancuerna de 6-10 kg en la mano contraria a la pierna de apoyo",
+      "tecnica": [
+        "Mano libre apoyada en el banco o la pared.",
+        "Rodilla de apoyo levemente flexionada.",
+        "Lleva la cadera atrás mientras la pierna libre se estira hacia atrás.",
+        "Pelvis nivelada: no abras la cadera hacia un lado."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Peso muerto rumano con barra y bajada de 4 s",
+          "como": "Dos piernas, pero con tempo lento."
+        },
+        {
+          "nombre": "Puente de glúteos a una pierna",
+          "como": "Si el equilibrio o la zona lumbar no lo toleran."
+        }
+      ]
+    },
+    "single_leg_hip_thrust": {
+      "nombre": "Hip thrust a una pierna en banco",
+      "grupo": "Pierna",
+      "objetivo": "Glúteo mayor y medio de forma unilateral.",
+      "series_reps_base": "3 x 10-12 por lado",
+      "carga_orientativa": "Peso corporal → mancuerna sobre la cadera",
+      "tecnica": [
+        "Espalda alta en el banco, una pierna apoyada y la otra en el aire.",
+        "Sube hasta alinear tronco y muslo.",
+        "Pausa 1-2 s arriba.",
+        "Pelvis nivelada durante todo el recorrido."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Puente de glúteos a una pierna en el suelo",
+          "como": "Menos recorrido y más estable."
+        },
+        {
+          "nombre": "Hip thrust a dos piernas con pausa de 3 s",
+          "como": "Si una pierna aún es demasiado."
+        }
+      ]
+    },
+    "kb_swing": {
+      "nombre": "Swing con pesa rusa (corto, hasta el ombligo)",
+      "grupo": "Pierna / acondicionamiento",
+      "objetivo": "Glúteos, isquiotibiales y corazón a la vez: es el ejercicio con más gasto por minuto del plan.",
+      "series_reps_base": "Bloques de 10-15 repeticiones (EMOM)",
+      "carga_orientativa": "8-12 kg; no pases de 12 kg hasta llevar 3 semanas sin molestias de hombro",
+      "tecnica": [
+        "Es una bisagra de cadera, no una sentadilla.",
+        "La pesa pasa entre los muslos y la cadera la proyecta con un golpe seco.",
+        "Los brazos son cuerdas: no levantan la pesa.",
+        "Sube solo hasta la altura del ombligo (máximo pecho bajo); nunca por encima.",
+        "Arriba: glúteos apretados y cuerpo recto, sin arquear la espalda.",
+        "Antes de cada EMOM, revisa y aprieta el cierre de los discos de la pesa rusa."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Peso muerto con pesa rusa",
+          "como": "Mismo patrón sin balanceo; úsalo hasta dominar la bisagra o si el hombro molesta."
+        },
+        {
+          "nombre": "Puente de glúteos rápido",
+          "como": "15-20 repeticiones explosivas si no hay espacio para balancear."
+        }
+      ]
+    },
+    "farmer_carry": {
+      "nombre": "Paseo del granjero",
+      "grupo": "Core / agarre",
+      "objetivo": "Agarre, trapecio, core y estabilidad del hombro.",
+      "series_reps_base": "3 x 30-45 s",
+      "carga_orientativa": "2 x 10 kg",
+      "tecnica": [
+        "Una mancuerna en cada mano.",
+        "Hombros atrás y lejos de las orejas.",
+        "Camina con pasos cortos por la casa, tronco alto.",
+        "Que las mancuernas no se balanceen."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Paseo de maleta",
+          "como": "Una sola mancuerna; más trabajo de core lateral."
+        },
+        {
+          "nombre": "Sostén estático de pie",
+          "como": "Si no hay espacio para caminar, mantén la posición quieto."
+        }
+      ]
+    },
+    "hammer_curl": {
+      "nombre": "Curl martillo con mancuernas",
+      "grupo": "Brazos",
+      "objetivo": "Bíceps, braquial y braquiorradial; cómodo para codo y hombro.",
+      "series_reps_base": "3 x 10-12",
+      "carga_orientativa": "Las mismas mancuernas del bloque (6-10 kg)",
+      "tecnica": [
+        "Palmas enfrentadas todo el recorrido.",
+        "Codos pegados al torso y quietos.",
+        "Sube en 1 s y baja en 2-3 s.",
+        "No encojas los hombros ni balancees el cuerpo."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Curl de bíceps con mancuernas",
+          "como": "Palmas hacia arriba; más bíceps."
+        },
+        {
+          "nombre": "Curl de concentración",
+          "como": "Sentado, brazo apoyado en la cara interna del muslo."
+        }
+      ]
+    },
+    "lying_triceps_extension": {
+      "nombre": "Extensión de tríceps acostado con mancuernas (agarre neutro)",
+      "grupo": "Brazos",
+      "objetivo": "Tríceps sin llevar el brazo por encima de la cabeza ni hacer fondos.",
+      "series_reps_base": "3 x 10-12",
+      "carga_orientativa": "4-6 kg por mano",
+      "tecnica": [
+        "Acostado en el banco plano, brazos verticales y palmas enfrentadas.",
+        "Flexiona solo los codos, llevando las mancuernas junto a las orejas.",
+        "Los codos apuntan al techo todo el tiempo.",
+        "Sube sin bloquear los codos de golpe."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Patada de tríceps apoyado en banco",
+          "como": "Una mano y una rodilla en el banco; extiende el codo hacia atrás."
+        },
+        {
+          "nombre": "Press cerrado en el suelo",
+          "como": "Mancuernas juntas, codos pegados; trabaja tríceps y pecho."
+        }
+      ]
+    },
+    "dead_bug": {
+      "nombre": "Dead bug",
+      "grupo": "Core",
+      "objetivo": "Control lumbopélvico y core.",
+      "series_reps_base": "3 x 8-10 por lado",
+      "carga_orientativa": "Peso corporal",
+      "tecnica": [
+        "Zona lumbar pegada al suelo.",
+        "Mueve brazo y pierna contrarios lentamente; el brazo solo hasta la altura de la oreja o menos si molesta.",
+        "Exhala durante la extensión.",
+        "Reduce el rango si la zona lumbar se arquea."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Heel taps",
+          "como": "Rodillas a 90°; baja un talón al suelo de forma alterna."
+        },
+        {
+          "nombre": "Dead bug solo con piernas",
+          "como": "Versión por defecto en la fase 1 si el hombro está sensible."
+        }
+      ]
+    },
+    "bird_dog": {
+      "nombre": "Bird dog",
+      "grupo": "Core",
+      "objetivo": "Core, estabilidad de columna y coordinación.",
+      "series_reps_base": "3 x 8 por lado",
+      "carga_orientativa": "Peso corporal",
+      "tecnica": [
+        "Columna neutra.",
+        "Evita girar la pelvis.",
+        "Extiende brazo y pierna contrarios lentamente; el brazo solo hasta la altura del hombro. Pausa 2 s.",
+        "Si apoyar peso en el hombro molesta, usa una alternativa."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Dead bug",
+          "como": "Opción en el suelo que descarga los hombros."
+        },
+        {
+          "nombre": "Bird dog solo con piernas",
+          "como": "Mueve solo las piernas y mantén ambas manos apoyadas."
+        }
+      ]
+    },
+    "reverse_crunch": {
+      "nombre": "Crunch inverso en banco",
+      "grupo": "Core",
+      "objetivo": "Abdomen inferior sin tirar del cuello ni cargar el hombro.",
+      "series_reps_base": "3 x 10-12",
+      "carga_orientativa": "Peso corporal",
+      "tecnica": [
+        "Acostado en el banco plano; sujeta los lados del banco a la altura de la cadera (no por encima de la cabeza).",
+        "Rodillas a 90°.",
+        "Enrolla la pelvis llevando las rodillas hacia el pecho.",
+        "Baja en 3 s sin arquear la espalda."
+      ],
+      "alternativas": [
+        {
+          "nombre": "Heel taps",
+          "como": "Versión más fácil en el suelo."
+        },
+        {
+          "nombre": "McGill curl-up modificado",
+          "como": "Una pierna flexionada, eleva solo cabeza y hombros y sostén 5 s."
+        }
+      ]
+    }
+  },
+  "cardio": {
+    "saco_punos": {
+      "nombre": "Saco de boxeo con puños (sesión principal del miércoles)",
+      "como": "Golpes rectos con técnica protectora. La distancia la ponen los pies, no el brazo; la potencia sale de piernas y cadera. El tiempo de puños sube poco a poco: 4 → 8 → 12 min por sesión.",
+      "fase_1": "8 rounds de 1 min / 1 min de pausa (15 min). Rounds impares: 1, 2 y 1-2 al 30-40% de potencia (4 min de puños). Rounds pares: rodillazos + footwork.",
+      "fase_2": "8 rounds de 2 min / 1 min de pausa (23 min). Impares: puños al 50-60% con 1-1-2, 1-2-1 y 1-2 + esquiva lateral (8 min de puños). Pares: rodillazos + footwork.",
+      "fase_3": "8 rounds de 2 min / 45 s de pausa (21 min). Rounds 3 y 6: rodillazos con ráfagas de 20 s a máxima velocidad. El resto: puños al 50-60% (12 min de puños).",
+      "reglas": [
+        "Sube al formato de la fase siguiente solo si en las 2 últimas sesiones el hombro estuvo en 0-2/10 y no empeoró al día siguiente. Si no, repite el formato anterior.",
+        "Guantes de saco de 12-14 oz y vendas: sin guantes no golpees; haz solo rodillazos y footwork.",
+        "Solo golpes rectos (1 y 2). Nada de ganchos ni uppercuts durante estas 8 semanas.",
+        "Codo ligeramente flexionado al impactar; nunca bloquees el brazo ni te estires para llegar al saco.",
+        "La mano vuelve a la guardia tan rápido como sale. Las ráfagas de velocidad se hacen con rodillas y pies, no con puños.",
+        "Nunca golpees a máxima potencia ni sigas golpeando con la técnica rota por la fatiga.",
+        "El soporte debe ir atornillado a concreto o ladrillo (no a drywall); revisa los tornillos cada semana."
+      ]
+    },
+    "rodillazos_footwork": {
+      "nombre": "Rodillazos al saco + footwork (sin puños)",
+      "como": "Sujeta el saco a la altura del pecho (o manos en guardia si sujetarlo molesta). Alterna rodillazos al saco con desplazamientos alrededor de él: adelante-atrás, laterales y pivotes. Usas el saco sin cargar el hombro.",
+      "fase_1": "10 min: 30 s rodillazos / 30 s footwork suave",
+      "fase_2": "10 min: 40 s rodillazos / 20 s footwork",
+      "fase_3": "10 min: 40 s / 20 s; cada 3.er minuto, 20 s a máxima velocidad"
+    },
+    "emom_pesa_rusa": {
+      "nombre": "EMOM con pesa rusa + footwork",
+      "como": "EMOM = cada minuto, al inicio del minuto. Haces el trabajo y descansas lo que quede de ese minuto. Swing corto, hasta el ombligo.",
+      "fase_1": "8 min. Minutos impares: 10 swings suaves (o peso muerto con pesa rusa). Minutos pares: 30 s de footwork y descanso.",
+      "fase_2": "10 min. Impares: 12 swings. Pares: 40 s de rodillas altas sin salto.",
+      "fase_3": "10 min. Impares: 15 swings. Pares: 40 s de footwork rápido."
+    },
+    "intervalos_bajo_impacto": {
+      "nombre": "Intervalos indoor de bajo impacto",
+      "como": "Rota estos movimientos: marcha rápida, step-touch lateral rápido, rodillas altas sin salto, footwork de boxeo y sentadilla al aire + elevación de talones. Sin saltos en las fases 1-2 (protege rodillas y vecinos).",
+      "fase_1": "10 min: 30 s rápido / 30 s suave",
+      "fase_2": "12 min: 40 s rápido / 20 s suave",
+      "fase_3": "12 min: 40 s / 20 s; puedes añadir saltos pequeños si rodillas y tobillos van bien"
+    }
+  },
+  "programacion": {
+    "fases": [
+      {
+        "id": "fase_1",
+        "nombre": "Fase 1 - Adaptación y técnica",
+        "semanas": "1-2",
+        "series": "Bloque A: 2 (sem. 1) y 3 (sem. 2). Resto: 2",
+        "rir": "3",
+        "descanso_s": "60-75",
+        "claves": [
+          "Floor press en lugar del press en banco.",
+          "Split squat asistido en lugar de búlgara.",
+          "Flexiones inclinadas en el banco.",
+          "Saco: 4 min de puños rectos al 30-40%.",
+          "Aprende la bisagra antes de hacer swings."
+        ]
+      },
+      {
+        "id": "fase_2",
+        "nombre": "Fase 2 - Construcción",
+        "semanas": "3-5",
+        "series": "Bloque A: 4. Bloques B y C: 3. Hombro: 2",
+        "rir": "2",
+        "descanso_s": "60",
+        "claves": [
+          "Cambia una cosa del hombro por semana: sem. 3 press en banco, sem. 4 flexiones en el suelo o asas, sem. 5 saco completo.",
+          "Cada cambio solo si el hombro va en 0-2/10 y no empeora al día siguiente.",
+          "Búlgara con mancuernas.",
+          "Saco: 8 min de puños al 50-60%."
+        ]
+      },
+      {
+        "id": "fase_3",
+        "nombre": "Fase 3 - Densidad y quema",
+        "semanas": "6-8",
+        "series": "Como la fase 2",
+        "rir": "1-2",
+        "descanso_s": "45-60",
+        "claves": [
+          "Como los 20 kg se quedan cortos: bajada de 3 s, pausas y trabajo a una pierna.",
+          "Descansos más cortos = más gasto por minuto.",
+          "Saco: 12 min de puños al 50-60%, con ráfagas en los rounds de rodillazos."
+        ]
+      }
+    ],
+    "semana_tipo": [
+      {
+        "dia": "Lunes",
+        "sesion": "Torso A - Pecho + Espalda",
+        "carga_hombro": "alta",
+        "modos_kit": [
+          "mancuernas"
+        ],
+        "enfoque": "Press y remo en superseries (empuje + tirón). Solo mancuernas, con la misma carga en las dos durante toda la sesión.",
+        "cardio": {
+          "formato": "rodillazos_footwork",
+          "fase_1": "10 min",
+          "fase_2": "10 min",
+          "fase_3": "10 min"
+        },
+        "bloques": [
+          {
+            "bloque": "A1",
+            "ejercicio": "incline_db_press",
+            "nombre_bloque": "Press de pecho con mancuernas, agarre neutro (floor press → banco inclinado bajo)",
+            "ejercicio_fase_1": "floor_press",
+            "fase_1": "Floor press: 2-3 x 10-12",
+            "fase_2": "Banco inclinado bajo: 4 x 8-12",
+            "fase_3": "Banco inclinado bajo: 4 x 10, bajada 3 s"
+          },
+          {
+            "bloque": "A2",
+            "ejercicio": "chest_supported_row",
+            "fase_1": "2-3 x 12",
+            "fase_2": "4 x 10-12",
+            "fase_3": "4 x 12, pausa 1 s arriba"
+          },
+          {
+            "bloque": "B1",
+            "ejercicio": "squeeze_press",
+            "fase_1": "2 x 12",
+            "fase_2": "3 x 12-15",
+            "fase_3": "3 x 15, pausa 1 s abajo"
+          },
+          {
+            "bloque": "B2",
+            "ejercicio": "supported_row",
+            "fase_1": "2 x 10/lado",
+            "fase_2": "3 x 10-12/lado",
+            "fase_3": "3 x 12/lado"
+          },
+          {
+            "bloque": "C1",
+            "ejercicio": "prone_t",
+            "fase_1": "2 x 12 sin peso",
+            "fase_2": "2 x 12-15",
+            "fase_3": "2 x 12, pausa 2 s"
+          },
+          {
+            "bloque": "C2",
+            "ejercicio": "external_rotation",
+            "fase_1": "2 x 12/lado sin peso",
+            "fase_2": "2 x 12/lado",
+            "fase_3": "2 x 12/lado"
+          }
+        ],
+        "duracion_estimada_min": {
+          "fase_1": 39,
+          "fase_2": 44,
+          "fase_3": 45
+        },
+        "fuerza_estimada_min": {
+          "fase_1": 23,
+          "fase_2": 28,
+          "fase_3": 29
+        }
+      },
+      {
+        "dia": "Martes",
+        "sesion": "Pierna A - Sentadilla + bisagra",
+        "carga_hombro": "ninguna",
+        "modos_kit": [
+          "pesa rusa o 1 mancuerna",
+          "barra"
+        ],
+        "enfoque": "Piernas y glúteos con las dos piernas + core. El hombro descansa. Orden del kit: pesa rusa → barra.",
+        "cardio": {
+          "formato": "intervalos_bajo_impacto",
+          "fase_1": "10 min",
+          "fase_2": "12 min",
+          "fase_3": "12 min"
+        },
+        "bloques": [
+          {
+            "bloque": "A1",
+            "ejercicio": "goblet_squat",
+            "fase_1": "2-3 x 10 (al banco si hace falta)",
+            "fase_2": "4 x 10-12",
+            "fase_3": "4 x 12, bajada 3 s"
+          },
+          {
+            "bloque": "A2",
+            "ejercicio": "dead_bug",
+            "fase_1": "2-3 x 8/lado",
+            "fase_2": "4 x 8/lado",
+            "fase_3": "4 x 8/lado"
+          },
+          {
+            "bloque": "B1",
+            "ejercicio": "romanian_deadlift",
+            "fase_1": "2-3 x 10, ligero",
+            "fase_2": "3 x 10-12",
+            "fase_3": "3 x 12, bajada 3 s"
+          },
+          {
+            "bloque": "B2",
+            "ejercicio": "calf_raise",
+            "fase_1": "2-3 x 15",
+            "fase_2": "3 x 15-20",
+            "fase_3": "3 x 15, pausa arriba"
+          },
+          {
+            "bloque": "C",
+            "ejercicio": "hip_thrust",
+            "fase_1": "2 x 12",
+            "fase_2": "3 x 12-15",
+            "fase_3": "3 x 12, pausa 2 s"
+          }
+        ],
+        "duracion_estimada_min": {
+          "fase_1": 37,
+          "fase_2": 43,
+          "fase_3": 45
+        },
+        "fuerza_estimada_min": {
+          "fase_1": 19,
+          "fase_2": 24,
+          "fase_3": 25
+        }
+      },
+      {
+        "dia": "Miércoles",
+        "sesion": "Saco + core + manguito",
+        "carga_hombro": "alta",
+        "modos_kit": [
+          "sin kit"
+        ],
+        "enfoque": "Cardio principal con el saco. Es el único día de golpes con puños.",
+        "cardio": {
+          "formato": "saco_punos",
+          "fase_1": "15 min",
+          "fase_2": "23 min",
+          "fase_3": "21 min"
+        },
+        "bloques": [
+          {
+            "bloque": "Saco",
+            "ejercicio": "saco_punos",
+            "fase_1": "8 rounds x 1 min (4 min de puños)",
+            "fase_2": "8 rounds x 2 min (8 min de puños)",
+            "fase_3": "8 rounds x 2 min (12 min de puños)"
+          },
+          {
+            "bloque": "C1",
+            "ejercicio": "reverse_crunch",
+            "fase_1": "Circuito 2 vueltas: 10",
+            "fase_2": "Circuito 2 vueltas: 12",
+            "fase_3": "Circuito 2 vueltas: 12, bajada 3 s"
+          },
+          {
+            "bloque": "C2",
+            "ejercicio": "bird_dog",
+            "fase_1": "8/lado (solo piernas si molesta)",
+            "fase_2": "8/lado",
+            "fase_3": "10/lado, pausa 2 s"
+          },
+          {
+            "bloque": "C3",
+            "ejercicio": "external_rotation",
+            "fase_1": "12/lado",
+            "fase_2": "12/lado",
+            "fase_3": "12/lado"
+          }
+        ],
+        "duracion_estimada_min": {
+          "fase_1": 34,
+          "fase_2": 43,
+          "fase_3": 42
+        },
+        "fuerza_estimada_min": {
+          "fase_1": 9,
+          "fase_2": 10,
+          "fase_3": 11
+        }
+      },
+      {
+        "dia": "Jueves",
+        "sesion": "Pierna B - Unilateral + swing",
+        "carga_hombro": "baja",
+        "modos_kit": [
+          "mancuernas",
+          "pesa rusa"
+        ],
+        "enfoque": "Trabajo a una pierna (multiplica el efecto de los 20 kg) y finisher con la pesa rusa. Orden del kit: mancuernas → pesa rusa.",
+        "cardio": {
+          "formato": "emom_pesa_rusa",
+          "fase_1": "8 min",
+          "fase_2": "10 min",
+          "fase_3": "10 min"
+        },
+        "bloques": [
+          {
+            "bloque": "A",
+            "ejercicio": "bulgarian_split_squat",
+            "nombre_bloque": "Sentadilla búlgara (split squat asistido en la fase 1)",
+            "fase_1": "Split squat asistido: 2-3 x 8/lado",
+            "fase_2": "Búlgara: 3 x 8-10/lado",
+            "fase_3": "Búlgara: 3 x 10/lado, bajada 3 s"
+          },
+          {
+            "bloque": "B1",
+            "ejercicio": "single_leg_rdl",
+            "fase_1": "2 x 8/lado, ligero",
+            "fase_2": "3 x 10/lado",
+            "fase_3": "3 x 10/lado, bajada 3 s"
+          },
+          {
+            "bloque": "B2",
+            "ejercicio": "farmer_carry",
+            "fase_1": "2 x 30 s",
+            "fase_2": "3 x 40 s",
+            "fase_3": "3 x 45 s"
+          },
+          {
+            "bloque": "C",
+            "ejercicio": "single_leg_hip_thrust",
+            "fase_1": "2 x 10/lado sin peso",
+            "fase_2": "3 x 10-12/lado",
+            "fase_3": "3 x 10/lado, pausa 2 s"
+          }
+        ],
+        "duracion_estimada_min": {
+          "fase_1": 32,
+          "fase_2": 40,
+          "fase_3": 44
+        },
+        "fuerza_estimada_min": {
+          "fase_1": 16,
+          "fase_2": 22,
+          "fase_3": 26
+        }
+      },
+      {
+        "dia": "Viernes",
+        "sesion": "Torso B - Espalda + Pecho + Brazos",
+        "carga_hombro": "alta",
+        "modos_kit": [
+          "barra",
+          "mancuernas"
+        ],
+        "enfoque": "Más tirón que empuje, flexiones progresivas y brazos sin nada por encima de la cabeza. Orden del kit: barra → mancuernas.",
+        "cardio": {
+          "formato": "rodillazos_footwork",
+          "fase_1": "10 min",
+          "fase_2": "10 min",
+          "fase_3": "10 min",
+          "nota": "Puedes cambiarlo por intervalos indoor de bajo impacto."
+        },
+        "bloques": [
+          {
+            "bloque": "A1",
+            "ejercicio": "barbell_row",
+            "fase_1": "2-3 x 10",
+            "fase_2": "4 x 10-12",
+            "fase_3": "4 x 12, pausa 1 s"
+          },
+          {
+            "bloque": "A2",
+            "ejercicio": "pushup_handles",
+            "nombre_bloque": "Flexiones (inclinadas en el banco → suelo o asas)",
+            "fase_1": "Inclinadas en el banco: 2-3 x 8-12",
+            "fase_2": "Rodillas o completas: 4 x 6-12 (RIR 2)",
+            "fase_3": "Completas: 4 series con 1-2 en reserva, bajada 3 s"
+          },
+          {
+            "bloque": "B1",
+            "ejercicio": "upper_back_row",
+            "fase_1": "2 x 12",
+            "fase_2": "3 x 12-15",
+            "fase_3": "3 x 15, pausa 1 s"
+          },
+          {
+            "bloque": "B2",
+            "ejercicio": "floor_fly",
+            "fase_1": "2 x 12, ligera",
+            "fase_2": "3 x 12-15",
+            "fase_3": "3 x 15"
+          },
+          {
+            "bloque": "C1",
+            "ejercicio": "hammer_curl",
+            "fase_1": "2 x 12",
+            "fase_2": "3 x 10-12",
+            "fase_3": "3 x 12, bajada 3 s"
+          },
+          {
+            "bloque": "C2",
+            "ejercicio": "lying_triceps_extension",
+            "fase_1": "2 x 12",
+            "fase_2": "3 x 10-12",
+            "fase_3": "3 x 12-15"
+          }
+        ],
+        "duracion_estimada_min": {
+          "fase_1": 35,
+          "fase_2": 41,
+          "fase_3": 44
+        },
+        "fuerza_estimada_min": {
+          "fase_1": 17,
+          "fase_2": 24,
+          "fase_3": 27
+        }
+      },
+      {
+        "dia": "Sábado",
+        "sesion": "Opcional: pasos y movilidad",
+        "carga_hombro": "ninguna",
+        "enfoque": "30-45 min de caminata (o marcha en casa) + 10 min de movilidad. Suma gasto sin fatiga.",
+        "bloques": [],
+        "cardio": null,
+        "duracion_estimada_min": null
+      },
+      {
+        "dia": "Domingo",
+        "sesion": "Descanso",
+        "carga_hombro": "ninguna",
+        "enfoque": "Sin sesión estructurada.",
+        "bloques": [],
+        "cardio": null,
+        "duracion_estimada_min": null
+      }
+    ]
+  },
+  "progresion": {
+    "regla_doble_progresion": "Cuando completes el máximo de repeticiones de todas las series con técnica limpia y el RIR de la fase, en dos sesiones seguidas, sube ligeramente la carga.",
+    "si_no_hay_mas_peso": [
+      "Añadir 1-2 repeticiones",
+      "Bajada de 3 s",
+      "Pausa de 1-2 s en la parte más difícil",
+      "Repeticiones 1½ (media bajada extra)",
+      "Pasar a una versión a una pierna o a un brazo",
+      "Acortar el descanso 15 s"
+    ]
+  },
+  "nutricion": {
+    "supuesto": "Estimación para un hombre adulto de unos 25-35 años con 81 kg, 1,65 m, 5 entrenamientos por semana y trabajo sentado. Si no es tu caso, recalcula.",
+    "gasto_estimado_kcal": "2.400-2.600 (con 7.000-10.000 pasos)",
+    "calorias_objetivo_kcal": "1.700-1.900",
+    "ritmo_esperado_kg_semana": "0,5-0,8",
+    "proteina_g_dia": "130-150",
+    "reglas": [
+      "Proteína en cada comida (30-40 g): huevos, pollo, atún, carne magra, queso campesino, yogur griego sin azúcar, lentejas o fríjoles.",
+      "Medio plato de verduras en almuerzo y cena; 2-3 frutas al día.",
+      "Carbohidratos (arroz, arepa, papa, plátano, avena) en porciones medidas, sobre todo alrededor del entrenamiento.",
+      "Agua: 2,5-3 L al día, más los días de saco.",
+      "Fuera: bebidas azucaradas, alcohol y el picoteo nocturno. Una comida libre por semana, no un día libre.",
+      "Pasos: 7.000-10.000 al día (caminar en llamadas o marcha en casa mientras ves algo).",
+      "Sueño: 7-8 h. Dormir poco aumenta el hambre y frena la pérdida de grasa.",
+      "No bajes de unas 1.600 kcal sin supervisión profesional."
+    ]
+  },
+  "seguimiento": {
+    "peso": "Pésate 3-4 mañanas por semana, en ayunas y después de ir al baño; usa el promedio semanal.",
+    "cintura": "Mide la cintura a la altura del ombligo cada 2 semanas y haz una foto en las mismas condiciones.",
+    "ritmo_objetivo": "0,5-0,8 kg por semana de promedio (las semanas 1-2 bajan más por pérdida de agua).",
+    "ajuste": "Si el promedio no baja durante 2 semanas seguidas: quita 150-200 kcal diarias o suma 2.000 pasos al día. No añadas más días ni más saco.",
+    "si_baja_demasiado": "Si después de la semana 3 bajas más de 1,2 kg por semana y te sientes sin fuerza, suma 150 kcal diarias.",
+    "registro": "Anota carga y repeticiones de cada ejercicio para aplicar la doble progresión.",
+    "señales_para_reducir_carga": [
+      "Dolor articular mayor de 3/10",
+      "Dolor de hombro que empeora al día siguiente",
+      "Fatiga que baja el rendimiento durante varios días",
+      "Técnica claramente deteriorada"
+    ]
+  },
+  "proyeccion": [
+    {
+      "semana": 0,
+      "conservador_kg": 81,
+      "bueno_kg": 81
+    },
+    {
+      "semana": 2,
+      "conservador_kg": 78.5,
+      "bueno_kg": 77.9
+    },
+    {
+      "semana": 4,
+      "conservador_kg": 77.5,
+      "bueno_kg": 76.3
+    },
+    {
+      "semana": 6,
+      "conservador_kg": 76.5,
+      "bueno_kg": 74.7
+    },
+    {
+      "semana": 8,
+      "conservador_kg": 75.5,
+      "bueno_kg": 73.1
+    },
+    {
+      "semana": 10,
+      "conservador_kg": 74.5,
+      "bueno_kg": 71.5
+    },
+    {
+      "semana": 12,
+      "conservador_kg": 73.5,
+      "bueno_kg": 69.9
+    }
+  ],
+  "proyeccion_supuestos": "Incluye 1,5 kg de agua y glucógeno en las semanas 1-2, además de 0,5 kg de grasa por semana (conservador) o 0,8 kg por semana (bueno) desde la semana 1."
+}
